@@ -3,10 +3,10 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "6e1fc2c55e82824172709bae4d27265c8128dbe6"
+    "source_commit": "3aa0f8c7473ff4180c05605049e10325333ad525"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R3_D2_M0R1_HUMAN_REVIEW_AND_SOLVE_AWAIT_AUTH",
-    "stop_boundary": "D2-M0R1 BUILD PASS; AWAIT HUMAN 3D REVIEW AND SEPARATE SOLVE AUTHORIZATION",
+    "next_stage": "AR0_B1R_R3_D2_M1B_RF_FIXTURE_BUILD_ONLY",
+    "stop_boundary": "M1B BUILD AUTHORIZED; IF PASS A/B ONE-SHOT SOLVES AUTHORIZED; NO RETRY; NO SWEEP",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1600,10 +1600,12 @@
     "ar0_b1r_r3_d2_m0r1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M0R1_BRIDGE_WINDING_RECOVERY_FREEZE_V01.md",
     "ar0_b1r_r3_d2_m0r1_canonical_sha256": "4ec39ab9965dd9ec6b416d801ded0ee6e56d910d2ffc2ba405cb9dec978cd91e",
     "ar0_b1r_r3_d2_m0r1_fixture_a_sha256": "33294aa6200264135582ec0c0742a1b4e6ca7b2148e1adece2f64388d81d3dd6",
-    "ar0_b1r_r3_d2_m0r1_overlap_audit": "PASS_12_OF_12_ZERO_POSITIVE_VOLUME"
+    "ar0_b1r_r3_d2_m0r1_overlap_audit": "PASS_12_OF_12_ZERO_POSITIVE_VOLUME",
+    "ar0_b1r_r3_d2_m1_status": "POLB_BUILD_AUTHORIZED_CONDITIONAL_AB_SOLVE",
+    "ar0_b1r_r3_d2_m1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVE_FREEZE_V01.md"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M0R1_HUMAN_REVIEW_AWAIT_USER",
+    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M1B_BUILD_ONLY_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
