@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_T2S_NW_REVIEW",
-    "stop_boundary": "T2S NW HOLD AFTER ONE FORMAL SOLVE; NO RETRY",
+    "next_stage": "AR0_B1R_T2F_R2_OUTPUT_PORT_ENDPOINT_FIX_BUILD_ONLY_AWAIT_AUTH",
+    "stop_boundary": "T2S NW HOLD AFTER ONE FORMAL SOLVE; NO RETRY; AWAIT T2F-R2 PORT-ENDPOINT BUILD-ONLY AUTH",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1500,12 +1500,21 @@
     "ar0_b1r_t2s_solver_kernel_starts": 0,
     "ar0_b1r_t2s_sparams_produced": false,
     "ar0_b1r_t2f_r1_status": "AWAIT_BUILD_ONLY_AUTHORIZATION",
-    "ar0_b1r_t2s_nw_status": "HOLD_R1E1A4A_AR0_B1R_T2S_NW_EXECUTION_EXCEPTION",
+    "ar0_b1r_t2s_nw_status": "HOLD_R1E1A4A_AR0_B1R_T2S_NW_OUTPUT_PORT_MESH_CORRUPTION",
     "ar0_b1r_t2s_nw_freeze_doc": "docs/R1E1A4A_AR0_B1R_T2S_NW_RECOVERY_SOLVE_FREEZE_V01.md",
-    "ar0_b1r_t2s_nw_formal_solver_invocations": 1
+    "ar0_b1r_t2s_nw_formal_solver_invocations": 1,
+    "ar0_b1r_t2s_nw_hf_solver_started": true,
+    "ar0_b1r_t2s_nw_adaptive_pass_reached": 1,
+    "ar0_b1r_t2s_nw_sparams_produced": false,
+    "ar0_b1r_t2f_r2_status": "AWAIT_BUILD_ONLY_AUTHORIZATION",
+    "ar0_b1r_t2f_r2_port_fix": {
+      "signal_endpoint_n_mm": 0.0,
+      "ground_endpoint_n_mm": -1.0,
+      "P1_unchanged": true
+    }
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_T2S_NW_REVIEW_AWAIT_USER",
+    "current_stage": "R1E1A4A_AR0_B1R_T2F_R2_OUTPUT_PORT_ENDPOINT_FIX_BUILD_ONLY_AWAIT_AUTH",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1513,8 +1522,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_T2S_FORMAL_LAUNCH_HOLD",
-    "last_status": "HOLD_R1E1A4A_AR0_B1R_T2S_NW_EXECUTION_EXCEPTION",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_T2S_NW_FORMAL_SOLVE_HOLD",
+    "last_status": "HOLD_R1E1A4A_AR0_B1R_T2S_NW_OUTPUT_PORT_MESH_CORRUPTION",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
@@ -1566,6 +1575,7 @@
     "ar0_b1r_t2f_artifact_sha256": "f0184b638b5af6c5c752804fd5570a5e4178e52bc6bdd62e31e72c281c03de90",
     "ar0_b1r_t2f_compact_evidence": "evidence/r1e1a4a_ar0_b1r_t2f_nw_20260927_build01",
     "ar0_b1r_t2s_compact_evidence": "evidence/r1e1a4a_ar0_b1r_t2s_251_20260927_run01",
-    "ar0_b1r_t2s_nw_compact_evidence": "evidence/r1e1a4a_ar0_b1r_t2s_nw_20260927_solve01"
+    "ar0_b1r_t2s_nw_compact_evidence": "evidence/r1e1a4a_ar0_b1r_t2s_nw_20260927_solve01",
+    "ar0_b1r_t2s_nw_post_attempt_sha256": "d50ce586e7e1bdfd21877aa6434b41189961ba600107679fdfd3e1f8f4acd2bd"
   }
 }
