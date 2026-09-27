@@ -3,11 +3,11 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "75aa922d4e03572c3ba06f641874bf7a9fc67d0b"
+    "source_commit": "aebd16c0f6c595c223f14f30ab4690b275fe5605"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": true,
-    "SOLVE_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": false,
+    "SOLVE_AUTHORIZED": true,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
     "lna_integration_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R3_D1R1_CORRECTED_BUILD",
-    "stop_boundary": "D1R1 RECOVERY BUILD AUTHORIZED; IF PASS ONE NW SOLVE PER DIAGNOSTIC FIXTURE; NO RETRY",
+    "next_stage": "AR0_B1R_R3_D1R1_DIAGNOSTIC_SOLVES",
+    "stop_boundary": "D1R1 BUILD PASS; ONE NW SOLVE EACH FOR A/B; NO RETRY; NO SWEEP",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1569,15 +1569,20 @@
       ]
     },
     "ar0_b1r_r3_d1_conditional_solve_authorized": true,
-    "ar0_b1r_r3_d1r1_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d1r1_status": "PASS_R1E1A4A_AR0_B1R_R3_D1R1_CORRECTED_BUILD_ONLY",
     "ar0_b1r_r3_d1r1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D1R1_POLARIZATION_GROUND_RECOVERY_FREEZE_V02.md",
     "ar0_b1r_r3_d1r1_extrusion_height_mm": {
       "PolA": -0.035,
       "PolB": 0.035
-    }
+    },
+    "ar0_b1r_t1r1_status": "PASS_CORRECTED_GROUND_PLACEMENT",
+    "ar0_b1r_t1r1_sha256": "fbf375c605acff4f53e46fedefba7acf24ef871b427a579091144b7833dd149e",
+    "ar0_b1r_r3_d1r1a_sha256": "5aa3dd603607a70f7ac190c746e25af550f6cfcb81a9b1bb45846d9c776b6bcd",
+    "ar0_b1r_r3_d1r1b_sha256": "93d97b06bc2a739f84f88454a7efa76b27731e7bbdb2714214118a3ec0bafb35",
+    "ar0_b1r_r3_d1r1_solve_status": "SOLVE_AUTHORIZED_ONE_SHOT_PER_BRANCH"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R3_D1R1_CORRECTED_BUILD_AUTHORIZED",
+    "current_stage": "R1E1A4A_AR0_B1R_R3_D1R1_DIAGNOSTIC_SOLVES_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
