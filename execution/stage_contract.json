@@ -3,10 +3,10 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "5c1888f6a0b69ac4b2b89a63a2ec90fc606b4f3b"
+    "source_commit": "96c90c80db89c174cb8aa4f22899ad28eaefd614"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R3_D0_DIAGNOSTIC_FIXTURE_REVIEW",
-    "stop_boundary": "R3-D0 BUILD PASS; AWAIT FIXTURE REVIEW / SEPARATE SOLVE AUTHORIZATION",
+    "next_stage": "AR0_B1R_R3_D1_CORRECTED_BUILD",
+    "stop_boundary": "D1 BUILD AUTHORIZED; IF FULL BUILD PASS D1A/D1B ONE-SHOT NW SOLVES AUTHORIZED; NO RETRY",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1556,10 +1556,22 @@
     },
     "ar0_b1r_r3_d0_d0a_sha256": "f983eb43a3450c511387073a760e946bf60c16d8df1424d26692c8db7d9e3863",
     "ar0_b1r_r3_d0_d0b_sha256": "66f7b9d1b0f4c8ba6b36a5e25f271dcec88c1f7f4efc38e13973175ca62cfd32",
-    "ar0_b1r_r3_d0_bridge_volume_mm3": 0.084
+    "ar0_b1r_r3_d0_bridge_volume_mm3": 0.084,
+    "ar0_b1r_r3_d1_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D1_GROUND_CORRECTION_DIAGNOSTIC_FREEZE_V01.md",
+    "ar0_b1r_r3_d1_root_cause": "T1_BACKSIDE_GROUND_EXTRUSION_SIGN_ERROR_FULL_VOLUME_EMBEDDED_IN_FR4",
+    "ar0_b1r_r3_d1_correction": {
+      "old_height_mm": 0.035,
+      "new_height_mm": -0.035,
+      "corrected_local_n_mm": [
+        -1.035,
+        -1
+      ]
+    },
+    "ar0_b1r_r3_d1_conditional_solve_authorized": true
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R3_D0_DIAGNOSTIC_FIXTURE_REVIEW_AWAIT_USER",
+    "current_stage": "R1E1A4A_AR0_B1R_R3_D1_CORRECTED_BUILD_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
