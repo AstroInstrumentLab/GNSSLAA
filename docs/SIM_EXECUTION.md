@@ -3,24 +3,28 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_T1_GROUND_ACQUISITION_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1R_T1_HUMAN_3D_REVIEW_AWAIT_USER
 
-BUILD_AUTHORIZED: true
+BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 
-Parent:
-PASS_R1E1A4A_AR0_B1R_T0_RF_TENON_BUILD_ONLY
-SHA256 f4c51b603fc01e8c3cec095de0ca641a3a671dc1e2449a95a123af6a8b902bb9
+AR0-B1R-T1 status:
+PASS_R1E1A4A_AR0_B1R_T1_GROUND_ACQUISITION_BUILD_ONLY
 
-T1 nominal geometry:
-- L_bal = 1.50 mm no-ground balanced throat;
-- L_taper = 3.00 mm linear backside-ground acquisition;
-- full local ground begins at v=4.50 mm;
-- W_ground = 3.60 mm centered under each 1.90-mm signal;
-- stalk thickness remains 1.00 mm.
+Formal build invocations: 1
+Solver invocations: 0
 
-Static preflight corrected the old 4.00-mm ground rail because it would intersect the orthogonal polarization ground.
+T1 nominal transition:
+L_bal = 1.50 mm
+L_taper = 3.00 mm
+full ground begins at v=4.50 mm
+W_ground = 3.60 mm
+signal width = 1.90 mm
+stalk thickness = 1.00 mm
 
-No ports.
-No solver.
-Stop after build qualification and human 3D review.
+Evidence:
+evidence/r1e1a4a_ar0_b1r_t1_nw_20260927_build01/
+
+No EM qualification has been performed.
+Stop boundary:
+Await human 3D review; no solve.
