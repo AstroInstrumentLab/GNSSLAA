@@ -1,6 +1,6 @@
 {
   "schema_version": "0.2.8",
-  "status": "READY_FOR_PREBUILD_STATIC_AUDIT_NO_REMOTE",
+  "status": "READY_FOR_STATIC_PREBUILD_AUDIT_NO_REMOTE",
   "model": "R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE",
   "coordinate_system": {
     "q": "transverse branch local",
@@ -244,5 +244,42 @@
     "package_body_to_edge": 0.25
   },
   "build_authorized": false,
-  "solve_authorized": false
+  "solve_authorized": false,
+  "grounded_pin_spokes": {
+    "pins": [
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "width_q_mm": 0.2,
+    "upstream_v_mm": [
+      6.3,
+      6.6
+    ],
+    "downstream_v_mm": [
+      7.4,
+      7.7
+    ],
+    "upstream_centers_q_mm": [
+      0.5,
+      1
+    ],
+    "downstream_centers_q_mm": [
+      -0.5,
+      0.5,
+      1
+    ],
+    "node": "EXPOSED_PADDLE_TO_LOCAL_GROUND"
+  },
+  "B_VBIAS_scope": {
+    "physical_node": "pin-1 land only",
+    "R4_physical_pads_in_E1": false,
+    "circuit_connection": "B_VDD -- 3.32kOhm -- B_VBIAS",
+    "R4_physical_layout_stage": "A0-E2"
+  },
+  "contracts": [
+    "docs/R1E1A4A_AR0_B1R_R4_A0_E1_GROUNDED_PIN_SPOKE_CONTRACT_V01.md"
+  ]
 }
