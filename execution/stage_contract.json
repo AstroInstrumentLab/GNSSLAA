@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "b69a26f2db446faac365ef3fc4d46d2efec536ec"
+    "source_commit": "3ac6a28e1d4b85a7da0891fccaf5f237e0e51f4d"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
@@ -1629,7 +1629,9 @@
     "ar0_b1r_r4_a0_e1_placement_status": "FROZEN_V01",
     "ar0_b1r_r4_a0_e1_material_status": "FROZEN_BASELINE",
     "ar0_b1r_r4_a0_e1_interference_status": "FROZEN_V01",
-    "ar0_b1r_r4_a0_e1_prebuild_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E1_PREBUILD_MANIFEST_V01.json"
+    "ar0_b1r_r4_a0_e1_prebuild_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E1_PREBUILD_MANIFEST_V01.json",
+    "ar0_b1r_r4_a0_e1_ground_spokes": "FROZEN_5_SIDE_LANDS_TO_PADDLE",
+    "ar0_b1r_r4_a0_e1_vbias_scope": "PIN1_EM_NODE_R4_CIRCUIT_ONLY_IN_E1"
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_STATIC_PREBUILD_AUDIT_AND_BUILD_PACKET_FREEZE",
