@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "24aa8b39d515a9ff2ab79dce6457a8c65e1aaf1a"
+    "source_commit": "20e4587b8de96a40cbe3ba4ad54b9806f21c7e96"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_FOOTPRINT_VIA_LOCAL_GROUND_CONTRACT_FREEZE",
-    "stop_boundary": "NO REMOTE; FREEZE EXACT FOOTPRINT/VIA/FAB + LOCAL-GROUND MECHANICAL CONCEPT + A0-E1 PORT CONTRACT BEFORE BUILD AUTH",
+    "next_stage": "AR0_B1R_R4_A0_E1_DIMENSIONED_PLACEMENT_AND_MATERIAL_CONTRACT",
+    "stop_boundary": "NO REMOTE; FREEZE DIMENSIONED E1 PLACEMENT + MATERIAL/INTERFERENCE CONTRACT BEFORE BUILD AUTH",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1620,10 +1620,15 @@
     "ar0_b1r_r4_a0_e1_seed_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E1_LANDING_ZONE_SEED_V01.json",
     "ar0_b1r_r4_active_ground_policy": "LOCAL_PACKAGE_GROUND_REQUIRED; HALF_LAP_LOCAL_GEOMETRY MAY REOPEN; REMOTE_MERGE_SENTINEL_ONLY",
     "ar0_b1r_r4_a0_c0_status": "PASS_R4_A0_C0_G0_COMMITTED_DATA_SANITY",
-    "ar0_b1r_r4_a0_c0_evidence": "circuit/qpl9547/analysis/R4_A0_C0_G0_DATA_SANITY.json"
+    "ar0_b1r_r4_a0_c0_evidence": "circuit/qpl9547/analysis/R4_A0_C0_G0_DATA_SANITY.json",
+    "ar0_b1r_r4_a0_e1_footprint_status": "FROZEN_V01",
+    "ar0_b1r_r4_a0_e1_via_seed_status": "FROZEN_G0_3_VIA",
+    "ar0_b1r_r4_a0_e1_local_ground_status": "G_L0_BASELINE_SELECTED",
+    "ar0_b1r_r4_a0_e1_bias_status": "G0_TOPOLOGY_FROZEN",
+    "ar0_b1r_r4_a0_e1_port_status": "FIVE_NODE_TOPOLOGY_FROZEN_COORDINATES_PENDING"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_FOOTPRINT_VIA_LOCAL_GROUND_CONTRACT_FREEZE",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_DIMENSIONED_PLACEMENT_AND_MATERIAL_CONTRACT",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1631,8 +1636,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_C0_G0_DATA_SANITY_AND_E1_DESIGN_SEED",
-    "last_status": "PASS_R4_A0_C0_G0_DATA_SANITY_AND_E1_DESIGN_SEED",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_FOOTPRINT_VIA_GROUND_BIAS_PORT_CONTRACTS",
+    "last_status": "PASS_R4_A0_E1_PREBUILD_CONTRACTS_PART1",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
