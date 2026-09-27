@@ -128,7 +128,7 @@ def run(repo,evidence,work,parent,macro):
     if not parent.exists() or sha(parent)!=PARENT_SHA: raise RuntimeError("HOLD_T2F_R2_PARENT_HASH")
     if not macro.exists(): raise RuntimeError("HOLD_T2F_R2_PORT_MACRO_MISSING")
     evidence.mkdir(parents=True); work.mkdir(parents=True)
-    out=work/"R1E1A4A_AR0_B1R_T2F_R2_R2_CANONICAL_TRANSITION_FIXTURE_V01.cst"
+    out=work/"R1E1A4A_AR0_B1R_T2F_R2_CANONICAL_TRANSITION_FIXTURE_V01.cst"
     shutil.copy2(str(parent),str(out))
     if sha(out)!=PARENT_SHA: raise RuntimeError("HOLD_T2F_R2_COPY_HASH")
 
@@ -206,7 +206,7 @@ def run(repo,evidence,work,parent,macro):
       "fresh_reopen_hash_stable":sha(out)==build_sha,
       "solver_tree_empty":len(tree)==0
     }
-    status="PASS_R1E1A4A_AR0_B1R_T2F_R2_R2_FIXTURE_BUILD_ONLY" if all(checks.values()) else "HOLD_R1E1A4A_AR0_B1R_T2F_R2_R2_FIXTURE"
+    status="PASS_R1E1A4A_AR0_B1R_T2F_R2_FIXTURE_BUILD_ONLY" if all(checks.values()) else "HOLD_R1E1A4A_AR0_B1R_T2F_R2_FIXTURE"
 
     summary={
       "status":status,"simulationops":"0.2.8",
@@ -254,5 +254,5 @@ if __name__=="__main__":
     except Exception:
         Path(a.evidence).mkdir(parents=True,exist_ok=True)
         Path(a.evidence,"EXCEPTION.txt").write_text(traceback.format_exc(),encoding="utf-8")
-        Path(a.evidence,"FINAL_STATUS.txt").write_text("HOLD_R1E1A4A_AR0_B1R_T2F_R2_R2_EXECUTION_EXCEPTION\n",encoding="utf-8")
+        Path(a.evidence,"FINAL_STATUS.txt").write_text("HOLD_R1E1A4A_AR0_B1R_T2F_R2_EXECUTION_EXCEPTION\n",encoding="utf-8")
         traceback.print_exc(); sys.exit(9)
