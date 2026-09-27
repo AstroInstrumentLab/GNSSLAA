@@ -3,29 +3,33 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_T2F_HUMAN_FIXTURE_REVIEW_AWAIT_USER
+R1E1A4A_AR0_B1R_T2S_TRANSITION_EM_QUALIFICATION_AWAIT_SOLVE_AUTH
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 
-AR0-B1R-T2F status:
+T2F:
 PASS_R1E1A4A_AR0_B1R_T2F_FIXTURE_BUILD_ONLY
 
-Formal fixture-build invocations total: 1
-Solver invocations total: 0
+Human fixture review:
+PASS_USER_CONFIRMED_20260927
 
-The original fixture itself passed geometry and port audits.
-The original HOLD was caused only by CST 2022 delaying derived parameter t2f_output_z in the immediate-build parameter enumeration.
-Audit-only recovery used the existing artifact; no rebuild occurred.
+Canonical fixture:
+D:\GNSS_Lband_Active_Array\_r1e1a4a_ar0_b1r_t2f_build_work\R1E1A4A_AR0_B1R_T2F_CANONICAL_TRANSITION_FIXTURE_V01.cst
+SHA256:
+f0184b638b5af6c5c752804fd5570a5e4178e52bc6bdd62e31e72c281c03de90
 
-Fixture:
-- 6 exact retained T1 solids
-- 3 ports after build and fresh reopen
-- P1 100-ohm balanced input
-- P2/P3 50-ohm grounded outputs
+Next stage:
+T2S transition EM qualification.
 
-Evidence:
-evidence/r1e1a4a_ar0_b1r_t2f_nw_20260927_build01/
+Planned measurements after separate solve authorization:
+- Port-1 balanced input return;
+- power delivered to Ports 2 and 3;
+- output amplitude balance;
+- output phase balance relative to 180 degrees;
+- common-mode proxy from coherent output sum;
+- excess loss / closure;
+- then sensitivity of L_bal, L_taper and W_ground if baseline requires optimization.
 
 Stop boundary:
-Await human fixture review. No solve.
+AWAIT EXPLICIT T2S SOLVE AUTHORIZATION.
