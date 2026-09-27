@@ -3,11 +3,11 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "3aa0f8c7473ff4180c05605049e10325333ad525"
+    "source_commit": "b563c531a3a9d7685850f73dbc72bea3989b7233"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": true,
-    "SOLVE_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": false,
+    "SOLVE_AUTHORIZED": true,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
     "lna_integration_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R3_D2_M1B_RF_FIXTURE_BUILD_ONLY",
-    "stop_boundary": "M1B BUILD AUTHORIZED; IF PASS A/B ONE-SHOT SOLVES AUTHORIZED; NO RETRY; NO SWEEP",
+    "next_stage": "AR0_B1R_R3_D2_M1_AB_SOLVES",
+    "stop_boundary": "M1B BUILD PASS; A/B ONE-SHOT SOLVES AUTHORIZED; NO RETRY; NO SWEEP",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1601,11 +1601,13 @@
     "ar0_b1r_r3_d2_m0r1_canonical_sha256": "4ec39ab9965dd9ec6b416d801ded0ee6e56d910d2ffc2ba405cb9dec978cd91e",
     "ar0_b1r_r3_d2_m0r1_fixture_a_sha256": "33294aa6200264135582ec0c0742a1b4e6ca7b2148e1adece2f64388d81d3dd6",
     "ar0_b1r_r3_d2_m0r1_overlap_audit": "PASS_12_OF_12_ZERO_POSITIVE_VOLUME",
-    "ar0_b1r_r3_d2_m1_status": "POLB_BUILD_AUTHORIZED_CONDITIONAL_AB_SOLVE",
-    "ar0_b1r_r3_d2_m1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVE_FREEZE_V01.md"
+    "ar0_b1r_r3_d2_m1_status": "POLB_BUILD_PASS_AB_SOLVES_AUTHORIZED",
+    "ar0_b1r_r3_d2_m1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVE_FREEZE_V01.md",
+    "ar0_b1r_r3_d2_m1b_sha256": "11b3576ff5efb4326a761554fb94d8588d22c54691d713f8181c359415bdb70e",
+    "ar0_b1r_r3_d2_m1_solve_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVE_FREEZE_V02.md"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M1B_BUILD_ONLY_AUTHORIZED",
+    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVES_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
