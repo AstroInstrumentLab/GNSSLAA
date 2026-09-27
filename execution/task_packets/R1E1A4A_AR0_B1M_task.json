@@ -4,7 +4,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "repository": "Dingo-infinity2020/GNSS_Lband_Active_Array",
-    "source_commit": "d2bd94282257e60c036a4bbca24ed3f00eb9a4a7",
+    "source_commit": "ea411c6bdd48c44e8ba1b393722e86920ccad9c0",
     "model_identity": "AR0_B1M_FULL_MECHANICAL_STALK"
   },
   "stage": {
@@ -23,7 +23,8 @@
       "SimulationOps 0.2.8",
       "B0G artifact SHA256 exact",
       "B1M freeze V0.1 unchanged",
-      "B0G feed-head remains untouched"
+      "B0G feed-head remains untouched",
+      "one-sided PCB interlock/mortise coordinate correction PASS"
     ],
     "fail_closed": true
   },
