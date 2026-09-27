@@ -3,10 +3,10 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "0ac1c7871cece46efe63fb8e681e3235ccde6326"
+    "source_commit": "e44999e8257b7633e93ea8abc443eede79b4d5bd"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_T2S_R2_RESULT_REVIEW",
-    "stop_boundary": "T2S-R2 BASELINE CHARACTERIZED; STRONG RETURN-MATCH CONCERN; REVIEW BEFORE ANY PARAMETER SWEEP",
+    "next_stage": "AR0_B1R_R3_D0_DIAGNOSTIC_FIXTURES_BUILD_ONLY",
+    "stop_boundary": "R3-D0 BUILD-ONLY AUTHORIZED; BUILD D0-A AND D0-B; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1532,10 +1532,31 @@
       "worst_normalized_excess_loss_dB": 0.1267529332809595,
       "min_power_closure": 0.9930400523300883,
       "max_power_closure": 0.9976037222094962
+    },
+    "ar0_b1r_r3_d0_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d0_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D0_RETURN_PATH_DIAGNOSTIC_FREEZE_V01.md",
+    "ar0_b1r_r3_d0_variants": [
+      "D0A_DIFFERENTIAL_CONTROL",
+      "D0B_COMMON_GROUND_CLOSURE"
+    ],
+    "ar0_b1r_r3_d0b_bridge": {
+      "u_mm": [
+        -1.2,
+        1.2
+      ],
+      "n_mm": [
+        -1.035,
+        -1
+      ],
+      "v_mm": [
+        11,
+        12
+      ],
+      "diagnostic_only": true
     }
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_T2S_R2_RESULT_REVIEW_AWAIT_USER",
+    "current_stage": "R1E1A4A_AR0_B1R_R3_D0_DIAGNOSTIC_FIXTURES_BUILD_ONLY_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
