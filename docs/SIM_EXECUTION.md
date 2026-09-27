@@ -3,27 +3,24 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_R3_D2_M1B_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVES_AUTHORIZED
 
-BUILD_AUTHORIZED: true
-SOLVE_AUTHORIZED: false
-CONDITIONAL_AB_SOLVE_AFTER_POLB_BUILD_PASS: true
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: true
 
-Canonical D2-M0R1:
-4ec39ab9965dd9ec6b416d801ded0ee6e56d910d2ffc2ba405cb9dec978cd91e
-
-Existing Pol-A fixture:
+Pol-A fixture:
 33294aa6200264135582ec0c0742a1b4e6ca7b2148e1adece2f64388d81d3dd6
 
-Build:
-fresh Pol-B 3-port fixture with rotated port coordinates.
+Pol-B fixture:
+11b3576ff5efb4326a761554fb94d8588d22c54691d713f8181c359415bdb70e
+PASS_R1E1A4A_AR0_B1R_R3_D2_M1B_RF_FIXTURE_BUILD_ONLY
 
-If Pol-B build PASS:
-one NW solve Pol-A
-one NW solve Pol-B
-same 1.0..1.8 GHz adaptive HF-FD solver
+Authorized:
+one NW solve each for A and B
+same 1.0..1.8 GHz adaptive HF-FD configuration
 no retry
 no sweep
 
-Scientific target:
-measure RF impact of the mechanically required 1.05-mm A/B common-ground merge-height offset.
+Comparison measures the total manufacturable A/B lower-stalk asymmetry:
+complementary half-lap slot + supported ground-merge geometry.
+It is not a pure bridge-height-only experiment.
