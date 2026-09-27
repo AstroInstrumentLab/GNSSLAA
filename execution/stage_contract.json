@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "96c90c80db89c174cb8aa4f22899ad28eaefd614"
+    "source_commit": "5034cc2fa9776ac1d3109e118de1f4f98df98172"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -1557,7 +1557,7 @@
     "ar0_b1r_r3_d0_d0a_sha256": "f983eb43a3450c511387073a760e946bf60c16d8df1424d26692c8db7d9e3863",
     "ar0_b1r_r3_d0_d0b_sha256": "66f7b9d1b0f4c8ba6b36a5e25f271dcec88c1f7f4efc38e13973175ca62cfd32",
     "ar0_b1r_r3_d0_bridge_volume_mm3": 0.084,
-    "ar0_b1r_r3_d1_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d1_status": "BUILD_AUTHORIZED_RUNNER_READY",
     "ar0_b1r_r3_d1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D1_GROUND_CORRECTION_DIAGNOSTIC_FREEZE_V01.md",
     "ar0_b1r_r3_d1_root_cause": "T1_BACKSIDE_GROUND_EXTRUSION_SIGN_ERROR_FULL_VOLUME_EMBEDDED_IN_FR4",
     "ar0_b1r_r3_d1_correction": {
