@@ -3,27 +3,27 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_R3_D1_CORRECTED_BUILD_AUTHORIZED
+R1E1A4A_AR0_B1R_R3_D1R1_CORRECTED_BUILD_AUTHORIZED
 
 BUILD_AUTHORIZED: true
 SOLVE_AUTHORIZED: false
-CONDITIONAL_SOLVE_AUTHORIZED_AFTER_FULL_BUILD_PASS: true
+CONDITIONAL_SOLVE_AUTHORIZED_AFTER_BUILD_PASS: true
 
-Confirmed defect:
-original T1 backside grounds were 100% embedded in FR4.
-Each 1.134 mm^3 ground had 1.134 mm^3 intersection with its prong.
+Prior D1:
+HOLD_R1E1A4A_AR0_B1R_R3_D1_BUILD
+Reason: using -0.035 mm extrusion for both polarizations corrected Pol-A but embedded Pol-B.
 
-Corrected probe:
-Extrude.Height +0.035 -> -0.035 mm
-ground volume unchanged
-ground/prong volumetric intersection -> 0
+Verified original geometry:
+Pol-A original +0.035 mm -> full ground/FR4 overlap.
+Pol-B original +0.035 mm -> zero overlap.
 
-D1 build products:
-1. dual-pol T1R1 corrected canonical ground-placement artifact
-2. D1-A corrected 2-port differential control
-3. D1-B corrected 3-port common-ground closure control
+D1R1 frozen signs:
+Pol-A = -0.035 mm
+Pol-B = +0.035 mm
 
-If all build gates PASS:
-one NW solve D1-A + one NW solve D1-B are already authorized.
+Acceptance requires zero own-prong volumetric intersection for all four ground tapers.
+
+If full D1R1 build PASS:
+D1R1-A and D1R1-B one-shot NW solves are already authorized.
 No retry.
 No sweep.
