@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "0f09c3196a0a8d88a048c5055bb11c28493abb48"
+    "source_commit": "6d4eebda87fad98a17c9bc244d5c4a79e51a6e5b"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -24,7 +24,7 @@
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
     "next_stage": "AR0_B1R_T2F_FIXTURE_BUILD_ONLY",
-    "stop_boundary": "T2F BUILD-ONLY AUTHORIZED; STOP AFTER FIXTURE REVIEW; NO SOLVE",
+    "stop_boundary": "T2F BUILD-ONLY AUTHORIZED; ONE FORMAL FIXTURE BUILD; STOP AFTER FIXTURE REVIEW; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1484,7 +1484,7 @@
       "stalk_thickness_mm": 1
     },
     "ar0_b1r_t2_status": "BLOCKED_PENDING_T1_HUMAN_REVIEW_AND_SOLVE_AUTH",
-    "ar0_b1r_t2f_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_t2f_status": "BUILD_AUTHORIZED_RUNNER_READY",
     "ar0_b1r_t2f_freeze_doc": "docs/R1E1A4A_AR0_B1R_T2F_FIXTURE_FREEZE_V01.md",
     "ar0_b1r_t2f_ports": {
       "balanced_input_ohm": 100,
@@ -1492,7 +1492,8 @@
       "output_v_mm": 10,
       "port_count": 3
     },
-    "ar0_b1r_t2s_status": "BLOCKED_PENDING_T2F_PASS_AND_SEPARATE_SOLVE_AUTH"
+    "ar0_b1r_t2s_status": "BLOCKED_PENDING_T2F_PASS_AND_SEPARATE_SOLVE_AUTH",
+    "ar0_b1r_t2f_port_macro": "source/cst/R1E1A4A_AR0_B1R_T2F_PORTS_V01.mcr"
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1R_T2F_FIXTURE_BUILD_ONLY_AUTHORIZED",
