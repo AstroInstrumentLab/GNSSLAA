@@ -3,15 +3,15 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "6d4eebda87fad98a17c9bc244d5c4a79e51a6e5b"
+    "source_commit": "3edc3ac58850151a3982465dbbc48ecbdaffbd38"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": false,
+    "SOLVE_AUTHORIZED": true,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
     "lna_integration_authorized": false,
-    "cst251_authorized": false
+    "cst251_authorized": true
   },
   "scientific_freeze": {
     "candidate": "H3B_T01A_GCPW_ORTHOGONAL_TRANSITION",
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_T2S_TRANSITION_EM_QUALIFICATION_AWAIT_SOLVE_AUTH",
-    "stop_boundary": "T2F HUMAN REVIEW PASS; AWAIT EXPLICIT T2S SOLVE AUTHORIZATION",
+    "next_stage": "AR0_B1R_T2S_TRANSITION_EM_QUALIFICATION",
+    "stop_boundary": "ONE FORMAL T2S SOLVE AUTHORIZED ON CST251; NO RETRY; STOP AFTER READONLY QUALIFICATION",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1492,12 +1492,13 @@
       "output_v_mm": 10,
       "port_count": 3
     },
-    "ar0_b1r_t2s_status": "AWAIT_SOLVE_AUTHORIZATION",
+    "ar0_b1r_t2s_status": "SOLVE_AUTHORIZED_ONE_SHOT",
     "ar0_b1r_t2f_port_macro": "source/cst/R1E1A4A_AR0_B1R_T2F_PORTS_V01.mcr",
-    "ar0_b1r_t2f_human_review": "PASS_USER_CONFIRMED_20260927"
+    "ar0_b1r_t2f_human_review": "PASS_USER_CONFIRMED_20260927",
+    "ar0_b1r_t2s_freeze_doc": "docs/R1E1A4A_AR0_B1R_T2S_SOLVE_FREEZE_V01.md"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_T2S_TRANSITION_EM_QUALIFICATION_AWAIT_SOLVE_AUTH",
+    "current_stage": "R1E1A4A_AR0_B1R_T2S_TRANSITION_EM_QUALIFICATION_SOLVE_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
