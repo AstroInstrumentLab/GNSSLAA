@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_T2F_REVIEW",
-    "stop_boundary": "T2F HOLD; REVIEW EVIDENCE; NO SOLVE",
+    "next_stage": "AR0_B1R_T2F_HUMAN_FIXTURE_REVIEW",
+    "stop_boundary": "T2F BUILD PASS AFTER AUDIT-ONLY RECOVERY; AWAIT HUMAN FIXTURE REVIEW; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1484,7 +1484,7 @@
       "stalk_thickness_mm": 1
     },
     "ar0_b1r_t2_status": "BLOCKED_PENDING_T1_HUMAN_REVIEW_AND_SOLVE_AUTH",
-    "ar0_b1r_t2f_status": "HOLD_R1E1A4A_AR0_B1R_T2F_FIXTURE",
+    "ar0_b1r_t2f_status": "PASS_R1E1A4A_AR0_B1R_T2F_FIXTURE_BUILD_ONLY",
     "ar0_b1r_t2f_freeze_doc": "docs/R1E1A4A_AR0_B1R_T2F_FIXTURE_FREEZE_V01.md",
     "ar0_b1r_t2f_ports": {
       "balanced_input_ohm": 100,
@@ -1492,11 +1492,11 @@
       "output_v_mm": 10,
       "port_count": 3
     },
-    "ar0_b1r_t2s_status": "BLOCKED_BY_T2F_HOLD",
+    "ar0_b1r_t2s_status": "BLOCKED_PENDING_T2F_HUMAN_REVIEW_AND_SEPARATE_SOLVE_AUTH",
     "ar0_b1r_t2f_port_macro": "source/cst/R1E1A4A_AR0_B1R_T2F_PORTS_V01.mcr"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_T2F_REVIEW_AWAIT_USER",
+    "current_stage": "R1E1A4A_AR0_B1R_T2F_HUMAN_FIXTURE_REVIEW_AWAIT_USER",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1504,8 +1504,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_T1_GROUND_ACQUISITION_BUILD_ONLY",
-    "last_status": "HOLD_R1E1A4A_AR0_B1R_T2F_FIXTURE",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_T2F_FIXTURE_BUILD_ONLY",
+    "last_status": "PASS_R1E1A4A_AR0_B1R_T2F_FIXTURE_BUILD_ONLY",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
@@ -1537,12 +1537,12 @@
   },
   "dc_call_budget": {
     "target_calls_per_routine_stage": 2,
-    "calls_used_current_stage": 1,
+    "calls_used_current_stage": 2,
     "task_packet_path": "execution/task_packets/R1E1A4A_AR0_B1R_T2F_task.json",
     "result_packet_path": "execution/result_packets/R1E1A4A_AR0_B1R_T2F_result.json",
     "preferred_runner": "scripts/run_r1e1a4a_ar0_b1r_t2f_build_only.py",
     "polling_policy": "single fixture-build transaction then task-node inspection",
-    "exception_reason": ""
+    "exception_reason": "T2F fixture geometry/ports passed; original HOLD was only CST immediate enumeration delay for derived parameter t2f_output_z. Second transaction was audit-only; formal build count remains one."
   },
   "evidence": {
     "status_classification": "PASS_R1E1A4A_H3B_T01A_FREEZE",
