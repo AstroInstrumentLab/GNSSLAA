@@ -27,3 +27,12 @@ No solver.
 No retry.
 
 The B0 abrupt ground onset remains a placeholder and is not RF-qualified in this stage.
+
+## Pre-build coordinate correction
+
+Because B0 stalks use local n=-1..0 mm rather than a centered board thickness:
+- A interlock slot u = -0.125..+1.125 mm;
+- B interlock slot u = -1.125..+0.125 mm;
+- top/bottom mortise n clearance = -1.125..+0.125 mm.
+
+These corrections are frozen before the formal B1M build and do not change B0G RF geometry.
