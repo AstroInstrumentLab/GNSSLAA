@@ -3,22 +3,25 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_T0_RF_TENON_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1R_T0_HUMAN_3D_REVIEW_AWAIT_USER
 
-BUILD_AUTHORIZED: true
+BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 
-Parent:
-PASS_R1E1A4A_AR0_B1M_FULL_MECHANICAL_STALK_BUILD_ONLY
-SHA256 6b2e3edc230b54eef54bdd427e8585a9fee1f0ef0235c747aa1b0ef6571b1dbe
+AR0-B1R-T0 status:
+PASS_R1E1A4A_AR0_B1R_T0_RF_TENON_BUILD_ONLY
 
-B1R-T0:
-replace four signal PTH feedthroughs with four signal-only RF tenons plus explicit solder-interface proxies.
+Formal build invocations: 1
+Solver invocations: 0
 
-Stalk FR4 remains 1.00 mm.
-The 0.80-mm option is deferred to a later electro-mechanical sensitivity stage.
+Stalk thickness remains 1.00 mm.
+Signal PTH feedthroughs are replaced by signal-only RF tenons if PASS.
 
-The abrupt B0 ground onset remains not RF-qualified.
-No solver is permitted.
+Evidence:
+evidence/r1e1a4a_ar0_b1r_t0_nw_20260927_build01/
 
-Stop after build qualification and human 3D review.
+The B0 abrupt ground onset remains not RF-qualified.
+No passive EM solve is allowed until the later balanced-throat/ground-acquisition transition stage.
+
+Stop boundary:
+Await human 3D review; no solve.
