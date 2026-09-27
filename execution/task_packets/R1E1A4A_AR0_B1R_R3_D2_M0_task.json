@@ -4,7 +4,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "repository": "Dingo-infinity2020/GNSS_Lband_Active_Array",
-    "source_commit": "06d93e6a236694530913f197b306bc49bb25d3ee",
+    "source_commit": "c70acef6f9e793805d8c91b00b2c0a9d0f16e807",
     "model_identity": "AR0_B1R_R3_D2_M0_MANUFACTURABLE_GROUND_MERGE"
   },
   "stage": {
