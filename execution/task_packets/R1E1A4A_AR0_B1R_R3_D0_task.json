@@ -4,7 +4,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "repository": "Dingo-infinity2020/GNSS_Lband_Active_Array",
-    "source_commit": "97ef1d91d1b6e7cb504614f8520edf087d3177c9",
+    "source_commit": "ca24b1174dbf79cf0c56df686f0b6d9de57d0760",
     "model_identity": "AR0_B1R_R3_D0_RETURN_PATH_DIAGNOSTICS"
   },
   "stage": {
