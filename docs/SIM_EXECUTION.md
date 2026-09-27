@@ -3,23 +3,58 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_STATIC_PREBUILD_AUDIT_AND_BUILD_PACKET_FREEZE
+R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_AWAIT_AUTH
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
-Pre-remote A0-E1 contracts now frozen:
-- Rev-D QPL9547 footprint
-- G0 three-via paddle-ground seed
-- branch-local G-L0 ground baseline
-- bias/DC-block topology
-- dimensioned one-LNA coupon placement
-- FR4/copper/material baseline
-- geometry/interference predicates
-- six-node EM/circuit port contract
+PRE-REMOTE STATUS:
+PASS_R4_A0_E1_PREBUILD_READY_AWAIT_BUILD_AUTH
 
-Six nodes:
+Remote calls in R4-A0 prebuild:
+0
+
+Mainline:
+- passive D1/M1 fixture S11 = diagnostic only
+- Architecture B retained
+- two single-ended first-stage LNAs per polarization
+- QPL9547 = G0 reference, not final-production device
+- active device remains outside CST
+- co-simulation reference planes = QPL9547 device leads
+- local package ground + vias mandatory
+- remote lower-stalk-only LNA ground forbidden as baseline
+
+A0-E1:
+one-LNA landing-zone coupon only
+no radiator
+no second LNA
+no full lower stalk
+no remote ground merge
+no solver
+
+Frozen coupon:
+q=-2..+2 mm
+v=3..13 mm
+FR4 thickness=1.00 mm
+finite backside local ground
+
+Frozen package:
+Rev-D QPL9547 land pattern
+3 paddle vias
+5 grounded side-pin spokes to exposed paddle
+pin1 Vbias remains isolated EM node
+pin2 RF-IN
+pin7 RF-OUT/VDD
+
+Frozen circuit seed:
+C_IN=100 pF
+C_OUT=100 pF
+L1=18 nH
+C_RF=100 pF
+R4=3.32 kOhm circuit-domain in E1
+
+Six EM nodes:
 E_UP
 P_IN
 P_OUT
@@ -27,24 +62,53 @@ E_DN
 B_VDD
 B_VBIAS
 
-QPL9547 S2P connects P_IN <-> P_OUT.
+All single-ended 50-ohm normalized to finite local backside ground.
 No differential port.
 
-Coupon:
-q=-2..+2 mm
-v=3..13 mm
-FR4 thickness 1.00 mm
-backside local ground full 4-mm width
+Static arithmetic audit:
+PASS_R4_A0_E1_STATIC_PREBUILD_ARITHMETIC_AUDIT
 
-Package:
-center q=+0.25, v=7.0 mm
-RF-IN q=0,v=6.085
-RF-OUT q=0,v=7.915
+Narrowest planned unrelated-copper clearance:
+0.20 mm
+downstream RF trace vs right-side decoupling lane.
+If CST build fails this clearance, widen/rework the active-region stalk; do not shrink vendor/package lands.
 
-Next, still without remote:
-1. repo-local static geometry arithmetic audit
-2. exact build-only artifact/evidence/task contract
-3. final prebuild PASS/HOLD review
+Build source:
+source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V02.mcr
 
-Only after that may BUILD authority be requested.
-SOLVE remains separately gated.
+V01 source:
+PRE-EXECUTION SUPERSEDED
+never authorized/executed.
+Reason: plated-via barrel required explicit FR4 drill-hole subtraction first.
+
+V02 plated-via rule:
+0.35-mm drill
+0.25-mm finished hole
+FR4 hole subtracted first
+annular copper barrel second
+
+V02 static source audit:
+PASS_R4_A0_E1_BUILD_SOURCE_STATIC_AUDIT_RECOVERY
+
+Expected postbuild:
+36 solids
+6 ports
+4 plated vias total
+0 via drill-tool solids remaining
+0 result tree
+0 solver invocations
+
+Deterministic runner:
+scripts/run_r1e1a4a_ar0_b1r_r4_a0_e1_build_only.py
+
+When separately authorized:
+fresh MWS
+-> execute V02 macro once
+-> save
+-> fresh reopen
+-> exact inventory/port/material audit
+-> critical pairwise Boolean checks
+-> human 3D review
+-> STOP
+
+No solve follows automatically.
