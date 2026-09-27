@@ -3,10 +3,10 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "aebd16c0f6c595c223f14f30ab4690b275fe5605"
+    "source_commit": "c6d713693af396ff498eb0368bfed2b387d62e88"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R3_D2_MANUFACTURABLE_GROUND_MERGE_AND_INDUCTANCE_REDUCTION_AWAIT_AUTH",
-    "stop_boundary": "D1R1 DIAGNOSTIC SOLVES PASS; AWAIT D2 BUILD AUTHORIZATION; NO OPTIMIZATION SWEEP",
+    "next_stage": "AR0_B1R_R3_D2_M0_MANUFACTURABLE_GROUND_MERGE_BUILD_ONLY",
+    "stop_boundary": "D2-M0 BUILD-ONLY AUTHORIZED; NO SOLVE; NO SWEEP",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1582,10 +1582,23 @@
     "ar0_b1r_r3_d1r1_solve_status": "SOLVE_AUTHORIZED_ONE_SHOT_PER_BRANCH",
     "ar0_b1r_r3_d1r1a_verdict": "NEEDS_OPTIMIZATION",
     "ar0_b1r_r3_d1r1b_verdict": "NEEDS_OPTIMIZATION",
-    "ar0_b1r_r3_d1r1_interpretation_doc": "docs/R1E1A4A_AR0_B1R_R3_D1R1_DIAGNOSTIC_INTERPRETATION_V01.md"
+    "ar0_b1r_r3_d1r1_interpretation_doc": "docs/R1E1A4A_AR0_B1R_R3_D1R1_DIAGNOSTIC_INTERPRETATION_V01.md",
+    "ar0_b1r_r3_d2_m0_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d2_m0_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M0_MANUFACTURABLE_GROUND_MERGE_FREEZE_V01.md",
+    "ar0_b1r_r3_d2_m0_lower_ground_width_mm": 3.2,
+    "ar0_b1r_r3_d2_m0_merge_v_mm": {
+      "PolA": [
+        33.8,
+        34.3
+      ],
+      "PolB": [
+        34.85,
+        35.35
+      ]
+    }
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_MANUFACTURABLE_GROUND_MERGE_AWAIT_AUTH",
+    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M0_BUILD_ONLY_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
