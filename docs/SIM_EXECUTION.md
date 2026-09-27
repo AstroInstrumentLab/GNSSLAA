@@ -3,25 +3,26 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_T2F_FIXTURE_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1R_T2F_REVIEW_AWAIT_USER
 
-BUILD_AUTHORIZED: true
+BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 
-Parent:
-PASS_R1E1A4A_AR0_B1R_T1_GROUND_ACQUISITION_BUILD_ONLY
-SHA256 3144672323cbd4123d6413e7d9ae8f4842b78707d3a71b641748c7250ca2a8f6
+AR0-B1R-T2F status:
+HOLD_R1E1A4A_AR0_B1R_T2F_FIXTURE
 
-T2F:
-canonical Pol-A local transition coupon extracted from exact T1 geometry.
+Formal build invocations: 1
+Solver invocations: 0
 
-Retained geometry:
-two prongs + two signals + two taper grounds.
+Fixture:
+canonical Pol-A transition-only coupon
+- 6 retained solids
+- Port 1: 100-ohm balanced input
+- Port 2: 50-ohm + branch output
+- Port 3: 50-ohm - branch output
 
-Ports:
-- P1 = 100-ohm differential input at v=0;
-- P2 = 50-ohm + branch signal-to-ground at v=10 mm;
-- P3 = 50-ohm - branch signal-to-ground at v=10 mm.
+Evidence:
+evidence/r1e1a4a_ar0_b1r_t2f_nw_20260927_build01/
 
-No solver.
-Stop after fixture build qualification and human review.
+Stop boundary:
+Review T2F HOLD; no solve.
