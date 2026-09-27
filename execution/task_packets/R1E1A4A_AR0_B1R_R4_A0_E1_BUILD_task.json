@@ -4,13 +4,14 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "repository": "Dingo-infinity2020/GNSS_Lband_Active_Array",
-    "model_identity": "R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE"
+    "model_identity": "R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE",
+    "source_commit": "f8db3a23acf21d8515018f525caba14d52ea9ae4"
   },
   "stage": {
     "name": "R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY",
     "target_control_host": "NW",
-    "source_macro": "source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V01.mcr",
-    "target_artifact": "R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V01.cst",
+    "source_macro": "source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V02.mcr",
+    "target_artifact": "R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V02.cst",
     "stop_boundary": "build + fresh-reopen + interference audit + human review; no solve"
   },
   "authorization": {
@@ -26,7 +27,9 @@
     "paddle_via_count": 3,
     "dedicated_decoupler_ground_via_count": 1,
     "remote_ground_merge_present": false,
-    "active_QPL9547_inside_CST": false
+    "active_QPL9547_inside_CST": false,
+    "plated_via_drill_before_barrel": true,
+    "consumed_drill_tool_count": 4
   },
   "evidence_required": [
     "static prebuild audit",
@@ -36,11 +39,17 @@
     "interference/clearance audit",
     "fresh-reopen inventory",
     "fresh-reopen artifact SHA256",
-    "human 3D review checklist"
+    "human 3D review checklist",
+    "via drill-tool consumption proof",
+    "via-barrel vs FR4 zero-positive-volume proof"
   ],
   "execution": {
     "silent_retry_allowed": false,
     "dry_run": false,
     "solver_launch_budget": 0
+  },
+  "supersedes": {
+    "source_macro": "source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V01.mcr",
+    "status": "PRE_EXECUTION_SUPERSEDED"
   }
 }
