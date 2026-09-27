@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "3edc3ac58850151a3982465dbbc48ecbdaffbd38"
+    "source_commit": "e25c919a56b9b2353c85bc4a905a3850aeac51fd"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
