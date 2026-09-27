@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "ebb6fc1f54bc7d36d0a6e2e6028505e8308f2818"
+    "source_commit": "3bfc9b63be42c09a5d2d6a4142c5cc215eb87a57"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -24,7 +24,7 @@
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
     "next_stage": "AR0_B1R_T0_RF_TENON_BUILD_ONLY",
-    "stop_boundary": "B1R-T0 BUILD-ONLY AUTHORIZED; STOP AFTER BUILD/HUMAN REVIEW; NO SOLVE",
+    "stop_boundary": "B1R-T0 BUILD-ONLY AUTHORIZED; ONE FORMAL BUILD; STOP AFTER HUMAN 3D REVIEW; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1469,7 +1469,7 @@
       0.125
     ],
     "ar0_b1m_prebuild_static_coordinate_audit": "PASS",
-    "ar0_b1r_t0_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_t0_status": "BUILD_AUTHORIZED_RUNNER_READY",
     "ar0_b1r_t0_freeze_doc": "docs/R1E1A4A_AR0_B1R_T0_RF_TENON_INTERFACE_FREEZE_V01.md",
     "ar0_b1r_t0_stalk_thickness_mm": 1,
     "ar0_b1r_t0_via_policy": "REMOVE_SIGNAL_PTH_REPLACE_WITH_RF_TENON"
