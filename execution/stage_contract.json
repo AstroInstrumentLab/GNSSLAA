@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "dd14b984c25c7e4b3db3096df76e9d8fb661c642"
+    "source_commit": "24aa8b39d515a9ff2ab79dce6457a8c65e1aaf1a"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
@@ -24,7 +24,7 @@
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
     "next_stage": "AR0_B1R_R4_A0_C0_CIRCUIT_REFERENCE_AND_A0_E1_LANDING_ZONE_FREEZE",
-    "stop_boundary": "PRE-SIM FREEZE COMPLETE; NO REMOTE CALL; NO BUILD/SOLVE; FREEZE LANDING-ZONE FOOTPRINT/PORT/LOCAL-GROUND CONTRACT NEXT",
+    "stop_boundary": "DESIGN SEED FROZEN; NO REMOTE; MACHINE-TRANSCRIBE FOOTPRINT + VIA/FAB + LOCAL-GROUND CONCEPT BEFORE A0-E1 BUILD AUTH",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1614,7 +1614,11 @@
     "ar0_b1r_r4_a0_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_ACTIVE_INTERFACE_MANIFEST_V01.json",
     "qpl9547_g0_authority": "circuit/qpl9547/QPL9547_G0_MODEL_AUTHORITY_V01.md",
     "d2_m2_status": "DEFERRED_CONTINGENCY_NOT_MAINLINE",
-    "passive_fixture_s11_role": "DIAGNOSTIC_ONLY_NOT_PRODUCT_MATCH_AUTHORITY"
+    "passive_fixture_s11_role": "DIAGNOSTIC_ONLY_NOT_PRODUCT_MATCH_AUTHORITY",
+    "ar0_b1r_r4_a0_e1_seed_status": "DESIGN_SEED_FROZEN_NO_EXECUTION",
+    "ar0_b1r_r4_a0_e1_seed_doc": "docs/R1E1A4A_AR0_B1R_R4_A0_E1_LANDING_ZONE_DESIGN_SEED_V01.md",
+    "ar0_b1r_r4_a0_e1_seed_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E1_LANDING_ZONE_SEED_V01.json",
+    "ar0_b1r_r4_active_ground_policy": "LOCAL_PACKAGE_GROUND_REQUIRED; HALF_LAP_LOCAL_GEOMETRY MAY REOPEN; REMOTE_MERGE_SENTINEL_ONLY"
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1R_R4_A0_C0_CIRCUIT_REFERENCE_AND_A0_E1_LANDING_ZONE_FREEZE",
