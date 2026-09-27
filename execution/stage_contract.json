@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "20e4587b8de96a40cbe3ba4ad54b9806f21c7e96"
+    "source_commit": "b69a26f2db446faac365ef3fc4d46d2efec536ec"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_DIMENSIONED_PLACEMENT_AND_MATERIAL_CONTRACT",
-    "stop_boundary": "NO REMOTE; FREEZE DIMENSIONED E1 PLACEMENT + MATERIAL/INTERFERENCE CONTRACT BEFORE BUILD AUTH",
+    "next_stage": "AR0_B1R_R4_A0_E1_STATIC_PREBUILD_AUDIT_AND_BUILD_PACKET_FREEZE",
+    "stop_boundary": "NO REMOTE; RUN REPO-LOCAL STATIC PREBUILD AUDIT + FREEZE BUILD-ONLY TASK/EVIDENCE CONTRACT; THEN AWAIT BUILD AUTH",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1625,10 +1625,14 @@
     "ar0_b1r_r4_a0_e1_via_seed_status": "FROZEN_G0_3_VIA",
     "ar0_b1r_r4_a0_e1_local_ground_status": "G_L0_BASELINE_SELECTED",
     "ar0_b1r_r4_a0_e1_bias_status": "G0_TOPOLOGY_FROZEN",
-    "ar0_b1r_r4_a0_e1_port_status": "FIVE_NODE_TOPOLOGY_FROZEN_COORDINATES_PENDING"
+    "ar0_b1r_r4_a0_e1_port_status": "SIX_NODE_TOPOLOGY_AND_COORDINATES_FROZEN",
+    "ar0_b1r_r4_a0_e1_placement_status": "FROZEN_V01",
+    "ar0_b1r_r4_a0_e1_material_status": "FROZEN_BASELINE",
+    "ar0_b1r_r4_a0_e1_interference_status": "FROZEN_V01",
+    "ar0_b1r_r4_a0_e1_prebuild_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E1_PREBUILD_MANIFEST_V01.json"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_DIMENSIONED_PLACEMENT_AND_MATERIAL_CONTRACT",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_STATIC_PREBUILD_AUDIT_AND_BUILD_PACKET_FREEZE",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1636,8 +1640,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_FOOTPRINT_VIA_GROUND_BIAS_PORT_CONTRACTS",
-    "last_status": "PASS_R4_A0_E1_PREBUILD_CONTRACTS_PART1",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_DIMENSIONED_PLACEMENT_MATERIAL_PORT_CONTRACT",
+    "last_status": "PASS_R4_A0_E1_DIMENSIONED_CONTRACT_FREEZE",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
