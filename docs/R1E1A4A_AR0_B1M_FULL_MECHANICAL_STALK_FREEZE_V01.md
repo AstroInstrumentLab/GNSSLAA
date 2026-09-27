@@ -101,7 +101,7 @@ Per stalk:
 
 Each radiator mortise uses nominal assembly clearance:
 - local u width = 3.30 mm;
-- local n width = 1.25 mm;
+- local n = -1.125 to +0.125 mm (1.25-mm width around the one-sided n=-1..0 tenon);
 - through the full 1.0-mm radiator substrate.
 
 A matching copper-clearance window is cut in the top radiator copper over each mortise.
@@ -121,15 +121,23 @@ Let:
 - lower-body top = 45.1428571428 mm;
 - interlock split plane = 22.5714285714 mm.
 
+Because both stalks use a one-sided board reference n=-1..0 mm, the other stalk does not occupy a symmetric +/-0.5-mm interval in local u.
+
+Static pre-build transform audit gives:
+- Stalk-B thickness occupies Stalk-A local u = 0..+1 mm.
+- Stalk-A thickness occupies Stalk-B local u = -1..0 mm.
+
+Therefore the complementary interlock cuts are asymmetric:
+
 Stalk A:
-- central slot local |u| <= 0.625 mm;
+- slot local u = -0.125 to +1.125 mm;
 - cut from z=-0.02 to z=22.5914285714 mm.
 
 Stalk B:
-- central slot local |u| <= 0.625 mm;
+- slot local u = -1.125 to +0.125 mm;
 - cut from z=22.5514285714 to z=45.1628571428 mm.
 
-The 1.25-mm slot width provides 0.25-mm total clearance around the 1.0-mm other-board thickness.
+Each slot is 1.25 mm wide, giving 0.125-mm clearance on both sides of the actual 1.0-mm other-board thickness.
 
 The two cuts overlap by 0.04 mm in z to avoid a knife-edge interference at the split plane.
 
@@ -144,7 +152,7 @@ Each stalk also receives two lower FR4 tenons:
 
 The existing reflector/ground-reference metal receives matching slots:
 - local u width = 3.30 mm;
-- local n width = 1.25 mm;
+- local n = -1.125 to +0.125 mm;
 - through z=-0.52 to +0.02 mm.
 
 B1M treats this as a mechanical slot only.
