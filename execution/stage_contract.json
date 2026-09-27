@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "0a77d1a79b71a15f73404e4557d7b7a67def0c6b"
+    "source_commit": "6e1fc2c55e82824172709bae4d27265c8128dbe6"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R3_D2_M0_MANUFACTURABLE_GROUND_MERGE_BUILD_ONLY",
-    "stop_boundary": "D2-M0 BUILD-ONLY AUTHORIZED; NO SOLVE; NO SWEEP",
+    "next_stage": "AR0_B1R_R3_D2_M0R1_BUILD_ONLY",
+    "stop_boundary": "D2-M0R1 BUILD-ONLY RECOVERY AUTHORIZED; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1583,7 +1583,7 @@
     "ar0_b1r_r3_d1r1a_verdict": "NEEDS_OPTIMIZATION",
     "ar0_b1r_r3_d1r1b_verdict": "NEEDS_OPTIMIZATION",
     "ar0_b1r_r3_d1r1_interpretation_doc": "docs/R1E1A4A_AR0_B1R_R3_D1R1_DIAGNOSTIC_INTERPRETATION_V01.md",
-    "ar0_b1r_r3_d2_m0_status": "BUILD_AUTHORIZED_RUNNER_READY",
+    "ar0_b1r_r3_d2_m0_status": "HOLD_BRIDGE_POLYGON_WINDING_FULL_FR4_EMBED",
     "ar0_b1r_r3_d2_m0_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M0_MANUFACTURABLE_GROUND_MERGE_FREEZE_V01.md",
     "ar0_b1r_r3_d2_m0_lower_ground_width_mm": 3.2,
     "ar0_b1r_r3_d2_m0_merge_v_mm": {
@@ -1595,10 +1595,12 @@
         34.85,
         35.35
       ]
-    }
+    },
+    "ar0_b1r_r3_d2_m0r1_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d2_m0r1_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M0R1_BRIDGE_WINDING_RECOVERY_FREEZE_V01.md"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M0_BUILD_ONLY_AUTHORIZED",
+    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M0R1_BUILD_ONLY_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
