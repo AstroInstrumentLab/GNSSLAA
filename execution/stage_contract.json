@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "18d020b9077853c43fb8631ff47629e84890b5ee"
+    "source_commit": "258c7252c51ff72a15a1836cca5b31f09de9e592"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -1455,7 +1455,20 @@
     "ar0_b1m_freeze_doc": "docs/R1E1A4A_AR0_B1M_FULL_MECHANICAL_STALK_FREEZE_V01.md",
     "ar0_b1m_plan": "docs/R1E1A4A_AR0_B1M_BUILD_ONLY_PLAN_V01.md",
     "ar0_b1r_status": "BLOCKED_UNTIL_B1M_PASS_AND_HUMAN_REVIEW",
-    "ar0_b0_ground_onset_status": "GEOMETRY_PLACEHOLDER_NOT_RF_QUALIFIED"
+    "ar0_b0_ground_onset_status": "GEOMETRY_PLACEHOLDER_NOT_RF_QUALIFIED",
+    "ar0_b1m_interlock_a_u_mm": [
+      -0.125,
+      1.125
+    ],
+    "ar0_b1m_interlock_b_u_mm": [
+      -1.125,
+      0.125
+    ],
+    "ar0_b1m_mortise_n_mm": [
+      -1.125,
+      0.125
+    ],
+    "ar0_b1m_prebuild_static_coordinate_audit": "PASS"
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1M_FULL_MECHANICAL_STALK_BUILD_ONLY_AUTHORIZED",
