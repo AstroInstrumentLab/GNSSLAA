@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "e44999e8257b7633e93ea8abc443eede79b4d5bd"
+    "source_commit": "5c1888f6a0b69ac4b2b89a63a2ec90fc606b4f3b"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -1533,7 +1533,7 @@
       "min_power_closure": 0.9930400523300883,
       "max_power_closure": 0.9976037222094962
     },
-    "ar0_b1r_r3_d0_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d0_status": "BUILD_AUTHORIZED_RUNNER_READY",
     "ar0_b1r_r3_d0_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D0_RETURN_PATH_DIAGNOSTIC_FREEZE_V01.md",
     "ar0_b1r_r3_d0_variants": [
       "D0A_DIFFERENTIAL_CONTROL",
