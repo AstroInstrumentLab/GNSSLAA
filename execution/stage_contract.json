@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "3ac6a28e1d4b85a7da0891fccaf5f237e0e51f4d"
+    "source_commit": "209b529807428e014bebe4857a10bc5f72402d8f"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
@@ -1631,7 +1631,9 @@
     "ar0_b1r_r4_a0_e1_interference_status": "FROZEN_V01",
     "ar0_b1r_r4_a0_e1_prebuild_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E1_PREBUILD_MANIFEST_V01.json",
     "ar0_b1r_r4_a0_e1_ground_spokes": "FROZEN_5_SIDE_LANDS_TO_PADDLE",
-    "ar0_b1r_r4_a0_e1_vbias_scope": "PIN1_EM_NODE_R4_CIRCUIT_ONLY_IN_E1"
+    "ar0_b1r_r4_a0_e1_vbias_scope": "PIN1_EM_NODE_R4_CIRCUIT_ONLY_IN_E1",
+    "ar0_b1r_r4_a0_e1_macro_status": "V02_FROZEN_V01_PRE_EXECUTION_SUPERSEDED",
+    "ar0_b1r_r4_a0_e1_build_freeze": "docs/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_FREEZE_V02.md"
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_STATIC_PREBUILD_AUDIT_AND_BUILD_PACKET_FREEZE",
