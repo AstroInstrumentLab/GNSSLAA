@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.2.8",
+  "packet_id": "GNSS-AR0-B1R-R4-A0-E1-BUILD-20260927",
+  "project": {
+    "name": "GNSS_Lband_Active_Array",
+    "repository": "Dingo-infinity2020/GNSS_Lband_Active_Array",
+    "model_identity": "R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE"
+  },
+  "stage": {
+    "name": "R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY",
+    "target_control_host": "NW",
+    "source_macro": "source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V01.mcr",
+    "target_artifact": "R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V01.cst",
+    "stop_boundary": "build + fresh-reopen + interference audit + human review; no solve"
+  },
+  "authorization": {
+    "BUILD_AUTHORIZED": false,
+    "SOLVE_AUTHORIZED": false,
+    "LNA_INTEGRATION_AUTHORIZED": false
+  },
+  "invariants": {
+    "port_count": 6,
+    "differential_port_count": 0,
+    "substrate_thickness_mm": 1,
+    "copper_thickness_mm": 0.035,
+    "paddle_via_count": 3,
+    "dedicated_decoupler_ground_via_count": 1,
+    "remote_ground_merge_present": false,
+    "active_QPL9547_inside_CST": false
+  },
+  "evidence_required": [
+    "static prebuild audit",
+    "build inventory",
+    "port endpoint table",
+    "via coordinate table",
+    "interference/clearance audit",
+    "fresh-reopen inventory",
+    "fresh-reopen artifact SHA256",
+    "human 3D review checklist"
+  ],
+  "execution": {
+    "silent_retry_allowed": false,
+    "dry_run": false,
+    "solver_launch_budget": 0
+  }
+}
