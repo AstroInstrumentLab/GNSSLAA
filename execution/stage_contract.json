@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "b563c531a3a9d7685850f73dbc72bea3989b7233"
+    "source_commit": "dd14b984c25c7e4b3db3096df76e9d8fb661c642"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R3_D2_M2_RETURN_PATH_FIXTURE_MECHANISM_PROBE_AWAIT_AUTH",
-    "stop_boundary": "M1 POL-A PASS; POL-B NUMERICAL QUALIFICATION HOLD; NO RETRY; AWAIT M2 MECHANISM-PROBE AUTHORIZATION",
+    "next_stage": "AR0_B1R_R4_A0_C0_CIRCUIT_REFERENCE_AND_A0_E1_LANDING_ZONE_FREEZE",
+    "stop_boundary": "PRE-SIM FREEZE COMPLETE; NO REMOTE CALL; NO BUILD/SOLVE; FREEZE LANDING-ZONE FOOTPRINT/PORT/LOCAL-GROUND CONTRACT NEXT",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1608,10 +1608,16 @@
     "ar0_b1r_r3_d2_m1a_solved_sha256": "004aea3571dfaa4616c3e225b01b74a9acc323496f47cf4187c9d50bc30a869e",
     "ar0_b1r_r3_d2_m1b_solved_sha256": "8e14b35185d07d1ceb470aa98197131cfb8a06bb24bf9dc893c2fdc93186990b",
     "ar0_b1r_r3_d2_m1_interpretation_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M1_DUAL_POL_INTERPRETATION_V01.md",
-    "ar0_b1r_r3_d2_m1_primary_finding": "SHARED_SEVERE_MISMATCH_FROM_LONG_REMOTE_RETURN_NETWORK; AB_ASYMMETRY_SECONDARY_IN_CURRENT_ONE_SHOT_EVIDENCE"
+    "ar0_b1r_r3_d2_m1_primary_finding": "SHARED_SEVERE_MISMATCH_FROM_LONG_REMOTE_RETURN_NETWORK; AB_ASYMMETRY_SECONDARY_IN_CURRENT_ONE_SHOT_EVIDENCE",
+    "ar0_b1r_r4_a0_status": "PASS_ACTIVE_INTERFACE_PRE_SIM_FREEZE",
+    "ar0_b1r_r4_a0_freeze_doc": "docs/R1E1A4A_AR0_B1R_R4_A0_ACTIVE_INTERFACE_PRE_SIM_FREEZE_V01.md",
+    "ar0_b1r_r4_a0_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_ACTIVE_INTERFACE_MANIFEST_V01.json",
+    "qpl9547_g0_authority": "circuit/qpl9547/QPL9547_G0_MODEL_AUTHORITY_V01.md",
+    "d2_m2_status": "DEFERRED_CONTINGENCY_NOT_MAINLINE",
+    "passive_fixture_s11_role": "DIAGNOSTIC_ONLY_NOT_PRODUCT_MATCH_AUTHORITY"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R3_D2_M2_RETURN_PATH_FIXTURE_MECHANISM_PROBE_AWAIT_AUTH",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_C0_CIRCUIT_REFERENCE_AND_A0_E1_LANDING_ZONE_FREEZE",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1619,8 +1625,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVES",
-    "last_status": "HOLD_R1E1A4A_AR0_B1R_R3_D2_M1_PARTIAL",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_ACTIVE_INTERFACE_PRE_SIM_FREEZE",
+    "last_status": "PASS_ACTIVE_INTERFACE_PRE_SIM_FREEZE",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
