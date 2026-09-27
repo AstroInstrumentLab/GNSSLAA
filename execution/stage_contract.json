@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "209b529807428e014bebe4857a10bc5f72402d8f"
+    "source_commit": "93c80040a58eca00c0f7f8a4729e6bfd64b7a9e4"
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_STATIC_PREBUILD_AUDIT_AND_BUILD_PACKET_FREEZE",
-    "stop_boundary": "NO REMOTE; RUN REPO-LOCAL STATIC PREBUILD AUDIT + FREEZE BUILD-ONLY TASK/EVIDENCE CONTRACT; THEN AWAIT BUILD AUTH",
+    "next_stage": "AR0_B1R_R4_A0_E1_BUILD_ONLY_AWAIT_AUTH",
+    "stop_boundary": "ALL PRE-REMOTE CONTRACTS FROZEN; BUILD/SOLVE OFF; AWAIT A0-E1 BUILD-ONLY AUTHORIZATION",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1633,10 +1633,12 @@
     "ar0_b1r_r4_a0_e1_ground_spokes": "FROZEN_5_SIDE_LANDS_TO_PADDLE",
     "ar0_b1r_r4_a0_e1_vbias_scope": "PIN1_EM_NODE_R4_CIRCUIT_ONLY_IN_E1",
     "ar0_b1r_r4_a0_e1_macro_status": "V02_FROZEN_V01_PRE_EXECUTION_SUPERSEDED",
-    "ar0_b1r_r4_a0_e1_build_freeze": "docs/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_FREEZE_V02.md"
+    "ar0_b1r_r4_a0_e1_build_freeze": "docs/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_FREEZE_V02.md",
+    "ar0_b1r_r4_a0_e1_source_audit": "PASS_STATIC_RECOVERY",
+    "ar0_b1r_r4_a0_e1_runner": "scripts/run_r1e1a4a_ar0_b1r_r4_a0_e1_build_only.py"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_STATIC_PREBUILD_AUDIT_AND_BUILD_PACKET_FREEZE",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_AWAIT_AUTH",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1644,8 +1646,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_DIMENSIONED_PLACEMENT_MATERIAL_PORT_CONTRACT",
-    "last_status": "PASS_R4_A0_E1_DIMENSIONED_CONTRACT_FREEZE",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_PREBUILD_STATIC_AND_SOURCE_FREEZE",
+    "last_status": "PASS_R4_A0_E1_PREBUILD_READY_AWAIT_BUILD_AUTH",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
