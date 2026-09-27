@@ -3,28 +3,25 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_T1_HUMAN_3D_REVIEW_AWAIT_USER
+R1E1A4A_AR0_B1R_T2F_FIXTURE_BUILD_ONLY_AUTHORIZED
 
-BUILD_AUTHORIZED: false
+BUILD_AUTHORIZED: true
 SOLVE_AUTHORIZED: false
 
-AR0-B1R-T1 status:
+Parent:
 PASS_R1E1A4A_AR0_B1R_T1_GROUND_ACQUISITION_BUILD_ONLY
+SHA256 3144672323cbd4123d6413e7d9ae8f4842b78707d3a71b641748c7250ca2a8f6
 
-Formal build invocations: 1
-Solver invocations: 0
+T2F:
+canonical Pol-A local transition coupon extracted from exact T1 geometry.
 
-T1 nominal transition:
-L_bal = 1.50 mm
-L_taper = 3.00 mm
-full ground begins at v=4.50 mm
-W_ground = 3.60 mm
-signal width = 1.90 mm
-stalk thickness = 1.00 mm
+Retained geometry:
+two prongs + two signals + two taper grounds.
 
-Evidence:
-evidence/r1e1a4a_ar0_b1r_t1_nw_20260927_build01/
+Ports:
+- P1 = 100-ohm differential input at v=0;
+- P2 = 50-ohm + branch signal-to-ground at v=10 mm;
+- P3 = 50-ohm - branch signal-to-ground at v=10 mm.
 
-No EM qualification has been performed.
-Stop boundary:
-Await human 3D review; no solve.
+No solver.
+Stop after fixture build qualification and human review.
