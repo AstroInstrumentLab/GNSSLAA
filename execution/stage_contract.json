@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "c6d713693af396ff498eb0368bfed2b387d62e88"
+    "source_commit": "0a77d1a79b71a15f73404e4557d7b7a67def0c6b"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -1583,7 +1583,7 @@
     "ar0_b1r_r3_d1r1a_verdict": "NEEDS_OPTIMIZATION",
     "ar0_b1r_r3_d1r1b_verdict": "NEEDS_OPTIMIZATION",
     "ar0_b1r_r3_d1r1_interpretation_doc": "docs/R1E1A4A_AR0_B1R_R3_D1R1_DIAGNOSTIC_INTERPRETATION_V01.md",
-    "ar0_b1r_r3_d2_m0_status": "BUILD_AUTHORIZED",
+    "ar0_b1r_r3_d2_m0_status": "BUILD_AUTHORIZED_RUNNER_READY",
     "ar0_b1r_r3_d2_m0_freeze_doc": "docs/R1E1A4A_AR0_B1R_R3_D2_M0_MANUFACTURABLE_GROUND_MERGE_FREEZE_V01.md",
     "ar0_b1r_r3_d2_m0_lower_ground_width_mm": 3.2,
     "ar0_b1r_r3_d2_m0_merge_v_mm": {
