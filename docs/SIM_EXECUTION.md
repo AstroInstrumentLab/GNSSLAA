@@ -3,24 +3,50 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_R3_D2_M1_AB_SOLVES_AUTHORIZED
+R1E1A4A_AR0_B1R_R3_D2_M2_RETURN_PATH_FIXTURE_MECHANISM_PROBE_AWAIT_AUTH
 
 BUILD_AUTHORIZED: false
-SOLVE_AUTHORIZED: true
+SOLVE_AUTHORIZED: false
 
-Pol-A fixture:
-33294aa6200264135582ec0c0742a1b4e6ca7b2148e1adece2f64388d81d3dd6
+D2-M1 execution:
+Pol-A formal solve count = 1
+Pol-B formal solve count = 1
+automatic retries = 0
 
-Pol-B fixture:
-11b3576ff5efb4326a761554fb94d8588d22c54691d713f8181c359415bdb70e
-PASS_R1E1A4A_AR0_B1R_R3_D2_M1B_RF_FIXTURE_BUILD_ONLY
+Pol-A:
+PASS_R1E1A4A_AR0_B1R_R3_D2_M1A_CHARACTERIZED
+solved SHA256 004aea3571dfaa4616c3e225b01b74a9acc323496f47cf4187c9d50bc30a869e
+final Delta-S 7.7989e-6, 7.2766e-6
+worst S11 -0.2891 dB
+worst amp imbalance 0.02760 dB
+worst phase error 0.02152 deg
+worst CMR -55.97 dB
+worst normalized excess loss 1.2923 dB
 
-Authorized:
-one NW solve each for A and B
-same 1.0..1.8 GHz adaptive HF-FD configuration
-no retry
-no sweep
+Pol-B:
+HOLD_R1E1A4A_AR0_B1R_R3_D2_M1B_QUALIFICATION
+solved SHA256 8e14b35185d07d1ceb470aa98197131cfb8a06bb24bf9dc893c2fdc93186990b
+final Delta-S 0.0292048, 6.5632e-6
+No retry authorized.
+RF values are diagnostic only.
 
-Comparison measures the total manufacturable A/B lower-stalk asymmetry:
-complementary half-lap slot + supported ground-merge geometry.
-It is not a pure bridge-height-only experiment.
+A/B diagnostic comparison:
+max abs delta S11 over 1.15..1.65 GHz = 0.02761 dB
+L5 delta Zin B-A = -0.35 + j2.14 ohm
+L2 delta Zin B-A = -0.53 + j1.70 ohm
+L1 delta Zin B-A = -168.21 - j154.50 ohm
+
+Interpretation:
+A/B lower-stalk asymmetry is not the dominant observed problem.
+Both polarizations share severe mismatch after the long lower-ground / remote common-return network is introduced.
+Large delta-Z maxima occur in a near-total-reflection region and are not a robust standalone asymmetry metric.
+
+Compared with D1R1-B local diagnostic closure, the remote manufacturable return network changes the RF response dramatically.
+
+Next proposed stage:
+AR0_B1R_R3_D2_M2_RETURN_PATH_FIXTURE_MECHANISM_PROBE
+
+Goal:
+separate local closure, long ground continuation, remote merge, and passive-fixture/loading effects before any matching sweep.
+
+No build or solve authorized.
