@@ -65,7 +65,7 @@ def read_s_and_adaptive(cst):
         seq=[{"pass":int(round(float(r[0]))),"delta_s":float(complex(r[1]).real)}
              for r in p3.get_result_item(delta_paths[-1]).get_data()]
     if mesh_paths:
-        mesh=[{"pass":int(round(float(r[0]))),"cells":int(round(float(complex(r[1]).real))}
+        mesh=[{"pass":int(round(float(r[0]))),"cells":int(round(float(complex(r[1]).real)))}
               for r in p3.get_result_item(mesh_paths[-1]).get_data()]
     adaptive={"delta_path":delta_paths[-1] if delta_paths else None,
               "mesh_path":mesh_paths[-1] if mesh_paths else None,
