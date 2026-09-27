@@ -3,7 +3,7 @@
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
-    "source_commit": "258c7252c51ff72a15a1836cca5b31f09de9e592"
+    "source_commit": "638bb446153cecda60c82f53cdc545c6aa1f3be6"
   },
   "authorization": {
     "BUILD_AUTHORIZED": true,
@@ -24,7 +24,7 @@
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
     "next_stage": "AR0_B1M_FULL_MECHANICAL_STALK_BUILD_ONLY",
-    "stop_boundary": "B1M BUILD-ONLY AUTHORIZED; STOP AFTER BUILD/HUMAN REVIEW; NO SOLVE",
+    "stop_boundary": "B1M BUILD-ONLY AUTHORIZED; ONE FORMAL BUILD; STOP AFTER BUILD/HUMAN REVIEW; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1451,7 +1451,7 @@
     "ar0_b0_slot_halfwidth_mm": 1,
     "ar0_b0_prebuild_static_collision_check": "PASS",
     "ar0_b0g_status": "PASS_R1E1A4A_AR0_B0G_FEED_HEAD_BUILD_ONLY",
-    "ar0_b1m_status": "BUILD_AUTHORIZED",
+    "ar0_b1m_status": "BUILD_AUTHORIZED_RUNNER_READY",
     "ar0_b1m_freeze_doc": "docs/R1E1A4A_AR0_B1M_FULL_MECHANICAL_STALK_FREEZE_V01.md",
     "ar0_b1m_plan": "docs/R1E1A4A_AR0_B1M_BUILD_ONLY_PLAN_V01.md",
     "ar0_b1r_status": "BLOCKED_UNTIL_B1M_PASS_AND_HUMAN_REVIEW",
