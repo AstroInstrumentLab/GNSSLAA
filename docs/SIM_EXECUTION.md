@@ -3,28 +3,23 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1M_FULL_MECHANICAL_STALK_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1M_HUMAN_3D_REVIEW_AWAIT_USER
 
-BUILD_AUTHORIZED: true
+BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
-Authority:
-- docs/R1E1A4A_AR0_B1M_FULL_MECHANICAL_STALK_FREEZE_V01.md
-- docs/R1E1A4A_AR0_B1M_BUILD_ONLY_PLAN_V01.md
-- execution/task_packets/R1E1A4A_AR0_B1M_task.json
+AR0-B1M status:
+PASS_R1E1A4A_AR0_B1M_FULL_MECHANICAL_STALK_BUILD_ONLY
 
-Parent:
-PASS_R1E1A4A_AR0_B0G_FEED_HEAD_BUILD_ONLY
-SHA256 6b027162dd93d8613a0943df0fd96d6bf65d6721893e49c8d8bdc17f8f5eb698
+Formal build invocations: 1
+Solver invocations: 0
 
-B1M scope:
-complete mechanical support only:
-radiator mortises -> orthogonal stalks -> center interlock -> reflector mortises.
+Evidence:
+evidence/r1e1a4a_ar0_b1m_nw_20260927_build01/
 
-The B0 feed head remains unchanged.
-Its abrupt 3-mm ground onset is a geometry placeholder and is not RF-qualified.
+The B0 feed head remains RF-unqualified at its abrupt ground onset.
+No passive EM solve is allowed until B1R replaces/qualifies the balanced-throat to twin-MSL transition.
 
-Stop:
-after B1M build qualification and human 3D review.
-No solver.
+Stop boundary:
+Await human 3D review; no solve.
