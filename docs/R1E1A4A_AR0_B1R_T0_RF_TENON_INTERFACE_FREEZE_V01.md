@@ -90,11 +90,20 @@ A first-cut solder bridge is represented explicitly between:
 - the exposed stalk-tenon copper;
 - the edge of the radiator top copper surrounding the RF mortise.
 
-Per terminal:
-- width along u = 1.90 mm;
+Per terminal the solder bridge runs toward the radiator arm, not across the stalk-thickness direction.
+
+For the +u terminal:
+- local u = +3.95 to +4.25 mm.
+
+For the -u terminal:
+- local u = -4.25 to -3.95 mm.
+
+For both:
 - local n = +0.035 to +0.125 mm;
 - z = 58.1428571428 to 58.4278571428 mm;
 - material = engineering solder proxy, sigma=7e6 S/m.
+
+Thus the bridge spans the 0.30-mm clearance from the 1.90-mm vertical tongue-copper edge to the outward edge of the 2.50-mm radiator mortise.
 
 This is a manufacturability proxy, not a final solder-fillet shape.
 
