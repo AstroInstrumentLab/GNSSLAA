@@ -177,8 +177,10 @@ def run(repo,evidence,work,parent,macro):
       "t2f_outn_sig_x","t2f_outn_sig_y","t2f_outn_gnd_x","t2f_outn_gnd_y",
       "t2f_output_z"
     )
-    runtime_present=all(k in bp and k in rp for k in runtime_names)
-    runtime_equal=runtime_present and all(close(bp[k],rp[k]) for k in runtime_names)
+    # CST 2022 may delay derived parameter t2f_output_z until fresh reopen.
+    immediate_required=tuple(k for k in runtime_names if k!="t2f_output_z")
+    runtime_present=all(k in bp and k in rp for k in immediate_required) and all(k in rp for k in runtime_names)
+    runtime_equal=runtime_present and all(close(bp[k],rp[k]) for k in immediate_required)
     endpoint_ok=runtime_present and all([
       close(rp["t2f_p1_x"],exp["p1"][0]), close(rp["t2f_p1_y"],exp["p1"][1]),
       close(rp["t2f_p2_x"],exp["p2"][0]), close(rp["t2f_p2_y"],exp["p2"][1]),
@@ -198,8 +200,8 @@ def run(repo,evidence,work,parent,macro):
       "retained_signature_parent_reopen_equal":sig_parent==sig_reopen,
       "build_port_count_3":port_count(build_sta)==3,
       "reopen_port_count_3":port_count(reopen_sta)==3,
-      "runtime_endpoint_params_present":runtime_present,
-      "runtime_endpoint_params_build_reopen_equal":runtime_equal,
+      "runtime_endpoint_params_present_with_output_z_reopen_authority":runtime_present,
+      "runtime_endpoint_common_build_reopen_equal":runtime_equal,
       "runtime_endpoint_geometry_exact":endpoint_ok,
       "fresh_reopen_hash_stable":sha(out)==build_sha,
       "solver_tree_empty":len(tree)==0
