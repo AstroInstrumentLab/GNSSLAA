@@ -48,9 +48,26 @@ def calc(data):
 def max_in(rows,key,lo,hi): return max(r[key] for r in rows if lo<=r["f_GHz"]<=hi)
 def min_in(rows,key,lo,hi): return min(r[key] for r in rows if lo<=r["f_GHz"]<=hi)
 
+def read_adaptive(cst,tree):
+    pf=ProjectFile(str(cst),allow_interactive=True)
+    p3=pf.get_3d()
+    delta_paths=[x for x in tree if "Adaptive Meshing" in x and x.endswith(r"Delta\All S-Parameters")]
+    mesh_paths=[x for x in tree if "Adaptive Meshing" in x and x.endswith(r"Meshcells")]
+    seq=[]; mesh=[]
+    if delta_paths:
+        d=p3.get_result_item(delta_paths[-1]).get_data()
+        seq=[{"pass":int(round(float(r[0]))),"delta_s":float(complex(r[1]).real)} for r in d]
+    if mesh_paths:
+        m=p3.get_result_item(mesh_paths[-1]).get_data()
+        mesh=[{"pass":int(round(float(r[0]))),"cells":int(round(float(complex(r[1]).real)))} for r in m]
+    return {"delta_path":delta_paths[-1] if delta_paths else None,
+            "mesh_path":mesh_paths[-1] if mesh_paths else None,
+            "delta_sequence":seq,"meshcells":mesh}
+
 def main(cst,outdir):
     outdir=Path(outdir); outdir.mkdir(parents=True,exist_ok=True)
     data,tree=read(cst); rows=calc(data)
+    adaptive=read_adaptive(cst,tree)
     with (outdir/"t2s_metrics.csv").open("w",newline="") as f:
         w=csv.DictWriter(f,fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
     lo,hi=1.15,1.65
@@ -89,8 +106,14 @@ def main(cst,outdir):
         verdict="STRONG_CONCERN"
     else:
         verdict="NEEDS_OPTIMIZATION"
+    seq=adaptive["delta_sequence"]
+    numerical_pass=(len(seq)>=2 and seq[-1]["delta_s"]<=0.02 and seq[-2]["delta_s"]<=0.02)
     out={"decision_band_GHz":[lo,hi],"reference_samples":samples,"core":core,"diagnostics":diag,"scientific_verdict":verdict,
-         "sparameter_tree_present":all((r"1D Results\S-Parameters\S%d,%d"%(i,j)) in tree for i in (1,2,3) for j in (1,2,3))}
+         "sparameter_tree_present":all((r"1D Results\S-Parameters\S%d,%d"%(i,j)) in tree for i in (1,2,3) for j in (1,2,3)),
+         "adaptive":adaptive,
+         "numerical_pass":numerical_pass,
+         "passes_executed":adaptive["meshcells"][-1]["pass"] if adaptive["meshcells"] else (seq[-1]["pass"] if seq else None),
+         "final_two_delta_s":[seq[-2]["delta_s"],seq[-1]["delta_s"]] if len(seq)>=2 else None}
     (outdir/"t2s_metrics_summary.json").write_text(json.dumps(out,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(out,indent=2))
 if __name__=="__main__":
