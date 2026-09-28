@@ -8,7 +8,7 @@ if LIBS not in sys.path:
 import cst.interface as ci
 from cst.results import ProjectFile
 
-EXPECTED_SOURCE_SHA256="a0e4bda5c64ea712564db76441721ca6dc147c97c061360a16a7d21f272f787a"
+EXPECTED_SOURCE_SHA256="aee6bc30085c002b6063de80f110096f6b62911bf897007d133b309e5a962b36"
 SOLVER_HISTORY_LABEL="R4-A0-E1 passive EM solver config V01"
 
 EXPECTED_PORTS={
