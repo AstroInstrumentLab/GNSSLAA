@@ -35,7 +35,7 @@
     "analytic_volume_status": "diagnostic_only"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "LNA_INTEGRATION_AUTHORIZED": false
   },
@@ -44,5 +44,6 @@
     "solver_invocations": 0,
     "automatic_retries": 0,
     "silent_retry": false
-  }
+  },
+  "authorization_note": "User explicitly authorized exactly one E2A Pol-A V02 recovery BUILD-ONLY invocation on 2026-09-28. No solve authorization. No automatic retry."
 }
