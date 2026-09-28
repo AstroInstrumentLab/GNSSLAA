@@ -295,3 +295,19 @@ Formal solver budget: 1
 Automatic retry budget: 0
 Solve host: NW
 Stop after read-only six-port qualification; no retry.
+
+
+## E1-S0 post-human provenance rebaseline
+
+Pre-solve source hash drift was detected before any solver invocation.
+Dedicated identity audit PASSed: exact 36 solids/materials, exact six ports/coordinates, persistent V03 History, empty result tree, stable current hash.
+
+Build-pass SHA256:
+a0e4bda5c64ea712564db76441721ca6dc147c97c061360a16a7d21f272f787a
+
+Canonical post-human source SHA256:
+aee6bc30085c002b6063de80f110096f6b62911bf897007d133b309e5a962b36
+
+Classification: provenance-only rebaseline; no scientific model or solve-gate change.
+Formal solver budget remains 0/1 consumed.
+SOLVE_AUTHORIZED remains true for exactly one E1-S0 solve.
