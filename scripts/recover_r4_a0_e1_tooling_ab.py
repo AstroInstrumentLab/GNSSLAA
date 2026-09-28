@@ -107,7 +107,7 @@ def nondestructive_query(base,root):
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); p=None
     try:
         p=de.open_project(str(base))
-        ok=bool(p.schematic.execute_vba_code(wrap("\\n".join(lines))))
+        ok=bool(p.schematic.execute_vba_code(wrap("\n".join(lines))))
     finally:
         if p is not None: p.close()
         de.close()
