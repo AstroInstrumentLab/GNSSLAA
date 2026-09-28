@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_AWAIT_AUTH
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_AUTHORIZED
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -538,3 +538,14 @@ A new explicit BUILD authorization is required.
 
 Current minimum: SimulationOps 0.2.12.
 Global rule added: analytic primitive volume is diagnostic unless CST/ACIS Boolean equivalence is qualified; use CST-native kernel reference for tight volume gates.
+
+
+## E2A Pol-A V02 recovery build authorization — 2026-09-28
+
+BUILD_AUTHORIZED: true
+SOLVE_AUTHORIZED: false
+Recovery class: NO_GEOMETRY_REDESIGN
+Formal build budget: 1
+Solver invocation budget: 0
+Automatic retry budget: 0
+Kernel-reference preflight must pass before the unchanged production History executes.
