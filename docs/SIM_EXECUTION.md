@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AWAIT_AUTH
+R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AUTHORIZED
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -285,3 +285,13 @@ SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
 No remote calls were used for this contract freeze.
+
+
+## E1-S0 solve authorization — 2026-09-28
+
+SOLVE_AUTHORIZED: true
+BUILD_AUTHORIZED: false
+Formal solver budget: 1
+Automatic retry budget: 0
+Solve host: NW
+Stop after read-only six-port qualification; no retry.
