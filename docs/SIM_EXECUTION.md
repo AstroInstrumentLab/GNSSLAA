@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AUTHORIZED
+R1E1A4A_AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -311,3 +311,49 @@ aee6bc30085c002b6063de80f110096f6b62911bf897007d133b309e5a962b36
 Classification: provenance-only rebaseline; no scientific model or solve-gate change.
 Formal solver budget remains 0/1 consumed.
 SOLVE_AUTHORIZED remains true for exactly one E1-S0 solve.
+
+
+## E1-S0 passive EM solve result
+
+Status:
+PASS_R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_CHARACTERIZED
+
+Disposition:
+PASS_CHARACTERIZED_NETWORK_CLEAN_SENTINELS
+
+Formal solver invocations: 1
+Automatic retries: 0
+
+Solved artifact SHA256:
+bd487a52e342284fe7cdf4b6a35c0a7fc23296e97560f9603451bbf6f0b6349c
+
+Native CST mesh-adaptation authority:
+- pass 3 DeltaS = 0.00772936
+- pass 4 DeltaS = 0.00465735
+- CST terminated adaptation because desired accuracy was reached
+
+Network integrity:
+- complete 6x6 network: PASS
+- native frequency grid: 1001 points, 1.0–1.8 GHz
+- max |Sij-Sji| = 4.233e-7: PASS
+- max sum_i |Sij|^2 = 0.999045: PASS
+- fatal solver error: false
+- mesh corruption: false
+
+Coupling:
+- strongest P_IN/P_OUT bypass = -68.99 dB
+- E_UP/E_DN bypass = -49.44 dB
+- no unintended coupling exceeded -20 dB
+- no E1-M1 mechanism probe required
+
+Native warning:
+large input reflection at 1.8 GHz.
+This is interpretation-only because the passive EM coupon intentionally leaves C_IN/QPL9547/C_OUT/L1 in the circuit domain. It is not product input-match authority.
+
+The cst.results convergence series is retained as secondary evidence; native output.txt is the primary mesh-adaptation authority because the two representations are numerically different though both independently pass the 0.02 threshold.
+
+SOLVE_AUTHORIZED: false
+BUILD_AUTHORIZED: false
+
+Next:
+R1E1A4A_AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE
