@@ -57,6 +57,24 @@ Implementation refinement:
 
 This prevents assigning source-impedance meaning to a device port that is physically disconnected by an unmodeled DC-block gap.
 
+## 0D. A0-E2 loaded first-solve amendment — authoritative
+
+The first E2A solve is no longer a mandatory full raw 12x12 extraction.
+
+Authority:
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_LOADED_SOURCE_SOLVE_FREEZE_V01.md`
+
+First-solve condition:
+- expose/excite A_E_UP, A_P_IN, B_E_UP, B_P_IN;
+- terminate A_P_OUT and B_P_OUT in matched 50-ohm loads;
+- leave E_DN / B_VDD / B_VBIAS physical pads open by removing those audit ports from the solver copy;
+- qualify 24 complex responses (6 rows x 4 source excitations), not 144 terms.
+
+This is a source-side characterization baseline.
+It does not replace the later full-network requirement for arbitrary output load, reverse feedback, active stability or complete transistor/circuit co-simulation.
+
+Pol-B promotion uses the same loaded condition and no longer requires a full 12-port Pol-A solve first.
+
 ## 1. Current proven state
 
 H3A V0.2 mechanics are accepted. H3B-T01A GCPW 90-degree transition BUILD is accepted, and its maxpass16 numerical recovery converged at adaptive pass 12.
