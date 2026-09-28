@@ -105,13 +105,17 @@ def nondestructive_query(base,root):
           'Print #f, "Q|'+tag+'|ERR=" & CStr(Err.Number) & "|INTERSECT=" & CStr(q)']
     lines += ["Close #f","On Error GoTo 0"]
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); p=None
+    ok=False; err=None
     try:
         p=de.open_project(str(base))
         ok=bool(p.schematic.execute_vba_code(wrap("\n".join(lines))))
+    except Exception as ex:
+        err=repr(ex)
     finally:
         if p is not None: p.close()
         de.close()
-    return {"invoke_ok":ok,"text":out.read_text(encoding="utf-8") if out.exists() else ""}
+    return {"invoke_ok":ok,"supported":err is None,"exception":err,
+            "text":out.read_text(encoding="utf-8") if out.exists() else ""}
 
 def main(source,outdir):
     source=Path(source); root=Path(outdir)
