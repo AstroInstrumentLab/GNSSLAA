@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_CONTRACT_FREEZE
+R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AWAIT_AUTH
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -234,3 +234,54 @@ R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_CONTRACT_FREEZE
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 No solver invocation follows automatically.
+
+
+## E1-S0 passive EM solve contract freeze
+
+Status:
+PASS_R4_A0_E1_PASSIVE_EM_PRESOLVE_FREEZE_READY_AWAIT_SOLVE_AUTH
+
+Freeze:
+docs/R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_FREEZE_V01.md
+
+Protected V03 source SHA256:
+a0e4bda5c64ea712564db76441721ca6dc147c97c061360a16a7d21f272f787a
+
+Solver config:
+source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVER_CONFIG_V01.mcr
+blob 14554ad16fb7cb982ed7d9c03d0dc662bb4dec88
+
+Runner:
+scripts/run_r1e1a4a_ar0_b1r_r4_a0_e1_passive_em_solve.py
+blob 81379f68d79d229b713edd2ee2d06b3cec1853f4
+
+Route:
+NW only for this stage.
+Complete-project copy of protected V03 source.
+One formal solver invocation.
+Zero automatic retries.
+
+Hard gates:
+- final two DeltaS <= 0.02
+- complete common-run 6x6 S matrix
+- max |Sij-Sji| <= 0.02
+- max sum_i |Sij|^2 <= 1.02
+- no fatal solver error
+- no mesh corruption
+
+Interpretation:
+S11 is diagnostic only.
+E_UP-to-E_DN transmission is not final insertion loss because C_IN/QPL9547/C_OUT/L1 remain circuit-domain gaps.
+Unintended coupling > -20 dB is a review sentinel, not a hard physics FAIL.
+
+If hard gates PASS with no coupling review:
+next = A0-E2 integrated antenna EM contract freeze.
+
+If hard gates PASS with coupling review:
+next = narrow E1-M1 field/current/loss mechanism probe.
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+LNA_INTEGRATION_AUTHORIZED: false
+
+No remote calls were used for this contract freeze.
