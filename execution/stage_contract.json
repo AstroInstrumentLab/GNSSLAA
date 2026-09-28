@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2.11",
+  "schema_version": "0.2.12",
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
@@ -26,7 +26,7 @@
     "next_stage": "AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_AWAIT_AUTH",
     "stop_boundary": "E2A ATTEMPT-1 AUDIT HOLD ROOT CAUSE PROVEN; V02 NO-GEOMETRY-REDESIGN RECOVERY FROZEN; AWAIT ONE NEW BUILD-ONLY AUTHORIZATION; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
-    "simulationops_min": "0.2.11",
+    "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
     "h3bi01_status": "READY_AFTER_H3B_COMPLETE_PASSIVE_UNIT",
     "h3cc01_status": "BLOCKED_UNTIL_R1E2_ACTIVE_IMPEDANCE_ATLAS",
@@ -1754,8 +1754,8 @@
   "global_protocol": {
     "repository": "Dingo-infinity2020/SimulationOps",
     "document": "GLOBAL_DC_SIMULATION_PROTOCOL.md",
-    "protocol_version": "0.2.11",
-    "minimum_compatible_version": "0.2.11"
+    "protocol_version": "0.2.12",
+    "minimum_compatible_version": "0.2.12"
   },
   "toolchain": {
     "simulator": "CST Studio Suite",
