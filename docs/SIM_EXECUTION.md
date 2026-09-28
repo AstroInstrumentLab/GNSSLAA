@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_SOURCE_IMPLEMENTATION
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -363,3 +363,43 @@ R1E1A4A_AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE
 
 Next-stage minimum: SimulationOps 0.2.11.
 New global rules captured from E1-S0: post-human/GUI CST source-hash integrity and native-vs-result-tree convergence authority.
+
+
+## E2A Pol-A integrated EM contract freeze
+
+Status:
+PASS_R4_A0_E2A_POLA_CONTRACT_FROZEN_SOURCE_IMPLEMENTATION_NEXT
+
+Authority:
+- docs/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_INTEGRATED_EM_FREEZE_V01.md
+- execution/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_INTEGRATED_EM_MANIFEST_V01.json
+
+Key correction:
+the four QPL9547 device-lead planes remain frozen, but raw CST E2 extraction is twelve-node, not a literal four-port. This is required because C_IN/C_OUT/L1/decoupling/R4 remain circuit-domain elements; collapsing the raw EM model to four ports before inserting those passives would disconnect the radiator from P_IN and destroy source-condition meaning.
+
+Pol-A pilot:
+- full radiator retained;
+- accepted orthogonal mechanical/dielectric environment retained;
+- inactive Pol-B feed held as open signal stub only through the v=3 handoff;
+- two Pol-A E1 cells inserted from v=3..13 on u=+/-3 branches;
+- same package rotation on both branches;
+- G-L0 branch-local grounds only;
+- no G-L1 merge;
+- no historical D2 remote ground merge;
+- eight active-region plated vias total;
+- exactly twelve raw single-ended 50-ohm ports after build.
+
+Frozen device planes:
+raw ports 2/3/8/9 = P1A_IN / P1A_OUT / P1B_IN / P1B_OUT.
+
+Pol-A -> Pol-B:
+Pol-B is blocked until Pol-A build + human geometry + raw 12-port hard solve PASS. Any unresolved >-20 dB coupling review or resonance mechanism blocks direct promotion.
+
+Current stage:
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_SOURCE_IMPLEMENTATION
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+LNA_INTEGRATION_AUTHORIZED: false
+
+No remote calls were used for this freeze.
