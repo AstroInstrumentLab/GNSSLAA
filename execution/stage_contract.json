@@ -23,10 +23,10 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_BUILD_HOLD_RECOVERY_CONTRACT_FREEZE",
-    "stop_boundary": "FORMAL A0-E1 BUILD ATTEMPT 1 CONSUMED; NO RETRY; NO SOLVE; RECOVERY CONTRACT REQUIRED",
+    "next_stage": "AR0_B1R_R4_A0_E1_RECOVERY_TOOLING_API_PROBE",
+    "stop_boundary": "V03 STATIC NO-GEOMETRY-REDESIGN PASS; BUILD/SOLVE OFF; CST2022 TOOLING API PROBE REQUIRED BEFORE RECOVERY BUILD AUTH",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
-    "simulationops_min": "0.2.8",
+    "simulationops_min": "0.2.10",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
     "h3bi01_status": "READY_AFTER_H3B_COMPLETE_PASSIVE_UNIT",
     "h3cc01_status": "BLOCKED_UNTIL_R1E2_ACTIVE_IMPEDANCE_ATLAS",
@@ -1642,10 +1642,13 @@
     "ar0_b1r_r4_a0_e1_build_artifact_sha256": "f5ee6fceab2c26db5d4d63365e37abec65b87698633c577e1ca87613b86a9745",
     "ar0_b1r_r4_a0_e1_observed_port_count": 0,
     "ar0_b1r_r4_a0_e1_pairwise_intersect_error": -2147418113,
-    "ar0_b1r_r4_a0_e1_build_hold_result": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD_20260928_result.json"
+    "ar0_b1r_r4_a0_e1_build_hold_result": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD_20260928_result.json",
+    "ar0_b1r_r4_a0_e1_recovery_freeze": "docs/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD_RECOVERY_FREEZE_V01.md",
+    "ar0_b1r_r4_a0_e1_v03_source": "source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V03.mcr",
+    "ar0_b1r_r4_a0_e1_v03_static_status": "PASS_R4_A0_E1_V03_STATIC_NO_GEOMETRY_REDESIGN"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_RECOVERY_TOOLING_API_PROBE",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1654,7 +1657,7 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_FORMAL_BUILD_ATTEMPT_1",
-    "last_status": "HOLD_R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY",
+    "last_status": "PASS_R4_A0_E1_V03_STATIC_NO_GEOMETRY_REDESIGN",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
