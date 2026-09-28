@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_AUDIT_RECOVERY_FREEZE
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_AWAIT_AUTH
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -493,3 +493,42 @@ NO_GEOMETRY_REDESIGN audit-recovery freeze.
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
+
+
+## E2A Pol-A V02 audit recovery ready
+
+Status:
+PASS_R4_A0_E2A_POLA_V02_RECOVERY_READY_AWAIT_BUILD_AUTH
+
+Attempt-1 formal status remains:
+HOLD_R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY
+
+Root cause proof:
+PASS_R4_A0_E2A_DRILL_KERNEL_REFERENCE
+
+The disposable canonical-parent drill reference reproduced the formal HOLD artifact prong volumes exactly:
+- A_P 47.6151627579446 mm3
+- A_N 47.6151627579447 mm3
+- hold-minus-reference = 0.0 mm3 for both branches
+
+Recovery class:
+NO_GEOMETRY_REDESIGN
+
+Unchanged production authority:
+- production macro blob 9931736f1129624d94aee1c9e983a1eaabca5f24
+- inventory blob e10886a4c01d9aafd55a16d8126418b7e22025fd
+- 107 solids / 12 ports / 8 vias / 14 pairwise predicates
+
+New tooling authority:
+- kernel reference blob e7fe96e2e763fcc025ce45e874162d9c8a771f77
+- V02 runner blob a8f9183d7e4bb635ece3a5cc9e0edd30fb230502
+
+V02 hard drill-volume gate:
+production prong loss must match CST/ACIS-native canonical-parent drill reference within 1e-7 mm3.
+
+Analytic 4*pi*r^2*h is diagnostic only.
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+
+A new explicit BUILD authorization is required.
