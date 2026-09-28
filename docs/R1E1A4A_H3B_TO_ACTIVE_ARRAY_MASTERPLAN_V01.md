@@ -40,6 +40,23 @@ balanced radiator terminals connect only to signal tongues. Ground belongs to th
 
 Architecture A (radiator-board electronics island) is deferred, not rejected.
 
+## 0C. A0-E2 raw-EM / device-plane refinement — authoritative
+
+After A0-E1 PASS, E2 follows `docs/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_INTEGRATED_EM_FREEZE_V01.md`.
+
+The four QPL9547 device-lead reference planes per polarization remain authoritative.
+
+Implementation refinement:
+- raw CST E2 is a 12-node network for the two branches;
+- C_IN/C_OUT/L1/decoupling/R4 remain circuit-domain elements;
+- therefore raw E2 is not collapsed to a literal four-port before passive-component insertion;
+- the four device planes are raw ports 2/3/8/9;
+- Pol-A pilot is first;
+- Pol-B remains a mechanical/asymmetry sentinel and may not be retuned before A/B comparison;
+- no historical D2 remote common-ground merge is promoted into the E2 baseline.
+
+This prevents assigning source-impedance meaning to a device port that is physically disconnected by an unmodeled DC-block gap.
+
 ## 1. Current proven state
 
 H3A V0.2 mechanics are accepted. H3B-T01A GCPW 90-degree transition BUILD is accepted, and its maxpass16 numerical recovery converged at adaptive pass 12.
