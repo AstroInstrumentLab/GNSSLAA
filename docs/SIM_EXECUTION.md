@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_RECOVERY_TOOLING_API_PROBE
+R1E1A4A_AR0_B1R_R4_A0_E1_V03_RECOVERY_BUILD_ONLY_AWAIT_AUTH
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -158,3 +158,25 @@ PASS_R4_A0_E1_V03_STATIC_NO_GEOMETRY_REDESIGN
 V03 changes only build persistence semantics: production source must enter the CST 3D History List. Geometry/material/via/pad/port coordinates remain frozen.
 
 Next required action is a non-formal CST 2022 tooling/API probe on temporary copies. BUILD_AUTHORIZED remains false; SOLVE_AUTHORIZED remains false.
+
+## Tooling root-cause closeout
+
+Status:
+PASS_R4_A0_E1_V03_RECOVERY_PREBUILD_READY_AWAIT_BUILD_AUTH
+
+Confirmed:
+- direct schematic.execute_vba_code Port99 fresh-reopens with PORT_COUNT=0;
+- modeler.add_to_history Port99 fresh-reopens with PORT_COUNT=1 and persistent Model.mod history;
+- CST 2022.5 current VBA surface does not expose Solid.DoTheseGeometricallyIntersect;
+- .cst-only temporary pair copy can lose the required model state for a history-less artifact;
+- complete project copy restores the target solid and makes Solid.Intersect return Err.Number=0 for the known zero-overlap test.
+
+Recovery freeze:
+docs/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD_RECOVERY_FREEZE_V02.md
+
+Recovery runner:
+scripts/run_r1e1a4a_ar0_b1r_r4_a0_e1_v03_recovery_build.py
+
+BUILD_AUTHORIZED remains false.
+SOLVE_AUTHORIZED remains false.
+Next boundary is a new one-shot V03 recovery BUILD-ONLY authorization.
