@@ -6,7 +6,7 @@
     "source_commit": "18c44b9afc787ad8f085110d6306ee4967f1c1cb"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": true,
+    "BUILD_AUTHORIZED": false,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_AUTHORIZED",
-    "stop_boundary": "ONE-SHOT E2A POL-A V02 RECOVERY BUILD-ONLY AUTHORIZED ON NW; KERNEL-REFERENCE PREFLIGHT FIRST; NO GEOMETRY REDESIGN; STOP AFTER BUILD/FRESH-REOPEN/107-SHAPE/12-PORT/8-VIA/INTERSECTION/HUMAN-REVIEW PACKAGE; NO SOLVE",
+    "next_stage": "AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW",
+    "stop_boundary": "E2A V02 RECOVERY BUILD PASS; CANONICAL ARTIFACT PROTECTED; HUMAN 3D REVIEW REQUIRED; NO SOLVE AUTHORIZED",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1683,7 +1683,7 @@
     "ar0_b1r_r4_a0_e1_s0_max_reciprocity_abs": 4.2329461706870077e-7,
     "ar0_b1r_r4_a0_e1_s0_max_column_power": 0.9990452180882121,
     "ar0_b1r_r4_a0_e1_s0_unintended_coupling_review": false,
-    "ar0_b1r_r4_a0_e2a_status": "PASS_R4_A0_E2A_POLA_V02_RECOVERY_READY_AWAIT_BUILD_AUTH",
+    "ar0_b1r_r4_a0_e2a_status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY",
     "ar0_b1r_r4_a0_e2a_freeze_doc": "docs/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_INTEGRATED_EM_FREEZE_V01.md",
     "ar0_b1r_r4_a0_e2a_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_INTEGRATED_EM_MANIFEST_V01.json",
     "ar0_b1r_r4_a0_e2a_prefreeze_result": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_PREFREEZE_result.json",
@@ -1727,10 +1727,13 @@
     "ar0_b1r_r4_a0_e2a_v02_runner_blob": "a8f9183d7e4bb635ece3a5cc9e0edd30fb230502",
     "ar0_b1r_r4_a0_e2a_v02_task": "execution/task_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_task.json",
     "ar0_b1r_r4_a0_e2a_v02_prebuild": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_PREBUILD_result.json",
-    "ar0_b1r_r4_a0_e2a_recovery_class": "NO_GEOMETRY_REDESIGN"
+    "ar0_b1r_r4_a0_e2a_recovery_class": "NO_GEOMETRY_REDESIGN",
+    "ar0_b1r_r4_a0_e2a_v02_artifact_sha256": "78c9d38e186e38b1d0398e7771758af34345fc5e8f780fdc8c7fade4a8705804",
+    "ar0_b1r_r4_a0_e2a_v02_result": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_PASS_20260928_result.json",
+    "ar0_b1r_r4_a0_e2a_kernel_reference_match": "EXACT_0_MM3_DELTA_BOTH_POLA_PRONGS"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_AUTHORIZED",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1738,8 +1741,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_AUDIT_RECOVERY_FREEZE",
-    "last_status": "AUTHORIZED_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_NO_SOLVE_NO_RETRY",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY",
+    "last_status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
