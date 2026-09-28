@@ -3,9 +3,9 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD
 
-BUILD_AUTHORIZED: true
+BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
@@ -113,3 +113,33 @@ fresh MWS
 
 No solve follows automatically.
 SOLVE_AUTHORIZED remains false.
+
+
+## 2026-09-28 formal A0-E1 build-only attempt 1
+
+Status:
+HOLD_R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY
+
+Formal build invocations consumed: 1
+Solver invocations: 0
+Retry authorized: false
+
+PASS:
+- 36 solids and exact component counts
+- exact material identities
+- four via drill tools consumed / four plated vias remain
+- empty result tree
+- fresh-reopen artifact hash stable
+
+HOLD:
+- expected 6 ports, observed 0 after fresh reopen
+- ten pairwise Solid.Intersect audits uniformly returned CST automation error -2147418113
+- zero reported intersection volumes are not accepted as PASS because the Boolean operation errored
+
+Protected NW artifact SHA256:
+f5ee6fceab2c26db5d4d63365e37abec65b87698633c577e1ca87613b86a9745
+
+Next boundary:
+R4_A0_E1_BUILD_HOLD_RECOVERY_CONTRACT_FREEZE
+
+No rebuild/retry/solve is authorized.
