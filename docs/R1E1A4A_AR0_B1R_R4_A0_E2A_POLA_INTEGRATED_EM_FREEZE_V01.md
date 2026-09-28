@@ -564,3 +564,69 @@ Required before asking for BUILD authorization:
 `LNA_INTEGRATION_AUTHORIZED = false`
 
 No NW/XW/251 call is authorized by this freeze.
+
+
+## 17. Build-source implementation addendum
+
+Status:
+`PASS_R4_A0_E2A_POLA_PREBUILD_READY_AWAIT_BUILD_AUTH`
+
+Frozen build source:
+`source/cst/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY_V01.mcr`
+
+Git blob:
+`9931736f1129624d94aee1c9e983a1eaabca5f24`
+
+Frozen build runner:
+`scripts/run_r1e1a4a_ar0_b1r_r4_a0_e2a_pola_build_only.py`
+
+Git blob:
+`81f717ca5ef7aa4c4375618185aeb1723b0d50f1`
+
+Frozen exact inventory contract:
+`execution/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_INVENTORY_V01.json`
+
+Git blob:
+`e10886a4c01d9aafd55a16d8126418b7e22025fd`
+
+Static source accounting:
+- parent solids = 45;
+- superseded objects deleted = 12;
+- final new objects = 74;
+- final expected solids = 107;
+- temporary drill tools created/consumed = 8;
+- plated via barrels retained = 8;
+- raw ports = 12;
+- registered complete-project pairwise checks = 14.
+
+The macro new-shape name set was parsed and compared against the inventory contract:
+- missing = 0;
+- extra = 0;
+- duplicates = 0.
+
+The macro contains:
+- no solver invocation;
+- no optimizer/sweep;
+- no duplicate FR4 coupon;
+- no historical D2 remote lower-ground rail/common bridge;
+- no active QPL9547 / Touchstone insertion.
+
+The runner contains zero `run_solver()` calls and requires:
+- complete CST parent project copy;
+- parent SHA and 45-shape gate;
+- persistent History List build;
+- exact 107-name / component-count gate;
+- exact 12-port property/coordinate gate;
+- two Pol-A prong drill-volume checks;
+- eight via-volume checks;
+- empty result tree;
+- fresh-reopen hash stability;
+- `CDCheckModelIntersections` command return;
+- 14 destructive `Solid.Intersect` checks only on complete temporary project copies;
+- human 3D review package.
+
+Parent path is deliberately not guessed in the contract. At an authorized execution, NW must resolve the canonical T1R1 artifact by exact filename + SHA256 and require its same-stem companion directory.
+
+Current authorization remains:
+`BUILD_AUTHORIZED = false`
+`SOLVE_AUTHORIZED = false`
