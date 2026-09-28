@@ -6,7 +6,7 @@
     "source_commit": "18c44b9afc787ad8f085110d6306ee4967f1c1cb"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_BUILD_ONLY_AWAIT_AUTH",
-    "stop_boundary": "PRE-REMOTE COMPLETE; BUILD/SOLVE OFF; AWAIT ONE-SHOT A0-E1 BUILD-ONLY AUTHORIZATION",
+    "next_stage": "AR0_B1R_R4_A0_E1_BUILD_ONLY_AUTHORIZED",
+    "stop_boundary": "ONE-SHOT A0-E1 BUILD-ONLY AUTHORIZED; STOP AFTER BUILD/FRESH-REOPEN/AUDIT/HUMAN-REVIEW PACKAGE; NO SOLVE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.8",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1640,7 +1640,7 @@
     "ar0_b1r_r4_a0_e1_prebuild_status": "PASS_R4_A0_E1_PREBUILD_READY_AWAIT_BUILD_AUTH"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_AWAIT_AUTH",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1649,7 +1649,7 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_PREBUILD",
-    "last_status": "PASS_R4_A0_E1_PREBUILD_READY_AWAIT_BUILD_AUTH",
+    "last_status": "AUTHORIZED_R4_A0_E1_BUILD_ONLY_NO_SOLVE",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
