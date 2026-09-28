@@ -90,6 +90,29 @@ def intersect(base,dst,mode,root):
         de.close()
     return {"invoke_ok":invoked,"exception":err,"text":out.read_text(encoding="utf-8") if out.exists() else ""}
 
+def nondestructive_query(base,root):
+    out=root/"nondestructive_intersection_query.txt"
+    pairs=[
+      ("PIN2_PADDLE","E1_PackageLands:PIN2_RFIN","E1_LocalGroundTop:EXPOSED_PADDLE"),
+      ("DN_MSL_CRF_GND","E1_Signal:DOWNSTREAM_MSL","E1_LocalGroundTop:CRF_GND_PAD"),
+      ("VIA_C_FR4","E1_Vias:PADDLE_VIA_C","E1_Substrate:FR4_COUPON")]
+    lines=["On Error Resume Next","Dim f As Integer, q As Boolean","f=FreeFile",
+           'Open "'+str(out).replace("\\\\","/")+'" For Output As #f']
+    for tag,a,b in pairs:
+        lines += [
+          "Err.Clear",
+          'q=Solid.DoTheseGeometricallyIntersect("'+a+'","'+b+'")',
+          'Print #f, "Q|'+tag+'|ERR=" & CStr(Err.Number) & "|INTERSECT=" & CStr(q)']
+    lines += ["Close #f","On Error GoTo 0"]
+    de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); p=None
+    try:
+        p=de.open_project(str(base))
+        ok=bool(p.schematic.execute_vba_code(wrap("\\n".join(lines))))
+    finally:
+        if p is not None: p.close()
+        de.close()
+    return {"invoke_ok":ok,"text":out.read_text(encoding="utf-8") if out.exists() else ""}
+
 def main(source,outdir):
     source=Path(source); root=Path(outdir)
     if root.exists(): raise RuntimeError("HOLD_TOOLING_DIAG_DIR_EXISTS")
@@ -101,6 +124,7 @@ def main(source,outdir):
       "formal_build":False,"solver_invocations":0,
       "source_sha256":sha(source),
       "base_probe":probe_ports(base,root/"base_ports.txt"),
+      "nondestructive_query":nondestructive_query(base,root),
       "port_schematic":add_port(base,root/"port_schematic.cst","schematic",root),
       "port_history":add_port(base,root/"port_history.cst","history",root),
       "intersect_schematic":intersect(base,root/"intersect_schematic.cst","schematic",root),
