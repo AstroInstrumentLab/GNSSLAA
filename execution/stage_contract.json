@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_V03_HUMAN_3D_REVIEW",
-    "stop_boundary": "V03 AUTOMATED BUILD GATES PASS; AWAIT HUMAN 3D REVIEW; NO SOLVE",
+    "next_stage": "AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_CONTRACT_FREEZE",
+    "stop_boundary": "A0-E1 BUILD/HUMAN GEOMETRY REVIEW CLOSED PASS; NO SOLVE AUTHORIZED; NEXT=PASSIVE EM SOLVE CONTRACT FREEZE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.10",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1653,10 +1653,12 @@
     "ar0_b1r_r4_a0_e1_v03_build_status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E1_V03_BUILD_ONLY",
     "ar0_b1r_r4_a0_e1_v03_artifact_sha256": "a0e4bda5c64ea712564db76441721ca6dc147c97c061360a16a7d21f272f787a",
     "ar0_b1r_r4_a0_e1_v03_result": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E1_V03_BUILD_result.json",
-    "ar0_b1r_r4_a0_e1_v03_human_review": "AWAITING"
+    "ar0_b1r_r4_a0_e1_v03_human_review": "PASS_R4_A0_E1_V03_HUMAN_3D_REVIEW",
+    "ar0_b1r_r4_a0_e1_v03_human_review_scope": "VISUAL_GEOMETRY_ASSEMBLY_SANITY_ONLY_NOT_RF_LAYOUT_SIGNOFF",
+    "ar0_b1r_r4_a0_e1_v03_build_closeout": "PASS_R4_A0_E1_V03_BUILD_AND_HUMAN_GEOMETRY_REVIEW"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_V03_HUMAN_3D_REVIEW",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_CONTRACT_FREEZE",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1664,8 +1666,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_V03_FORMAL_BUILD",
-    "last_status": "PASS_AUTOMATED_AWAIT_HUMAN_3D_REVIEW",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_V03_HUMAN_3D_REVIEW",
+    "last_status": "PASS_R4_A0_E1_V03_BUILD_AND_HUMAN_GEOMETRY_REVIEW",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
