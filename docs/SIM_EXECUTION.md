@@ -3,9 +3,9 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_V03_RECOVERY_BUILD_ONLY_AWAIT_AUTH
+R1E1A4A_AR0_B1R_R4_A0_E1_V03_RECOVERY_BUILD_ONLY_AUTHORIZED
 
-BUILD_AUTHORIZED: false
+BUILD_AUTHORIZED: true
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
@@ -180,3 +180,13 @@ scripts/run_r1e1a4a_ar0_b1r_r4_a0_e1_v03_recovery_build.py
 BUILD_AUTHORIZED remains false.
 SOLVE_AUTHORIZED remains false.
 Next boundary is a new one-shot V03 recovery BUILD-ONLY authorization.
+
+
+## V03 recovery build authorization — 2026-09-28
+
+BUILD_AUTHORIZED: true
+SOLVE_AUTHORIZED: false
+Formal build budget: 1
+Solver launch budget: 0
+Silent retry: forbidden
+Stop after persistent-history build + fresh reopen + port/history/intersection audit.
