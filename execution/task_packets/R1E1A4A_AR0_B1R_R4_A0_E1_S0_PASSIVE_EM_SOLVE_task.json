@@ -24,7 +24,7 @@
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": true,
+    "SOLVE_AUTHORIZED": false,
     "LNA_INTEGRATION_AUTHORIZED": false
   },
   "execution": {
@@ -36,7 +36,12 @@
     "no_geometry_redesign": true,
     "authorization_note": "User explicitly authorized exactly one E1-S0 passive six-port EM solve on 2026-09-28. Automatic retry remains forbidden.",
     "provenance_rebaseline": "PASS_R4_A0_E1_V03_POST_HUMAN_SOURCE_IDENTITY",
-    "provenance_rebaseline_result": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E1_V03_POSTHUMAN_SOURCE_DRIFT_result.json"
+    "provenance_rebaseline_result": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E1_V03_POSTHUMAN_SOURCE_DRIFT_result.json",
+    "formal_solver_invocations_consumed": 1,
+    "automatic_retries": 0,
+    "retry_authorized": false,
+    "final_status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_CHARACTERIZED",
+    "result_packet": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_result.json"
   },
   "solver_contract": {
     "frequency_ghz": [
