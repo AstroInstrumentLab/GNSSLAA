@@ -24,7 +24,7 @@
     "stop_boundary": "one build-only -> fresh reopen -> exact inventory/ports/history -> whole-model + 14 complete-copy pairwise checks -> human-review package -> STOP"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "LNA_INTEGRATION_AUTHORIZED": false
   },
@@ -58,5 +58,6 @@
     "no G-L1 common local bridge",
     "no parameter sweep/optimizer",
     "no silent geometry repair after build"
-  ]
+  ],
+  "authorization_note": "User explicitly authorized exactly one E2A Pol-A BUILD-ONLY invocation on 2026-09-28. No solve authorization. No automatic retry."
 }
