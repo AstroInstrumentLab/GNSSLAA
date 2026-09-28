@@ -532,3 +532,9 @@ BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 
 A new explicit BUILD authorization is required.
+
+
+## SimulationOps sync after E2A audit HOLD
+
+Current minimum: SimulationOps 0.2.12.
+Global rule added: analytic primitive volume is diagnostic unless CST/ACIS Boolean equivalence is qualified; use CST-native kernel reference for tight volume gates.
