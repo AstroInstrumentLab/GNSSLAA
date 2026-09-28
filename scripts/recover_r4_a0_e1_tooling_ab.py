@@ -42,7 +42,7 @@ def probe_ports(cst,out):
     return {"invoke_ok":ok,"text":out.read_text(encoding="utf-8") if out.exists() else ""}
 
 def add_port(base,dst,mode,root):
-    shutil.copy2(str(base),str(dst))
+    copy_project(base,dst)
     body="\n".join([
       "With DiscretePort",".Reset",
       '.PortNumber "99"','.Type "SParameter"','.Impedance "50.0"',
@@ -121,7 +121,7 @@ def main(source,outdir):
     source=Path(source); root=Path(outdir)
     if root.exists(): raise RuntimeError("HOLD_TOOLING_DIAG_DIR_EXISTS")
     root.mkdir(parents=True)
-    base=root/"base_copy.cst"; shutil.copy2(str(source),str(base))
+    base=root/"base_copy.cst"; copy_project(source,base)
     before=sha(base)
     result={
       "mode":"READ_ONLY_RECOVERY_TOOLING_AB_ON_TEMP_COPIES",
