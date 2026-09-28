@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_AUDIT_RECOVERY_FREEZE
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -453,3 +453,43 @@ Formal build budget: 1
 Solver invocation budget: 0
 Automatic retry budget: 0
 Stop after fresh-reopen / exact inventory / 12-port / via / interference / human-review package.
+
+
+## E2A Pol-A formal build HOLD
+
+Status:
+HOLD_R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY
+
+Classification:
+HOLD_BUILD_AUDIT_CRITERION
+
+Formal build invocations: 1
+Solver invocations: 0
+Automatic retries: 0
+
+Artifact SHA256:
+573e21e893a5b8fa9a76ae3c8d5dce641c672607c2747aa1ca39f9879b63c7fc
+
+All structural/persistence/interference checks PASSed except the pre-frozen analytic prong drill-volume equality gate.
+
+Observed four-hole prong losses:
+- A_P 0.38483724205539716 mm3
+- A_N 0.3848372420552977 mm3
+
+Frozen analytic value:
+0.3848451000647496 mm3
+
+Historical E1-V03 accepted four-hole CST Boolean loss:
+0.3848392442002009 mm3
+
+Attribution:
+the 1e-7 mm3 analytic pi*r^2*h equality gate is not qualified for CST/ACIS Boolean cylinder volume semantics.
+
+SimulationOps no-post-result-gate-change rule applies:
+this formal build remains HOLD.
+
+Next:
+NO_GEOMETRY_REDESIGN audit-recovery freeze.
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
