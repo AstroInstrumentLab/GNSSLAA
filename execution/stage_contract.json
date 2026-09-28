@@ -7,8 +7,8 @@
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": false,
-    "production_solve_authorized": false,
+    "SOLVE_AUTHORIZED": true,
+    "production_solve_authorized": true,
     "material_ab_authorized": false,
     "lna_integration_authorized": false,
     "cst251_authorized": false
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AWAIT_AUTH",
-    "stop_boundary": "E1-S0 PASSIVE SIX-PORT EM SOLVE CONTRACT FROZEN; NO REMOTE CALLS; AWAIT EXACTLY ONE NW SOLVE AUTHORIZATION",
+    "next_stage": "AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AUTHORIZED",
+    "stop_boundary": "ONE-SHOT E1-S0 PASSIVE SIX-PORT EM SOLVE AUTHORIZED ON NW; STOP AFTER READ-ONLY QUALIFICATION; NO RETRY",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.10",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1675,7 +1675,7 @@
     "ar0_b1r_r4_a0_e1_s0_interpretation_boundary": "S11 and E_UP-to-E_DN S21 are diagnostic only; circuit-domain C_IN/QPL9547/C_OUT/L1 are absent."
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AWAIT_AUTH",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1684,7 +1684,7 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_CONTRACT_FREEZE",
-    "last_status": "PASS_R4_A0_E1_PASSIVE_EM_PRESOLVE_FREEZE_READY_AWAIT_SOLVE_AUTH",
+    "last_status": "AUTHORIZED_R4_A0_E1_S0_PASSIVE_EM_SOLVE_NO_RETRY",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
