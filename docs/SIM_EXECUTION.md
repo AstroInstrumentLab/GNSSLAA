@@ -595,3 +595,38 @@ R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
+
+
+## E2A-S0L loaded source-side solve contract
+
+Status:
+PASS_R4_A0_E2A_S0L_LOADED_SOURCE_SOLVE_CONTRACT_FROZEN_BLOCKED_BY_HUMAN_REVIEW
+
+Authority:
+- docs/R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_LOADED_SOURCE_SOLVE_FREEZE_V01.md
+- execution/R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_LOADED_SOURCE_SOLVE_MANIFEST_V01.json
+
+First E2A solve is no longer a mandatory 12x12/144-term extraction.
+
+Loaded pilot:
+- formal source excitations: A_E_UP, A_P_IN, B_E_UP, B_P_IN
+- matched 50-ohm output loads: A_P_OUT, B_P_OUT
+- E_DN / B_VDD / B_VBIAS audit ports removed from solve copy; physical pads remain open
+- minimum qualified response: 24 complex traces = 6 response rows x 4 source excitations
+- loaded source-side reciprocity gate only
+- loaded column-power closure includes both output-load response rows
+
+Interpretation:
+C_IN remains absent from CST. Raw S0L is not direct final QPL9547 source impedance authority.
+After qualified C_IN insertion, derived result is labeled 50OHM_OUTPUT_LOADED_SOURCE_CONDITION.
+Full network is deferred until arbitrary output loading / reverse feedback / active stability / full transistor co-sim requires it.
+
+Current stage remains:
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW
+
+Activation requires explicit human geometry PASS.
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+
+No remote calls were used for this freeze.
