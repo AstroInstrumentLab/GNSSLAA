@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2.8",
+  "schema_version": "0.2.10",
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
@@ -1676,12 +1676,12 @@
   "global_protocol": {
     "repository": "Dingo-infinity2020/SimulationOps",
     "document": "GLOBAL_DC_SIMULATION_PROTOCOL.md",
-    "protocol_version": "0.2.8",
-    "minimum_compatible_version": "0.2.8"
+    "protocol_version": "0.2.10",
+    "minimum_compatible_version": "0.2.10"
   },
   "toolchain": {
     "simulator": "CST Studio Suite",
-    "simulator_version": "2022",
+    "simulator_version": "2022.5",
     "builder_or_adapter": "project stage runner via CST bundled Python/API",
     "build_host_alias": "NW",
     "solve_host_alias": "project runner controlled; formal production routing follows SimulationOps/HOSTS",
@@ -1690,11 +1690,11 @@
   "dc_call_budget": {
     "target_calls_per_routine_stage": 2,
     "calls_used_current_stage": 2,
-    "task_packet_path": "execution/task_packets/R1E1A4A_AR0_B1R_T2F_task.json",
-    "result_packet_path": "execution/result_packets/R1E1A4A_AR0_B1R_T2F_result.json",
-    "preferred_runner": "scripts/run_r1e1a4a_ar0_b1r_t2f_build_only.py",
-    "polling_policy": "single fixture-build transaction then task-node inspection",
-    "exception_reason": "T2F fixture geometry/ports passed; original HOLD was only CST immediate enumeration delay for derived parameter t2f_output_z. Second transaction was audit-only; formal build count remains one."
+    "task_packet_path": "execution/task_packets/R1E1A4A_AR0_B1R_R4_A0_E1_V03_RECOVERY_BUILD_task.json",
+    "result_packet_path": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E1_RECOVERY_PREBUILD_result.json",
+    "preferred_runner": "scripts/run_r1e1a4a_ar0_b1r_r4_a0_e1_v03_recovery_build.py",
+    "polling_policy": "one-shot V03 recovery build transaction; inspect once at task node",
+    "exception_reason": "V02 formal build HOLD root causes are closed; V03 is prebuild-ready but not authorized. No DC production call should occur before new BUILD authorization."
   },
   "evidence": {
     "status_classification": "PASS_R1E1A4A_H3B_T01A_FREEZE",
