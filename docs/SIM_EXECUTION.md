@@ -357,3 +357,9 @@ BUILD_AUTHORIZED: false
 
 Next:
 R1E1A4A_AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE
+
+
+## SimulationOps sync after E1-S0
+
+Next-stage minimum: SimulationOps 0.2.11.
+New global rules captured from E1-S0: post-human/GUI CST source-hash integrity and native-vs-result-tree convergence authority.
