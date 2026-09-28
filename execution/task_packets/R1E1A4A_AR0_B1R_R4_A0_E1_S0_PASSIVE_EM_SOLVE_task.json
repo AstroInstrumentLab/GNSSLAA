@@ -24,7 +24,7 @@
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": false,
+    "SOLVE_AUTHORIZED": true,
     "LNA_INTEGRATION_AUTHORIZED": false
   },
   "execution": {
@@ -33,7 +33,8 @@
     "silent_retry_allowed": false,
     "fresh_solve_path_required": true,
     "source_artifact_protected": true,
-    "no_geometry_redesign": true
+    "no_geometry_redesign": true,
+    "authorization_note": "User explicitly authorized exactly one E1-S0 passive six-port EM solve on 2026-09-28. Automatic retry remains forbidden."
   },
   "solver_contract": {
     "frequency_ghz": [
