@@ -16,6 +16,15 @@ def sha(p):
 def wrap(body):
     return "Sub Main()\n"+body+"\nEnd Sub"
 
+def copy_project(src,dst):
+    src=Path(src); dst=Path(dst)
+    shutil.copy2(str(src),str(dst))
+    srcdir=src.with_suffix("")
+    dstdir=dst.with_suffix("")
+    if srcdir.exists():
+        if dstdir.exists(): shutil.rmtree(str(dstdir),ignore_errors=True)
+        shutil.copytree(str(srcdir),str(dstdir))
+
 def probe_ports(cst,out):
     body="\n".join([
       "On Error Resume Next",
@@ -64,7 +73,7 @@ def add_port(base,dst,mode,root):
     return {"invoke_ok":invoked,"reopen":probe_ports(dst,root/(dst.stem+"_ports.txt"))}
 
 def intersect(base,dst,mode,root):
-    shutil.copy2(str(base),str(dst))
+    copy_project(base,dst)
     out=root/(dst.stem+"_intersect.txt")
     a="E1_PackageLands:PIN2_RFIN"; b="E1_LocalGroundTop:EXPOSED_PADDLE"
     body="\n".join([
