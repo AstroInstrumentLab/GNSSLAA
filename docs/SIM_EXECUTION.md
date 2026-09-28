@@ -1,9 +1,9 @@
 # SIM_EXECUTION
 
-SimulationOps: 0.2.8
+SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD
+R1E1A4A_AR0_B1R_R4_A0_E1_RECOVERY_TOOLING_API_PROBE
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -143,3 +143,18 @@ Next boundary:
 R4_A0_E1_BUILD_HOLD_RECOVERY_CONTRACT_FREEZE
 
 No rebuild/retry/solve is authorized.
+
+## V03 recovery source freeze
+
+Recovery freeze:
+docs/R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_HOLD_RECOVERY_FREEZE_V01.md
+
+V03 source:
+source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_ONE_LNA_LANDING_ZONE_BUILD_ONLY_V03.mcr
+
+Static equivalence:
+PASS_R4_A0_E1_V03_STATIC_NO_GEOMETRY_REDESIGN
+
+V03 changes only build persistence semantics: production source must enter the CST 3D History List. Geometry/material/via/pad/port coordinates remain frozen.
+
+Next required action is a non-formal CST 2022 tooling/API probe on temporary copies. BUILD_AUTHORIZED remains false; SOLVE_AUTHORIZED remains false.
