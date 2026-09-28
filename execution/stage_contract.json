@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2.10",
+  "schema_version": "0.2.11",
   "project": {
     "name": "GNSS_Lband_Active_Array",
     "source_branch": "project/r0-charts-scaffold",
@@ -26,7 +26,7 @@
     "next_stage": "AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE",
     "stop_boundary": "E1-S0 PASS; CLEAN COUPLING SENTINELS; NO E1-M1 PROBE; NO FURTHER SOLVE AUTHORIZED; NEXT=E2 INTEGRATED ANTENNA EM CONTRACT FREEZE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
-    "simulationops_min": "0.2.10",
+    "simulationops_min": "0.2.11",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
     "h3bi01_status": "READY_AFTER_H3B_COMPLETE_PASSIVE_UNIT",
     "h3cc01_status": "BLOCKED_UNTIL_R1E2_ACTIVE_IMPEDANCE_ATLAS",
@@ -1709,8 +1709,8 @@
   "global_protocol": {
     "repository": "Dingo-infinity2020/SimulationOps",
     "document": "GLOBAL_DC_SIMULATION_PROTOCOL.md",
-    "protocol_version": "0.2.10",
-    "minimum_compatible_version": "0.2.10"
+    "protocol_version": "0.2.11",
+    "minimum_compatible_version": "0.2.11"
   },
   "toolchain": {
     "simulator": "CST Studio Suite",
