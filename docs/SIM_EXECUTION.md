@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_SOURCE_IMPLEMENTATION
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY_AWAIT_AUTH
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -403,3 +403,43 @@ SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
 No remote calls were used for this freeze.
+
+
+## E2A Pol-A prebuild implementation result
+
+Status:
+PASS_R4_A0_E2A_POLA_PREBUILD_READY_AWAIT_BUILD_AUTH
+
+Frozen source:
+- macro blob 9931736f1129624d94aee1c9e983a1eaabca5f24
+- runner blob 81f717ca5ef7aa4c4375618185aeb1723b0d50f1
+- inventory blob e10886a4c01d9aafd55a16d8126418b7e22025fd
+
+Exact build accounting:
+45 parent - 12 superseded + 74 final new = 107 final solids.
+
+The macro additionally creates eight drill-tool solids, consumes all eight by FR4 subtraction, and retains eight plated via barrels.
+
+Raw ports:
+12 exact 50-ohm single-ended ports.
+Device planes remain raw ports 2/3/8/9.
+
+Static audit:
+- exact 74-new-shape name set matches manifest;
+- no missing / extra / duplicate shape names;
+- port numbers exactly 1..12;
+- no solver tokens;
+- no active QPL9547;
+- no circuit passives;
+- no duplicate E1 FR4 coupon;
+- no D2 remote ground merge;
+- runner run_solver() count = 0;
+- complete project copy + History build required;
+- whole-model intersection check + 14 complete-copy pairwise checks frozen.
+
+Current:
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+
+Next:
+one E2A Pol-A BUILD-ONLY authorization.
