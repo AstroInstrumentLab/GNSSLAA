@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY_AWAIT_AUTH
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY_AUTHORIZED
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -443,3 +443,13 @@ SOLVE_AUTHORIZED: false
 
 Next:
 one E2A Pol-A BUILD-ONLY authorization.
+
+
+## E2A Pol-A build authorization — 2026-09-28
+
+BUILD_AUTHORIZED: true
+SOLVE_AUTHORIZED: false
+Formal build budget: 1
+Solver invocation budget: 0
+Automatic retry budget: 0
+Stop after fresh-reopen / exact inventory / 12-port / via / interference / human-review package.
