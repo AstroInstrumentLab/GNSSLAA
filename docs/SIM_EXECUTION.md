@@ -3,7 +3,7 @@
 SimulationOps: 0.2.10
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY_AUTHORIZED
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -549,3 +549,49 @@ Formal build budget: 1
 Solver invocation budget: 0
 Automatic retry budget: 0
 Kernel-reference preflight must pass before the unchanged production History executes.
+
+
+## E2A Pol-A V02 recovery build PASS
+
+Status:
+PASS_R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_BUILD_ONLY
+
+Recovery class:
+NO_GEOMETRY_REDESIGN
+
+Formal build invocations: 1
+Solver invocations: 0
+Automatic retries: 0
+
+Artifact:
+D:\GNSS_R4A0E2A_20260928_BUILD_R2\R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_INTEGRATED_BUILD_ONLY_V02_RECOVERY.cst
+
+SHA256:
+78c9d38e186e38b1d0398e7771758af34345fc5e8f780fdc8c7fade4a8705804
+
+Kernel-reference gate:
+- A_N production/reference loss delta = 0.0 mm3
+- A_P production/reference loss delta = 0.0 mm3
+- hard tolerance = 1e-7 mm3
+- analytic 4*pi*r^2*h retained as diagnostic only
+
+Build qualification:
+- 107 exact solids PASS
+- exact component/name set PASS
+- 12 exact ports PASS
+- device planes raw 2/3/8/9
+- 8 plated vias PASS
+- History persistence PASS
+- empty result tree PASS
+- fresh-reopen/hash stability PASS
+- CDCheckModelIntersections return PASS
+- 14/14 complete-project-copy pairwise zero-positive-volume PASS
+- cross-pol envelope PASS
+
+Runner summary contains inherited display field simulationops=0.2.11; project/global execution authority is 0.2.12. Metadata-only.
+
+Current stage:
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
