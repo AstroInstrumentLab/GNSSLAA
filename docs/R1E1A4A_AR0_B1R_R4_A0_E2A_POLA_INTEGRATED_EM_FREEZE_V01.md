@@ -630,3 +630,28 @@ Parent path is deliberately not guessed in the contract. At an authorized execut
 Current authorization remains:
 `BUILD_AUTHORIZED = false`
 `SOLVE_AUTHORIZED = false`
+
+
+## 18. E2A-S0L loaded source-side solve amendment
+
+The original first-solve requirement for a full raw 12x12 / 144-term network is superseded by:
+
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_LOADED_SOURCE_SOLVE_FREEZE_V01.md`
+
+New first-solve authority:
+- source excitations: A_E_UP, A_P_IN, B_E_UP, B_P_IN;
+- A_P_OUT and B_P_OUT become unexcited matched 50-ohm output loads;
+- E_DN / B_VDD / B_VBIAS ports are removed from the solver copy and their physical pads remain open;
+- minimum qualified result = 24 complex traces = 6 response rows x 4 source excitations;
+- full 12x12 extraction is deferred until arbitrary output/bias-network reconnection, reverse-feedback, active stability or full transistor co-simulation requires it.
+
+The four QPL9547 device planes remain unchanged.
+
+C_IN remains absent from CST, so E2A-S0L alone does not directly claim final QPL9547 source impedance.
+
+This amendment changes solve scope only. It does not change the qualified build geometry.
+
+Activation remains blocked until explicit human 3D review PASS.
+
+BUILD_AUTHORIZED = false  
+SOLVE_AUTHORIZED = false
