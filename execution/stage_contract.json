@@ -7,8 +7,8 @@
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": true,
-    "production_solve_authorized": true,
+    "SOLVE_AUTHORIZED": false,
+    "production_solve_authorized": false,
     "material_ab_authorized": false,
     "lna_integration_authorized": false,
     "cst251_authorized": false
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AUTHORIZED",
-    "stop_boundary": "ONE-SHOT E1-S0 PASSIVE SIX-PORT EM SOLVE AUTHORIZED ON NW; STOP AFTER READ-ONLY QUALIFICATION; NO RETRY",
+    "next_stage": "AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE",
+    "stop_boundary": "E1-S0 PASS; CLEAN COUPLING SENTINELS; NO E1-M1 PROBE; NO FURTHER SOLVE AUTHORIZED; NEXT=E2 INTEGRATED ANTENNA EM CONTRACT FREEZE",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.10",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1656,7 +1656,7 @@
     "ar0_b1r_r4_a0_e1_v03_human_review": "PASS_R4_A0_E1_V03_HUMAN_3D_REVIEW",
     "ar0_b1r_r4_a0_e1_v03_human_review_scope": "VISUAL_GEOMETRY_ASSEMBLY_SANITY_ONLY_NOT_RF_LAYOUT_SIGNOFF",
     "ar0_b1r_r4_a0_e1_v03_build_closeout": "PASS_R4_A0_E1_V03_BUILD_AND_HUMAN_GEOMETRY_REVIEW",
-    "ar0_b1r_r4_a0_e1_s0_status": "PASS_R4_A0_E1_PASSIVE_EM_PRESOLVE_FREEZE_READY_AWAIT_SOLVE_AUTH",
+    "ar0_b1r_r4_a0_e1_s0_status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_CHARACTERIZED",
     "ar0_b1r_r4_a0_e1_s0_freeze_doc": "docs/R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_FREEZE_V01.md",
     "ar0_b1r_r4_a0_e1_s0_source_artifact_sha256": "aee6bc30085c002b6063de80f110096f6b62911bf897007d133b309e5a962b36",
     "ar0_b1r_r4_a0_e1_s0_solver_macro": "source/cst/R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVER_CONFIG_V01.mcr",
@@ -1673,10 +1673,19 @@
       "no_mesh_corruption": true
     },
     "ar0_b1r_r4_a0_e1_s0_interpretation_boundary": "S11 and E_UP-to-E_DN S21 are diagnostic only; circuit-domain C_IN/QPL9547/C_OUT/L1 are absent.",
-    "ar0_b1r_r4_a0_e1_s0_provenance_rebaseline": "PASS_R4_A0_E1_V03_POST_HUMAN_SOURCE_IDENTITY"
+    "ar0_b1r_r4_a0_e1_s0_provenance_rebaseline": "PASS_R4_A0_E1_V03_POST_HUMAN_SOURCE_IDENTITY",
+    "ar0_b1r_r4_a0_e1_s0_disposition": "PASS_CHARACTERIZED_NETWORK_CLEAN_SENTINELS",
+    "ar0_b1r_r4_a0_e1_s0_solved_sha256": "bd487a52e342284fe7cdf4b6a35c0a7fc23296e97560f9603451bbf6f0b6349c",
+    "ar0_b1r_r4_a0_e1_s0_native_delta_s_final_two": [
+      0.00772936,
+      0.00465735
+    ],
+    "ar0_b1r_r4_a0_e1_s0_max_reciprocity_abs": 4.2329461706870077e-7,
+    "ar0_b1r_r4_a0_e1_s0_max_column_power": 0.9990452180882121,
+    "ar0_b1r_r4_a0_e1_s0_unintended_coupling_review": false
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AUTHORIZED",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2_INTEGRATED_ANTENNA_EM_CONTRACT_FREEZE",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1684,8 +1693,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_SOLVE_CONTRACT_FREEZE",
-    "last_status": "AUTHORIZED_R4_A0_E1_S0_PASSIVE_EM_SOLVE_AFTER_PROVENANCE_REBASELINE",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E1_S0_PASSIVE_EM_SOLVE",
+    "last_status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E1_PASSIVE_EM_CHARACTERIZED",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
