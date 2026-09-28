@@ -3,9 +3,9 @@
 SimulationOps: 0.2.8
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_AWAIT_AUTH
+R1E1A4A_AR0_B1R_R4_A0_E1_BUILD_ONLY_AUTHORIZED
 
-BUILD_AUTHORIZED: false
+BUILD_AUTHORIZED: true
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
@@ -101,7 +101,7 @@ Expected postbuild:
 Deterministic runner:
 scripts/run_r1e1a4a_ar0_b1r_r4_a0_e1_build_only.py
 
-When separately authorized:
+Authorized 2026-09-28 for exactly one BUILD-ONLY invocation:
 fresh MWS
 -> execute V02 macro once
 -> save
@@ -112,3 +112,4 @@ fresh MWS
 -> STOP
 
 No solve follows automatically.
+SOLVE_AUTHORIZED remains false.
