@@ -19,7 +19,7 @@
     "stop_boundary": "persistent-history build + fresh reopen + ports + whole-model/pairwise intersection audit + human review; no solve"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "LNA_INTEGRATION_AUTHORIZED": false
   },
@@ -27,7 +27,8 @@
     "formal_build_budget": 1,
     "solver_launch_budget": 0,
     "silent_retry_allowed": false,
-    "recovery_retry": false
+    "recovery_retry": false,
+    "authorization_note": "User explicitly authorized exactly one V03 recovery BUILD-ONLY invocation on 2026-09-28. No solve authorization."
   },
   "recovery_invariants": {
     "no_geometry_redesign": true,
