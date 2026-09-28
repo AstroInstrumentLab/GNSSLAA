@@ -235,3 +235,31 @@ If any hard gate fails:
 No remote execution is authorized by this freeze.
 
 The next formal action, if separately authorized, is exactly one NW E1-S0 passive EM solver invocation with zero automatic retries.
+
+
+## 13. Post-human source provenance addendum
+
+Before the authorized E1-S0 solve, the protected V03 .cst container no longer matched the build-pass SHA256.
+
+Build-pass SHA256:
+`a0e4bda5c64ea712564db76441721ca6dc147c97c061360a16a7d21f272f787a`
+
+Post-human current SHA256:
+`aee6bc30085c002b6063de80f110096f6b62911bf897007d133b309e5a962b36`
+
+A dedicated complete-project-copy identity audit returned:
+`PASS_R4_A0_E1_V03_POST_HUMAN_SOURCE_IDENTITY`
+
+Verified unchanged:
+- exact 36-solid inventory;
+- exact component counts and materials;
+- exact six ports, properties and coordinates;
+- persistent V03 History;
+- empty solver result tree;
+- current source hash stable during the audit.
+
+Therefore the post-human SHA256
+`aee6bc30085c002b6063de80f110096f6b62911bf897007d133b309e5a962b36`
+is the canonical source authority for the authorized E1-S0 solve.
+
+This is a provenance-only re-baseline. No geometry, material, port, solver threshold, diagnostic threshold, or scientific interpretation rule changed. The formal solver budget remains unconsumed.
