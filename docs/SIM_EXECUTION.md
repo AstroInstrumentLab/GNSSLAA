@@ -896,3 +896,54 @@ Passive E2 mainline is closed. No build or solve is authorized.
 
 Next:
 R1E1A4A_AR0_B1R_R4_A0_C1_ACTIVE_COSIM_CONTRACT_FREEZE
+
+
+## E2C dual-pol coexistence contracts frozen
+
+Status:
+PASS_R4_A0_E2C_ROUTE_GEOMETRY_AND_SENTINEL_CONTRACTS_FROZEN
+
+This supersedes the previous immediate-C1 next step.
+
+Frozen route:
+E2C dual-pol coexistence
+-> D0 device/component model authority
+-> C1 full-network active feasibility
+-> periodic/scan active-impedance atlas
+-> final LNA/antenna co-design
+
+E2C geometry:
+- canonical pre-E2 parent, not A/B CST-container merge
+- 45 parent solids - 12 superseded + 72 Pol-A + 72 Pol-B = 177 final solids
+- 16 plated vias
+- 24 raw audit/reference ports
+- exact E2A geometry + exact E2B geometry including frozen half-lap notch
+- no RF retune
+- cross-pol A-vs-B conductor broad-phase + qualified pairwise positive-volume intersection audit required
+
+E2C combined sentinel:
+- reduced 12-port network
+- 8 source ports: E_UP/P_IN for four branches
+- 4 P_OUT 50-ohm load-only ports
+- 96 required complex traces
+- no full 24x24 first solve
+- native DeltaS <=0.02 twice
+- source-side reciprocity <=0.02
+- loaded column power <=1.02
+
+Frozen coexistence review:
+- own-pol 4x4 max complex delta >0.10 REVIEW; >0.20 severe
+- mode-conversion degradation >3 dB REVIEW; >6 dB severe
+- branch return imbalance >1 dB REVIEW
+- >=10 dB / <=50 MHz resonance REVIEW
+- cross-pol device-side coupling >-20 dB REVIEW; >-10 dB severe
+
+No active-stability claim may use this partial sentinel network. C1 still requires separately frozen full passive network authority.
+
+Current:
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+LNA_INTEGRATION_AUTHORIZED: false
+
+Next:
+R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_SOURCE_STATIC_PREPARATION
