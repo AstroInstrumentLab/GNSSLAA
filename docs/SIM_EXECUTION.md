@@ -947,3 +947,56 @@ LNA_INTEGRATION_AUTHORIZED: false
 
 Next:
 R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_SOURCE_STATIC_PREPARATION
+
+
+## E2C prebuild static implementation PASS
+
+Status:
+PASS_R4_A0_E2C_PREBUILD_STATIC_READY_AWAIT_AUTH
+
+No NW/XW/251 simulation call was used.
+Formal build invocations: 0
+Solver invocations: 0
+
+Frozen implementation:
+- combined build macro blob: fb770258aa94106a2437320c29a2cd036990770a
+- exact inventory blob: dcc33fc9236eb9e2a696bb90f43ce9e1bdc27bd2
+- 16-via CST kernel-reference blob: fbaac4e894a5b5af3c3145a67e767b2a7c8e9c98
+- cross-pol broadphase runner blob: ce09233173aea44783be8d87dc5e665ca07356e9
+- cross-pol broadphase manifest blob: 8dd082aab1c1fd99495b0e773c1c987efd79e62c
+- formal build runner blob: e62ae3982f39c67f1c369802792c2ec553c6788c
+
+Static geometry closure:
+- 12 parent deletes
+- 16 temporary via drill tools
+- 144 final new solids
+- 177 expected final solids
+- 16 plated vias
+- 24 exact raw ports
+- 16 drill subtract operations
+- Pol-A via rotations +135 deg: 16 transform occurrences
+- Pol-B via rotations -135 deg: 16 transform occurrences
+- build runner run_solver() count = 0
+
+Cross-pol coexistence broadphase:
+- Pol-A new solids = 72
+- Pol-B new solids = 72
+- all A x B pairs = 5184
+- source-AABB candidate pairs = 1
+- candidate:
+  E2C_A_P_BackGround:LOCAL_BACK_GROUND
+  vs
+  E2C_B_N_BackGround:LOCAL_BACK_GROUND
+
+Formal build pairwise contract:
+- inherited E2A checks = 14
+- inherited E2B checks = 14
+- new E2C A/B coexistence candidate = 1
+- total required complete-copy pairwise checks = 29/29
+
+Current boundary:
+R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_AWAIT_AUTH
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+LNA_INTEGRATION_AUTHORIZED: false
