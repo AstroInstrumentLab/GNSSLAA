@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E2A_S0L_READONLY_QUALIFICATION_RECOVERY",
-    "stop_boundary": "FORMAL S0L SOLVER INVOCATION CONSUMED; FORMAL RESULT HOLD DUE NATIVE LOG PARSER SEMANTICS ONLY; NO RETRY; SOLVE AUTH CLOSED; READ-ONLY QUALIFICATION RECOVERY NEXT",
+    "next_stage": "AR0_B1R_R4_A0_E2A_S0L_COUPLING_REVIEW_FREEZE",
+    "stop_boundary": "S0L SOLVED ARTIFACT QUALIFIED BY READ-ONLY PARSER RECOVERY; HARD GATES PASS; REVIEW SENTINEL A_TO_B_EUP > -20 DB; POL-B BLOCKED PENDING MECHANISM CLASSIFICATION; NO SOLVE AUTHORIZED",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1802,10 +1802,19 @@
     "ar0_b1r_r4_a0_e2a_human_review_note": "User explicitly confirmed the E2A geometry and S0L presolve review copy on 2026-09-29.",
     "ar0_b1r_r4_a0_e2a_s0l_formal_status": "HOLD_R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_LOADED_SOURCE_QUALIFICATION",
     "ar0_b1r_r4_a0_e2a_s0l_hold_classification": "HOLD_QUALIFICATION_PARSER_SEMANTICS",
-    "ar0_b1r_r4_a0_e2a_s0l_solved_artifact_sha256": "811a31eabcd193bcf5f9cbecdf05f8aab1b1ab945bad4bda51a94d21d57b04b3"
+    "ar0_b1r_r4_a0_e2a_s0l_solved_artifact_sha256": "811a31eabcd193bcf5f9cbecdf05f8aab1b1ab945bad4bda51a94d21d57b04b3",
+    "ar0_b1r_r4_a0_e2a_s0l_recovery_status": "PASS_R4_A0_E2A_S0L_READONLY_QUALIFICATION_RECOVERY",
+    "ar0_b1r_r4_a0_e2a_s0l_disposition": "PASS_LOADED_SOURCE_WITH_REVIEW",
+    "ar0_b1r_r4_a0_e2a_s0l_final_two_native_delta_s": [
+      0.00606905,
+      0.00737333
+    ],
+    "ar0_b1r_r4_a0_e2a_s0l_review_trigger": "A_TO_B_EUP_PEAK_MINUS16P2516DB_AT_1P5736GHZ",
+    "ar0_b1r_r4_a0_e2a_s0l_severe_review": false,
+    "ar0_b1r_r4_a0_e2a_s0l_polB_promotion": "BLOCKED_PENDING_COUPLING_REVIEW_CLASSIFICATION"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_READONLY_QUALIFICATION_RECOVERY",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_COUPLING_REVIEW_FREEZE",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1813,8 +1822,8 @@
     "formal_o2a_solve_invocation_count": 1,
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
-    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_FORMAL_SOLVE",
-    "last_status": "HOLD_QUALIFICATION_PARSER_SEMANTICS",
+    "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_READONLY_QUALIFICATION_RECOVERY",
+    "last_status": "PASS_LOADED_SOURCE_WITH_REVIEW",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
