@@ -682,3 +682,37 @@ SOLVE_AUTHORIZED: false
 Formal solver budget: 0
 Automatic retry budget: 0
 Configure disposable complete-project copy only; stop after fresh-reopen 107-solid/6-port/selected-excitation/empty-result-tree qualification.
+
+
+## E2A-S0L presolve configuration PASS
+
+Status:
+PASS_R4_A0_E2A_S0L_PRESOLVE_CONFIG_READY
+
+Formal solver invocations: 0
+Formal build invocations: 0
+
+Configured artifact:
+D:\GNSS_R4A0E2A_S0L_PRESOLVE\R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_PRESOLVE_CONFIGURED_V01.cst
+
+SHA256:
+ad549cb2743a425c21e602469010836f43a16e8fec99d32f4c28369bc47a381f
+
+Runtime fresh-reopen proof:
+- 107 solids unchanged
+- exact shape/component/material/volume signature unchanged
+- exactly 6 ports
+- source excitations = 1,2,4,5
+- ports 3,6 = 50-ohm S-parameter ports, load-only, not excited
+- exact selected-excitation History persists
+- result tree empty
+- configured hash stable
+
+Load interpretation:
+An unexcited 50-ohm S-parameter port is the matched passive termination for the S0L EM baseline. No separate physical 50-ohm lumped resistor is inserted.
+
+Current human 3D review is not retroactively marked PASS by this configuration run.
+
+PRESOLVE_CONFIG_AUTHORIZED: false
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
