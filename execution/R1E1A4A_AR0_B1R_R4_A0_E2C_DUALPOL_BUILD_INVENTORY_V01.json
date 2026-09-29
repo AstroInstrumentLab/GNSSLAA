@@ -483,5 +483,144 @@
   "authorization": {
     "BUILD_AUTHORIZED": false,
     "SOLVE_AUTHORIZED": false
+  },
+  "interference": {
+    "whole_model_command": "CDCheckModelIntersections",
+    "pairwise_complete_project_copy_required": true,
+    "inherited_E2A_pair_count": 14,
+    "inherited_E2B_pair_count": 14,
+    "source_broadphase": {
+      "method": "exact/conservative source-derived AABB",
+      "all_cross_pairs": 5184,
+      "candidate_pair_count": 1,
+      "candidate_pairs": [
+        [
+          "E2C_A_P_BackGround:LOCAL_BACK_GROUND",
+          "E2C_B_N_BackGround:LOCAL_BACK_GROUND"
+        ]
+      ],
+      "runner": "scripts/audit_r1e1a4a_ar0_b1r_r4_a0_e2c_crosspol_broadphase.py",
+      "runner_blob": "ce09233173aea44783be8d87dc5e665ca07356e9",
+      "macro_blob": "fb770258aa94106a2437320c29a2cd036990770a"
+    },
+    "registered_pairs": [
+      [
+        "E2C_A_P_Vias:PADDLE_VIA_M",
+        "B0_Stalk:A_P_PRONG"
+      ],
+      [
+        "E2C_A_P_Vias:PADDLE_VIA_C",
+        "B0_Stalk:A_P_PRONG"
+      ],
+      [
+        "E2C_A_P_Vias:PADDLE_VIA_P",
+        "B0_Stalk:A_P_PRONG"
+      ],
+      [
+        "E2C_A_P_Vias:CRF_GROUND_VIA",
+        "B0_Stalk:A_P_PRONG"
+      ],
+      [
+        "E2C_A_N_Vias:PADDLE_VIA_M",
+        "B0_Stalk:A_N_PRONG"
+      ],
+      [
+        "E2C_A_N_Vias:PADDLE_VIA_C",
+        "B0_Stalk:A_N_PRONG"
+      ],
+      [
+        "E2C_A_N_Vias:PADDLE_VIA_P",
+        "B0_Stalk:A_N_PRONG"
+      ],
+      [
+        "E2C_A_N_Vias:CRF_GROUND_VIA",
+        "B0_Stalk:A_N_PRONG"
+      ],
+      [
+        "E2C_A_P_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:B_P_PRONG"
+      ],
+      [
+        "E2C_A_P_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:B_N_PRONG"
+      ],
+      [
+        "E2C_A_N_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:B_P_PRONG"
+      ],
+      [
+        "E2C_A_N_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:B_N_PRONG"
+      ],
+      [
+        "E2C_A_P_BackGround:LOCAL_BACK_GROUND",
+        "B1M_LowerStalk:B_LOWER_BODY"
+      ],
+      [
+        "E2C_A_N_BackGround:LOCAL_BACK_GROUND",
+        "B1M_LowerStalk:B_LOWER_BODY"
+      ],
+      [
+        "E2C_B_P_Vias:PADDLE_VIA_M",
+        "B0_Stalk:B_P_PRONG"
+      ],
+      [
+        "E2C_B_P_Vias:PADDLE_VIA_C",
+        "B0_Stalk:B_P_PRONG"
+      ],
+      [
+        "E2C_B_P_Vias:PADDLE_VIA_P",
+        "B0_Stalk:B_P_PRONG"
+      ],
+      [
+        "E2C_B_P_Vias:CRF_GROUND_VIA",
+        "B0_Stalk:B_P_PRONG"
+      ],
+      [
+        "E2C_B_N_Vias:PADDLE_VIA_M",
+        "B0_Stalk:B_N_PRONG"
+      ],
+      [
+        "E2C_B_N_Vias:PADDLE_VIA_C",
+        "B0_Stalk:B_N_PRONG"
+      ],
+      [
+        "E2C_B_N_Vias:PADDLE_VIA_P",
+        "B0_Stalk:B_N_PRONG"
+      ],
+      [
+        "E2C_B_N_Vias:CRF_GROUND_VIA",
+        "B0_Stalk:B_N_PRONG"
+      ],
+      [
+        "E2C_B_P_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:A_P_PRONG"
+      ],
+      [
+        "E2C_B_P_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:A_N_PRONG"
+      ],
+      [
+        "E2C_B_N_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:A_P_PRONG"
+      ],
+      [
+        "E2C_B_N_BackGround:LOCAL_BACK_GROUND",
+        "B0_Stalk:A_N_PRONG"
+      ],
+      [
+        "E2C_B_P_BackGround:LOCAL_BACK_GROUND",
+        "B1M_LowerStalk:A_LOWER_BODY"
+      ],
+      [
+        "E2C_B_N_BackGround:LOCAL_BACK_GROUND",
+        "B1M_LowerStalk:A_LOWER_BODY"
+      ],
+      [
+        "E2C_A_P_BackGround:LOCAL_BACK_GROUND",
+        "E2C_B_N_BackGround:LOCAL_BACK_GROUND"
+      ]
+    ],
+    "required_pairwise_pass_count": 29
   }
 }
