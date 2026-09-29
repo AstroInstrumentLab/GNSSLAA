@@ -864,3 +864,35 @@ User has already authorized the solve, but production solve activation remains b
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: true
 production_solve_authorized: false
+
+
+## E2B S0L recovery + E2 A/B promotion PASS
+
+Formal E2B runner remains HOLD due a postsolve Python regex exception. The scientific solve itself completed once; no retry occurred.
+
+Read-only recovery:
+PASS_R1E1A4A_AR0_B1R_R4_A0_E2B_S0L_READONLY_QUALIFICATION_RECOVERY
+
+- formal solver invocations: 1
+- recovery solver invocations: 0
+- native final DeltaS: 0.00656218 / 0.00869598
+- 24/24 traces on 1001-point 1.0..1.8 GHz grid
+- reciprocity max: 2.199e-5
+- max loaded column power: 0.9999873
+- no fatal solver error
+- no mesh corruption
+
+A/B passive promotion:
+PASS_R1E1A4A_AR0_B1R_R4_A0_E2AB_PASSIVE_PROMOTION
+
+Pol-B conversion is slightly lower than Pol-A by about 1.4..2.2 dB for the frozen diff/common leakage metrics.
+Pol-B branch return imbalance is 0.186 dB.
+Pol-B max 50-MHz E-terminal coupling excursion is 0.990 dB.
+No >6 dB conversion-degradation, >1 dB branch-imbalance, or >=10 dB/50MHz resonance review gate is triggered.
+
+PEC-wire problematic positions remain on RF tongue / solder-bridge seams, not the half-lap.
+
+Passive E2 mainline is closed. No build or solve is authorized.
+
+Next:
+R1E1A4A_AR0_B1R_R4_A0_C1_ACTIVE_COSIM_CONTRACT_FREEZE
