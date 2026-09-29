@@ -50,7 +50,7 @@
     "response_contract_future": "6 rows x 4 source columns = 24 complex traces"
   },
   "authorization": {
-    "PRESOLVE_CONFIG_AUTHORIZED": true,
+    "PRESOLVE_CONFIG_AUTHORIZED": false,
     "BUILD_AUTHORIZED": false,
     "SOLVE_AUTHORIZED": false,
     "LNA_INTEGRATION_AUTHORIZED": false
@@ -59,5 +59,11 @@
     "formal_solver_invocations": 0,
     "automatic_retries": 0
   },
-  "authorization_note": "User explicitly authorized one zero-solver S0L presolve configuration on 2026-09-29. This does not authorize build or solve."
+  "authorization_note": "User explicitly authorized one zero-solver S0L presolve configuration on 2026-09-29. This does not authorize build or solve.",
+  "formal_solver_invocations": 0,
+  "automatic_retries": 0,
+  "final_status": "PASS_R4_A0_E2A_S0L_PRESOLVE_CONFIG_READY",
+  "result_packet": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_PRESOLVE_CONFIG_PASS_20260929_result.json",
+  "configured_artifact_sha256": "ad549cb2743a425c21e602469010836f43a16e8fec99d32f4c28369bc47a381f",
+  "next_boundary": "E2A_HUMAN_REVIEW_CLOSEOUT_THEN_S0L_SOLVE_AWAIT_AUTH"
 }
