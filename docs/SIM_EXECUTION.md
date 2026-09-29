@@ -716,3 +716,17 @@ Current human 3D review is not retroactively marked PASS by this configuration r
 PRESOLVE_CONFIG_AUTHORIZED: false
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
+
+
+## E2A human review PASS and S0L solve authorization — 2026-09-29
+
+Human review status: PASS_R4_A0_E2A_POLA_HUMAN_3D_REVIEW
+User also confirmed the S0L presolve review copy.
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: true
+Formal solver budget: 1
+Automatic retry budget: 0
+Selected sources: 1,2,4,5
+Matched-load-only ports: 3,6
+No full 6x6 or 12x12 fallback.
