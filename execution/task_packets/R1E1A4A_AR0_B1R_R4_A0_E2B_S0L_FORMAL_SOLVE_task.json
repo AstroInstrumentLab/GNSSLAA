@@ -26,8 +26,8 @@
   "authorization": {
     "BUILD_AUTHORIZED": false,
     "SOLVE_AUTHORIZED": true,
-    "production_solve_authorized": false,
-    "state": "PREAUTHORIZED_BLOCKED_BY_HUMAN_REVIEW"
+    "production_solve_authorized": true,
+    "state": "AUTHORIZED_AFTER_EXPLICIT_HUMAN_3D_REVIEW_PASS"
   },
   "budgets": {
     "formal_solver_invocations": 1,
@@ -46,5 +46,10 @@
     "runner_24_response": true,
     "runner_native_parser": true,
     "runner_auto_retry_zero": true
+  },
+  "human_review": {
+    "status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_HUMAN_3D_REVIEW",
+    "explicit_user_confirmation": true,
+    "date": "2026-09-29"
   }
 }
