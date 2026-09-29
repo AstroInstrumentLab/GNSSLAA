@@ -75,6 +75,24 @@ It does not replace the later full-network requirement for arbitrary output load
 
 Pol-B promotion uses the same loaded condition and no longer requires a full 12-port Pol-A solve first.
 
+## 0E. E2A S0L coupling-review closure — authoritative
+
+The loaded-source review sentinel A_E_UP<->B_E_UP > -20 dB has been classified offline using the qualified 1001-point source-side network.
+
+Authority:
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_COUPLING_REVIEW_V01.md`
+
+Conclusion:
+- the -16.25 dB single-ended term is balanced-terminal coupling, not abnormal common-mode leakage;
+- mixed-mode E diff/common conversion remains about -30.7 dB or lower;
+- P_IN diff/common conversion is about -73 dB;
+- no >=10 dB / <=50 MHz resonance sentinel is present;
+- no narrow Pol-A mechanism probe is required.
+
+The CST PEC-wire warning is localized to the intentional RF tongue / solder-bridge edge-contact seam. It remains a loss/NF modeling debt, not a blocker for the present coupling classification.
+
+Pol-B may proceed to offline promotion-contract freeze. Build and solve remain separately authorized.
+
 ## 1. Current proven state
 
 H3A V0.2 mechanics are accepted. H3B-T01A GCPW 90-degree transition BUILD is accepted, and its maxpass16 numerical recovery converged at adaptive pass 12.
