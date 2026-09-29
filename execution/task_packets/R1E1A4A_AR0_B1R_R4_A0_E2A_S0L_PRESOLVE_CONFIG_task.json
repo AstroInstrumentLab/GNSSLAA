@@ -50,7 +50,7 @@
     "response_contract_future": "6 rows x 4 source columns = 24 complex traces"
   },
   "authorization": {
-    "PRESOLVE_CONFIG_AUTHORIZED": false,
+    "PRESOLVE_CONFIG_AUTHORIZED": true,
     "BUILD_AUTHORIZED": false,
     "SOLVE_AUTHORIZED": false,
     "LNA_INTEGRATION_AUTHORIZED": false
@@ -58,5 +58,6 @@
   "budgets": {
     "formal_solver_invocations": 0,
     "automatic_retries": 0
-  }
+  },
+  "authorization_note": "User explicitly authorized one zero-solver S0L presolve configuration on 2026-09-29. This does not authorize build or solve."
 }
