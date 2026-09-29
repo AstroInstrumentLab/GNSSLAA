@@ -25,9 +25,9 @@
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": true,
-    "production_solve_authorized": true,
-    "state": "AUTHORIZED_AFTER_EXPLICIT_HUMAN_3D_REVIEW_PASS"
+    "SOLVE_AUTHORIZED": false,
+    "production_solve_authorized": false,
+    "state": "CLOSED_AFTER_ONE_FORMAL_INVOCATION_HOLD"
   },
   "budgets": {
     "formal_solver_invocations": 1,
@@ -51,5 +51,12 @@
     "status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_HUMAN_3D_REVIEW",
     "explicit_user_confirmation": true,
     "date": "2026-09-29"
-  }
+  },
+  "formal_solver_invocations_consumed": 1,
+  "automatic_retries": 0,
+  "retry_authorized": false,
+  "final_status": "HOLD_R1E1A4A_AR0_B1R_R4_A0_E2B_S0L_EXECUTION",
+  "formal_result_packet": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2B_S0L_FORMAL_HOLD_20260929_result.json",
+  "solved_artifact_sha256": "2abafb4435a6f1dc7bfcadec029ee1c81436cf91f27fefe99ca64337820eba02",
+  "next_boundary": "R1E1A4A_AR0_B1R_R4_A0_E2B_S0L_READONLY_QUALIFICATION_RECOVERY"
 }
