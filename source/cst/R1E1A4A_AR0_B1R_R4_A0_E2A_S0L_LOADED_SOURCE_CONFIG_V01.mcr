@@ -33,8 +33,7 @@ Option Explicit
 ' Their physical copper pads remain unchanged/open.
 '
 ' HARD STOP:
-'   no FDSolver.Start
-'   no Solver.Start
+'   no solver-start command
 '   no geometry mutation
 '   no circuit component insertion
 
