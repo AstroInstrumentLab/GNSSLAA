@@ -672,3 +672,13 @@ That next node runs configuration only and must STOP before solver invocation.
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
+
+
+## E2A-S0L presolve configuration authorization — 2026-09-29
+
+PRESOLVE_CONFIG_AUTHORIZED: true
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+Formal solver budget: 0
+Automatic retry budget: 0
+Configure disposable complete-project copy only; stop after fresh-reopen 107-solid/6-port/selected-excitation/empty-result-tree qualification.
