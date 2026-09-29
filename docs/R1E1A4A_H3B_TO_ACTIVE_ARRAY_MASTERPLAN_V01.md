@@ -93,6 +93,40 @@ The CST PEC-wire warning is localized to the intentional RF tongue / solder-brid
 
 Pol-B may proceed to offline promotion-contract freeze. Build and solve remain separately authorized.
 
+## 0F. Post-E2AB route reset: E2C dual-pol coexistence first — authoritative
+
+E2A/E2B prove each polarization independently, but the final hardware contains all four landing zones simultaneously.
+
+Therefore immediate C1 active co-sim is superseded by an E2C coexistence gate.
+
+Authorities:
+- `docs/R1E1A4A_AR0_B1R_R4_A0_ROUTE_FREEZE_POST_E2AB_V01.md`
+- `docs/R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_GEOMETRY_CONTRACT_V01.md`
+- `docs/R1E1A4A_AR0_B1R_R4_A0_E2C_COMBINED_SENTINEL_CONTRACT_V01.md`
+
+E2C geometry:
+- build directly from canonical pre-E2 parent;
+- exact E2A + exact E2B active cells simultaneously;
+- 177 final solids;
+- 16 vias;
+- 24 raw ports;
+- no RF retune.
+
+First combined sentinel:
+- 12 reduced ports;
+- 8 source columns;
+- four 50-ohm P_OUT load-only ports;
+- 96 complex traces;
+- no full 24x24 first solve.
+
+E2C is a falsification test for cross-pol hardware coexistence.
+A clean E2C PASS allows the first active-feasibility pilot to remain reduced in scope; a review trigger is classified before any geometry retune or full-network escalation.
+
+After E2C:
+device/component authority -> full passive network authority for C1 -> active feasibility -> periodic/scan active impedance -> final co-design.
+
+Isolated-element matching is not a final optimization objective.
+
 ## 1. Current proven state
 
 H3A V0.2 mechanics are accepted. H3B-T01A GCPW 90-degree transition BUILD is accepted, and its maxpass16 numerical recovery converged at adaptive pass 12.
