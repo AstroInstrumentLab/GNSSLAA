@@ -206,15 +206,14 @@ def native_flags(evidence):
     }
 
 def native_delta_sequence(evidence):
-    # CST native output lines in qualified E1 use e.g.:
-      r"Maximum difference of S-parameters[^=]*=\\s*([0-9.+Ee-]+)",
+    # CST native output lines may use either All S-Parameters or legacy DeltaS wording.
     txt=native_text(evidence)
     out=[]
     import re
     patterns=[
-      r"All\\s+S-Parameters\\s*=\\s*([0-9.+Ee-]+)",
-      r"Maximum difference of S-parameters[^=]*=\\s*([0-9.+Ee-]+)",
-      r"DeltaS\\s*=\\s*([0-9.+Ee-]+)",
+      r"All\s+S-Parameters\s*=\s*([0-9.+Ee-]+)",
+      r"Maximum difference of S-parameters[^=]*=\s*([0-9.+Ee-]+)",
+      r"DeltaS\s*=\s*([0-9.+Ee-]+)",
     ]
     seen=[]
     for pat in patterns:
