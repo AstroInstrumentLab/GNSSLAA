@@ -212,6 +212,7 @@ def native_delta_sequence(evidence):
     out=[]
     import re
     patterns=[
+      r"All\\s+S-Parameters\\s*=\\s*([0-9.+\\-Ee]+)",
       r"Maximum difference of S-parameters[^=]*=\s*([0-9.+\-Ee]+)",
       r"DeltaS\s*=\s*([0-9.+\-Ee]+)",
     ]
