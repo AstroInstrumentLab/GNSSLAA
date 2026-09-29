@@ -25,12 +25,19 @@
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": true,
+    "SOLVE_AUTHORIZED": false,
     "LNA_INTEGRATION_AUTHORIZED": false
   },
   "budgets": {
     "formal_solver_invocations": 1,
     "automatic_retries": 0,
     "silent_retry": false
-  }
+  },
+  "formal_solver_invocations_consumed": 1,
+  "automatic_retries": 0,
+  "retry_authorized": false,
+  "final_status": "HOLD_R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_LOADED_SOURCE_QUALIFICATION",
+  "result_packet": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_FORMAL_SOLVE_HOLD_20260929_result.json",
+  "solved_artifact_sha256": "811a31eabcd193bcf5f9cbecdf05f8aab1b1ab945bad4bda51a94d21d57b04b3",
+  "next_boundary": "R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_READONLY_QUALIFICATION_RECOVERY"
 }
