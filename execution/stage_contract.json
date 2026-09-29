@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW",
-    "stop_boundary": "E2A BUILD PASS; HUMAN 3D REVIEW STILL REQUIRED. S0L PORT-REDUCTION/SELECTED-EXCITATION IMPLEMENTATION IS STATIC PASS BUT INACTIVE. NO REMOTE CONFIG; NO SOLVE.",
+    "next_stage": "AR0_B1R_R4_A0_E2A_S0L_PRESOLVE_CONFIG_AUTHORIZED",
+    "stop_boundary": "ONE ZERO-SOLVER S0L PRESOLVE CONFIGURATION AUTHORIZED ON NW; CONFIGURE DISPOSABLE COPY ONLY; 12->6 PORT ROLE REDUCTION; SELECTED EXCITATION 1/2/4/5; PORTS 3/6 50OHM LOAD-ONLY; STOP BEFORE SOLVER",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1783,7 +1783,7 @@
     ]
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_PRESOLVE_CONFIG_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1792,7 +1792,7 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_ONLY",
-    "last_status": "PASS_BUILD_ONLY_AWAIT_HUMAN_REVIEW; S0L_STATIC_IMPLEMENTATION_READY_INACTIVE",
+    "last_status": "AUTHORIZED_ZERO_SOLVER_S0L_PRESOLVE_CONFIG",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
