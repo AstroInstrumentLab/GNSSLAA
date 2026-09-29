@@ -6,8 +6,8 @@
     "source_commit": "18c44b9afc787ad8f085110d6306ee4967f1c1cb"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
-    "SOLVE_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
+    "SOLVE_AUTHORIZED": true,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
     "lna_integration_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E2B_POLB_PROMOTION_CONTRACT_FREEZE",
-    "stop_boundary": "E2A S0L COUPLING REVIEW PASS; NO MECHANISM PROBE REQUIRED; POL-B MAY ADVANCE TO OFFLINE PROMOTION CONTRACT FREEZE; NO BUILD OR SOLVE AUTHORIZED",
+    "next_stage": "AR0_B1R_R4_A0_E2B_POLB_BUILD_ONLY_AUTHORIZED",
+    "stop_boundary": "E2B ONE-SHOT BUILD AUTHORIZED; SOLVE PREAUTHORIZED BUT BLOCKED UNTIL BUILD PASS + EXPLICIT HUMAN REVIEW PASS; NO AUTOMATIC RETRY",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1816,10 +1816,14 @@
     "ar0_b1r_r4_a0_e2a_s0l_coupling_classification": "BALANCED_RADIATOR_TERMINAL_COUPLING_NOT_ABNORMAL_COMMON_MODE_MECHANISM",
     "ar0_b1r_r4_a0_e2a_s0l_mechanism_probe_required": false,
     "ar0_b1r_r4_a0_e2a_s0l_pec_warning": "KNOWN_INTENTIONAL_EDGE_CONTACT_MESH_WARNING_AT_RF_TONGUE_SOLDER_SEAM",
-    "ar0_b1r_r4_a0_e2a_s0l_future_model_debt": "FINITE_AREA_TONGUE_SOLDER_CONTACT_REQUIRED_BEFORE_AUTHORITATIVE_LOSS_OR_NF_BUDGET"
+    "ar0_b1r_r4_a0_e2a_s0l_future_model_debt": "FINITE_AREA_TONGUE_SOLDER_CONTACT_REQUIRED_BEFORE_AUTHORITATIVE_LOSS_OR_NF_BUDGET",
+    "ar0_b1r_r4_a0_e2b_status": "PASS_R4_A0_E2B_POLB_PREBUILD_READY_AUTHORIZED",
+    "ar0_b1r_r4_a0_e2b_freeze": "docs/R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_PROMOTION_FREEZE_V01.md",
+    "ar0_b1r_r4_a0_e2b_build_task": "execution/task_packets/R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_BUILD_task.json",
+    "ar0_b1r_r4_a0_e2b_half_lap_delta": "N_BACK_GROUND_ONLY_0P125MM_X_1MM_NOTCH"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_PROMOTION_CONTRACT_FREEZE",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_BUILD_ONLY_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1828,7 +1832,7 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_COUPLING_REVIEW",
-    "last_status": "PASS_COUPLING_CLASSIFIED_NO_PROBE_REQUIRED",
+    "last_status": "AUTHORIZED_E2B_BUILD_AND_CONDITIONAL_SOLVE",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
