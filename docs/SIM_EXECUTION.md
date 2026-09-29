@@ -730,3 +730,52 @@ Automatic retry budget: 0
 Selected sources: 1,2,4,5
 Matched-load-only ports: 3,6
 No full 6x6 or 12x12 fallback.
+
+
+## E2A-S0L solve qualification recovery PASS
+
+Formal solve runner status remains:
+HOLD_R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_LOADED_SOURCE_QUALIFICATION
+
+The frozen native-log parser did not recognize CST 2022.5 lines of the form `All S-Parameters = value`.
+
+Read-only recovery:
+PASS_R4_A0_E2A_S0L_READONLY_QUALIFICATION_RECOVERY
+
+No new solver invocation was used.
+
+Recovered native DeltaS:
+- 0.039114
+- 0.00606905
+- 0.00737333
+
+Final two are both <= 0.02.
+
+Other hard gates:
+- 24/24 response traces PASS
+- common 1001-point 1.0..1.8 GHz grid PASS
+- source-side reciprocity max |Sij-Sji| = 1.7684e-5 PASS
+- loaded column power max = 0.9999856 PASS
+- fatal solver error = false
+- mesh corruption = false
+
+Disposition:
+PASS_LOADED_SOURCE_WITH_REVIEW
+
+Review sentinel:
+A_E_UP <-> B_E_UP peaks at -16.2516 dB near 1.5736 GHz.
+No severe > -10 dB sentinel.
+Pol-B promotion is blocked pending mechanism classification.
+
+Representative GNSS values:
+- L5 A_EUP<->B_EUP: -20.9997 dB
+- L2: -19.9872 dB
+- L1: -16.2517 dB
+- P_IN<->P_IN remains approximately -102 to -107 dB at L5/L2/L1.
+
+Current:
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+
+Next:
+R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_COUPLING_REVIEW_FREEZE
