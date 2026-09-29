@@ -25,14 +25,21 @@
     "stop_boundary": "one build-only -> fresh reopen -> exact 107 solids/12 ports/8 vias/kernel drill match/intersection audits -> human-review copy -> STOP"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": true,
+    "BUILD_AUTHORIZED": false,
     "SOLVE_AUTHORIZED": true,
-    "solve_activation_state": "PREAUTHORIZED_BLOCKED_BY_BUILD_AND_HUMAN_REVIEW"
+    "solve_activation_state": "PREAUTHORIZED_BLOCKED_BY_HUMAN_REVIEW"
   },
   "budgets": {
     "formal_build": 1,
     "formal_solver": 1,
     "automatic_retries": 0,
     "silent_retry": false
-  }
+  },
+  "formal_build_invocations_consumed": 1,
+  "solver_invocations": 0,
+  "automatic_retries": 0,
+  "final_status": "PASS_R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_BUILD_ONLY",
+  "result_packet": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_BUILD_PASS_20260929_result.json",
+  "artifact_sha256": "002eb117b0716cf2a47856b4552dd96ef4567358c7dd5827cbe766d10a633f39",
+  "next_boundary": "R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_HUMAN_3D_REVIEW"
 }
