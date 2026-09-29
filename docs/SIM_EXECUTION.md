@@ -630,3 +630,45 @@ BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 
 No remote calls were used for this freeze.
+
+
+## E2A-S0L selected-excitation implementation
+
+Status:
+PASS_R4_A0_E2A_S0L_STATIC_IMPLEMENTATION_READY_BLOCKED_BY_HUMAN_REVIEW
+
+No remote calls were used.
+
+CST 2022 implementation:
+- delete raw audit ports 12/11/10/6/5/4
+- rename raw 7/8/9 -> solve 4/5/6
+- six-port semantic map retained
+- FDSolver source type = List/List
+- selected source excitations = 1/2/4/5
+- ports 3/6 = passive 50-ohm matched output loads, never sources
+- no high-Z open surrogate
+- no geometry rebuild
+- no six-source fallback
+
+Frozen sources:
+- config macro blob a42d59e0aa6dae84c0d6ff4b5bf20193a71a9bf5
+- presolve runner blob ca520ccbc48fb56baf725c0216c3b32cd718af0c
+- formal solve runner blob 9b944002dc65b5b21cad00c230ba041833c4de5e
+
+Static audit:
+- config solver-start count = 0
+- presolve runner run_solver() count = 0
+- formal solve runner run_solver() count = 1
+- response contract = 24 complex traces
+- no full 6x6/12x12 first-solve requirement
+
+Current stage remains:
+R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW
+
+After explicit human PASS:
+next = R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_PRESOLVE_CONFIG_AWAIT_AUTH
+
+That next node runs configuration only and must STOP before solver invocation.
+
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
