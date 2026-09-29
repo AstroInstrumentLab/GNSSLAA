@@ -779,3 +779,46 @@ SOLVE_AUTHORIZED: false
 
 Next:
 R1E1A4A_AR0_B1R_R4_A0_E2A_S0L_COUPLING_REVIEW_FREEZE
+
+
+## E2A-S0L coupling review PASS
+
+Status:
+PASS_R4_A0_E2A_S0L_COUPLING_CLASSIFIED_NO_PROBE_REQUIRED
+
+Classification:
+BALANCED_RADIATOR_TERMINAL_COUPLING_NOT_ABNORMAL_COMMON_MODE_MECHANISM
+
+Offline mixed-mode evidence from the qualified 1001-point solve:
+- E diff->common peak: -30.7106 dB
+- E common->diff peak: -30.7117 dB
+- E diff->P_IN common peak: -67.6151 dB
+- P_IN diff->common peak: -73.5334 dB
+- A_E_UP<->B_E_UP max 50-MHz excursion: 1.009 dB
+- frozen >=10 dB / <=50 MHz resonance sentinel: NOT TRIGGERED
+- max single-ended return-magnitude branch difference: 0.225 dB
+
+Therefore the single-ended A_E_UP<->B_E_UP peak (-16.2516 dB near 1.5736 GHz) is classified as balanced-radiator terminal coupling rather than an abnormal local-ground/LNA common-mode mechanism.
+
+PEC-wire warning localization:
+- Problematic Positions occur at z=57.1428566 / 58.1428566 / 58.4278564 mm.
+- Coordinates map exactly onto the frozen RF tongue / solder-bridge contact seam.
+- They do not map to P_IN, P_OUT, local backside ground, paddle-via cluster or CRF ground via.
+- Classification: KNOWN_INTENTIONAL_EDGE_CONTACT_MESH_WARNING.
+
+Model-quality debt:
+edge-only contact is not final authority for conductor/solder loss or noise-temperature budgeting.
+Before authoritative loss/NF work, replace it with a finite-area overlap/union or otherwise qualified continuous solder joint.
+
+Decision:
+- no narrow Pol-A mechanism probe required;
+- Pol-B promotion is unblocked for offline contract freeze only;
+- no Pol-B build or solve is authorized.
+
+Current:
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+LNA_INTEGRATION_AUTHORIZED: false
+
+Next:
+R1E1A4A_AR0_B1R_R4_A0_E2B_POLB_PROMOTION_CONTRACT_FREEZE
