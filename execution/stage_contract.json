@@ -6,7 +6,7 @@
     "source_commit": "18c44b9afc787ad8f085110d6306ee4967f1c1cb"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -24,7 +24,7 @@
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
     "next_stage": "AR0_B1R_R4_A0_E2C_BUILD_AWAIT_AUTH",
-    "stop_boundary": "E2C COMBINED SOURCE/INVENTORY/16-VIA KERNEL/BROADPHASE/BUILD RUNNER STATIC PASS; NO BUILD OR SOLVE AUTHORIZED",
+    "stop_boundary": "ONE E2C BUILD_ONLY AUTHORIZED UNDER SIMULATIONOPS 0.2.15; USE NW STABLE LAUNCHER + GENERIC RUNNER V0.1; NO SOLVER; STOP AFTER BUILD/AUDIT/HUMAN REVIEW COPY",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1859,12 +1859,15 @@
     "ar0_b1r_r4_a0_e2c_kernel_blob": "fbaac4e894a5b5af3c3145a67e767b2a7c8e9c98",
     "ar0_b1r_r4_a0_e2c_broadphase_runner_blob": "ce09233173aea44783be8d87dc5e665ca07356e9",
     "ar0_b1r_r4_a0_e2c_broadphase_manifest_blob": "8dd082aab1c1fd99495b0e773c1c987efd79e62c",
-    "ar0_b1r_r4_a0_e2c_build_runner_blob": "e62ae3982f39c67f1c369802792c2ec553c6788c",
+    "ar0_b1r_r4_a0_e2c_build_runner_blob": "da460b253d4e729a17e4a3b03fe82eb389a3381c",
     "ar0_b1r_r4_a0_e2c_broadphase_candidate_count": 1,
-    "ar0_b1r_r4_a0_e2c_formal_pairwise_count": 29
+    "ar0_b1r_r4_a0_e2c_formal_pairwise_count": 29,
+    "ar0_b1r_r4_a0_e2c_build_authorization": "EXPLICIT_USER_AUTHORIZED_2026-09-30",
+    "ar0_b1r_r4_a0_e2c_generic_runner": "SimulationOps runner v0.1 via NW stable launcher",
+    "ar0_b1r_r4_a0_e2c_generic_runner_ops_commit": "7dfbeb7a44a82501a7a20bbe62230aa047e80af6"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_AWAIT_AUTH",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1873,7 +1876,7 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_SOURCE_STATIC_PREPARATION",
-    "last_status": "PASS_E2C_PREBUILD_STATIC_READY_AWAIT_AUTH",
+    "last_status": "AUTHORIZED_E2C_BUILD_ONLY_SIMOPS_0P2P15",
     "one_shot_required": true,
     "fresh_run_directory_required": true
   },
@@ -1888,8 +1891,9 @@
   "global_protocol": {
     "repository": "Dingo-infinity2020/SimulationOps",
     "document": "GLOBAL_DC_SIMULATION_PROTOCOL.md",
-    "protocol_version": "0.2.12",
-    "minimum_compatible_version": "0.2.12"
+    "protocol_version": "0.2.15",
+    "minimum_compatible_version": "0.2.15",
+    "commit": "7dfbeb7a44a82501a7a20bbe62230aa047e80af6"
   },
   "toolchain": {
     "simulator": "CST Studio Suite",
@@ -1902,10 +1906,10 @@
   "dc_call_budget": {
     "target_calls_per_routine_stage": 2,
     "calls_used_current_stage": 0,
-    "task_packet_path": "execution/task_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_BUILD_task.json",
-    "result_packet_path": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_V02_RECOVERY_PREBUILD_result.json",
-    "preferred_runner": "scripts/run_r1e1a4a_ar0_b1r_r4_a0_e2a_pola_build_only_v02_recovery.py",
-    "polling_policy": "human review only; no remote configuration or solver calls",
+    "task_packet_path": "runtime SimOps runner-task-v0.1 packet generated on NW from project authority",
+    "result_packet_path": "runtime SimOps runner result + project evidence; checkpoint to project repo after stage",
+    "preferred_runner": "D:\\\\quest_naoc_tarminal\\\\SimulationOps\\\\runner\\\\nw\\\\simops.cmd",
+    "polling_policy": "launch_once_inspect_at_task_node",
     "exception_reason": "All source implementation/static audit completed without remote calls."
   },
   "evidence": {
