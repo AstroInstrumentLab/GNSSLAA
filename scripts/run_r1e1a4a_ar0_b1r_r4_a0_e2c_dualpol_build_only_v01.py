@@ -93,7 +93,7 @@ def ports_vba(path):
       "f=FreeFile",
       'Open "'+p+'" For Output As #f',
       'Print #f, "PORT_COUNT=" & CStr(Solver.GetNumberOfPorts())',
-      "For i=1 To 12",
+      "For i=1 To 24",
       " Err.Clear",
       " pok=DiscretePort.GetProperties(i,stype,zref,cur,vol,vimp,rad,mon)",
       ' Print #f, "P|" & CStr(i) & "|PROP_OK=" & CStr(pok) & "|ERR=" & CStr(Err.Number) & "|TYPE=" & stype & "|ZREF=" & CStr(zref)',
@@ -474,7 +474,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,evidence):
 
     summary={
       "status":status,
-      "simulationops":"0.2.12",
+      "simulationops":"0.2.15",
       "formal_build_invocations":1,
       "solver_invocations":0,
       "parent":{"path":str(parent),"sha256":PARENT_SHA,"checks":parent_checks},
