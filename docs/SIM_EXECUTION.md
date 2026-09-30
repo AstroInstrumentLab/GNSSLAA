@@ -1,11 +1,10 @@
 # SIM_EXECUTION
 
-SimulationOps: 0.2.10
+SimulationOps: 0.2.15 @ 7dfbeb7a44a82501a7a20bbe62230aa047e80af6
 
-Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2A_POLA_HUMAN_3D_REVIEW
+Current stage:\nR1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_AUTHORIZED
 
-BUILD_AUTHORIZED: false
+BUILD_AUTHORIZED: true
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
 
@@ -1000,3 +999,34 @@ R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_AWAIT_AUTH
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
+
+
+## SimulationOps 0.2.15 runner migration for E2C build
+
+Authority:
+- SimulationOps main commit 7dfbeb7a44a82501a7a20bbe62230aa047e80af6
+- GLOBAL protocol 0.2.15
+- generic stage runner v0.1
+- NW stable launcher runner/nw/simops.cmd
+
+User authorization:
+BUILD_AUTHORIZED = true
+SOLVE_AUTHORIZED = false
+
+Execution rule:
+- use BUILD_ONLY runner packet;
+- validate + dry-run before one-shot run;
+- no Build->Solve chaining;
+- automatic retry = 0;
+- stop after project build/audit and human-review-copy boundary.
+
+Compatibility finding:
+NW stable launcher binds non-CST Python 3.13, while CST Studio Suite 2022 cst package supports Python 3.6/3.7/3.8/3.9 only.
+
+Project adapter:
+scripts/simops_cst_python_bridge_v01.py
+
+The bridge contains no CST installation path. It receives CST_PYTHON_EXECUTABLE from runtime environment derived from SimulationOps HOSTS, records the exact child argv, and uses subprocess with shell=False.
+
+Repository boundary:
+the CST executable path remains host/runtime authority and is not copied into project scientific source.
