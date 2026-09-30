@@ -1030,3 +1030,11 @@ The bridge contains no CST installation path. It receives CST_PYTHON_EXECUTABLE 
 
 Repository boundary:
 the CST executable path remains host/runtime authority and is not copied into project scientific source.
+
+
+E2C SimOps 0.2.15 final build transaction update:
+- final build runner blob: 08adaf7ecac05832ee47916b566be80af63992d3
+- review copy is part of the same BUILD_ONLY transaction
+- interpreter bridge: scripts/simops_cst_python_bridge_v01.py
+- generic runner remains responsible for authorization/preflight/one-shot/result packet
+- project runner remains responsible for CST geometry/build/audit science
