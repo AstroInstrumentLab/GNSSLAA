@@ -1,5 +1,5 @@
 from __future__ import print_function
-import argparse, hashlib, json, os, subprocess, sys
+import argparse, hashlib, json, subprocess, sys
 from pathlib import Path
 
 PARENT_SHA="fbf375c605acff4f53e46fedefba7acf24ef871b427a579091144b7833dd149e"
@@ -8,8 +8,7 @@ MODEL="R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_V01"
 def sha256(path):
     h=hashlib.sha256()
     with open(str(path),"rb") as f:
-        for b in iter(lambda:f.read(1024*1024),b""):
-            h.update(b)
+        for b in iter(lambda:f.read(1024*1024),b""): h.update(b)
     return h.hexdigest()
 
 def git_head(repo):
@@ -21,120 +20,106 @@ def write_json(path,obj):
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument("--mode",choices=["qualification","build"],required=True)
+    ap.add_argument("--mode",choices=["qualification","smoke","build"],required=True)
     ap.add_argument("--project-root",required=True)
     ap.add_argument("--output-packet",required=True)
     ap.add_argument("--state-root",required=True)
     ap.add_argument("--result-packet",required=True)
     ap.add_argument("--qualification-output")
+    ap.add_argument("--smoke-root")
+    ap.add_argument("--smoke-output")
     ap.add_argument("--target-root")
     ap.add_argument("--parent-cst")
-    ap.add_argument("--cst-python")
+    ap.add_argument("--cst-python",required=True)
     a=ap.parse_args()
-
-    root=Path(a.project_root).resolve()
-    head=git_head(root)
+    root=Path(a.project_root).resolve(); head=git_head(root)
     runner="scripts/run_r1e1a4a_ar0_b1r_r4_a0_e2c_dualpol_build_only_v01.py"
-    bridge="scripts/simops_cst_python_bridge_v01.py"
+    adapter="scripts/e2c_simops_watchdog_adapter_v01.py"
+    smoke="scripts/smoke_e2c_parent_inventory_v01.py"
     audit="scripts/audit_e2c_build_entrypoint_contract_v01.py"
     generator="scripts/make_e2c_build_recovery_runner_packet_v01.py"
     macro="source/cst/R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_V01.mcr"
     inv="execution/R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_INVENTORY_V01.json"
     kernel="source/cst/R1E1A4A_AR0_B1R_R4_A0_E2C_16VIA_DRILL_KERNEL_REFERENCE_V01.mcr"
-
-    hashes={p:sha256(root/p) for p in [runner,bridge,audit,generator,macro,inv,kernel]}
-
-    common={
-      "schema_version":"runner-task-v0.1",
+    files=[runner,adapter,smoke,audit,generator,macro,inv,kernel]
+    hashes={p:sha256(root/p) for p in files}
+    common={"schema_version":"runner-task-v0.1",
       "project":{"name":"GNSS_Lband_Active_Array","repository":"Dingo-infinity2020/GNSS_Lband_Active_Array","source_commit":head,"model_identity":MODEL},
       "transport":{"type":"local","ssh_alias":"","remote_shell":""},
       "authorization":{"BUILD_AUTHORIZED":False,"SOLVE_AUTHORIZED":False},
       "preflight":{"fail_closed":True,"checks":[
         {"id":"git_clean","type":"git_clean","path":"."},
         {"id":"git_head","type":"git_head_equals","path":".","commit":head},
-        {"id":"runner_hash","type":"file_sha256_equals","path":runner,"sha256":hashes[runner]},
-        {"id":"bridge_hash","type":"file_sha256_equals","path":bridge,"sha256":hashes[bridge]},
-        {"id":"audit_hash","type":"file_sha256_equals","path":audit,"sha256":hashes[audit]},
-        {"id":"generator_hash","type":"file_sha256_equals","path":generator,"sha256":hashes[generator]},
-        {"id":"result_absent","type":"result_path_absent"}
-      ]},
-      "dc_call_budget":{"target_calls":1,"polling_policy":"no_polling"}
-    }
-
+        *[{"id":Path(p).stem+"_hash","type":"file_sha256_equals","path":p,"sha256":hashes[p]} for p in files[:5]],
+        {"id":"result_absent","type":"result_path_absent"}]},
+      "dc_call_budget":{"target_calls":1,"polling_policy":"status_only_if_user_requests_or_tool_returns_early"}}
+    cst=str(Path(a.cst_python).resolve())
     if a.mode=="qualification":
-        if not a.qualification_output or not a.cst_python:
-            raise SystemExit("qualification requires --qualification-output and --cst-python")
+        if not a.qualification_output: raise SystemExit("qualification requires --qualification-output")
         qout=str(Path(a.qualification_output).resolve())
-        bridge_evidence=str(Path(qout).with_name("e2c_bridge_qualification.json"))
-        packet=dict(common)
-        packet.update({
-          "packet_id":"GNSS-E2C-RECOVERY-ENTRYPOINT-QUAL-20260930-01",
-          "stage":{"name":"E2C_BUILD_RECOVERY_ENTRYPOINT_QUALIFICATION","kind":"READ_ONLY","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"RETURN_AFTER_AST_AND_CST_RUNTIME_QUALIFICATION"},
-          "entrypoint":{"argv":[
-              "python","-c",
-              ("import subprocess,sys; "
-               "rc1=subprocess.call([sys.executable,'"+audit+"','--runner','"+runner+"','--out',r'"+qout+"']); "
-               "rc2=subprocess.call([sys.executable,'"+bridge+"','--bridge-evidence',r'"+bridge_evidence+"','--','"+runner+"','--help']); "
-               "sys.exit(rc1 or rc2)")
-            ],
-            "environment":{"CST_PYTHON_EXECUTABLE":str(Path(a.cst_python).resolve())},
-            "timeout_seconds":120},
-          "expected_outputs":[
-            {"path":qout,"required":True,"sha256":True},
-            {"path":bridge_evidence,"required":True,"sha256":True}
-          ],
-          "result":{"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}
-        })
-        write_json(a.output_packet,packet)
-        return 0
+        budgets=json.dumps({"default":60,"between_phases":30},separators=(",",":"))
+        code=("import subprocess,sys; "
+              "rc1=subprocess.call([sys.executable,'"+audit+"','--runner','"+runner+"','--out',r'"+qout+"']); "
+              "rc2=subprocess.call([sys.executable,'"+adapter+"','--startup-timeout','60','--phase-budgets-json',r'"+budgets+"','--','"+runner+"','--help']); "
+              "sys.exit(rc1 or rc2)")
+        packet=dict(common); packet.update({
+          "packet_id":"GNSS-E2C-RECOVERY-QUAL-20260930-02",
+          "stage":{"name":"E2C_RECOVERY_ENTRYPOINT_QUALIFICATION","kind":"READ_ONLY","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"RETURN_AFTER_AST_AND_WATCHDOG_RUNTIME_QUALIFICATION"},
+          "entrypoint":{"argv":["python","-c",code],"environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":180},
+          "expected_outputs":[{"path":qout,"required":True,"sha256":True}],
+          "result":{"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}})
+        write_json(a.output_packet,packet); return 0
 
-    # build mode
-    if not a.target_root or not a.parent_cst or not a.cst_python:
-        raise SystemExit("build requires --target-root --parent-cst --cst-python")
-    target=Path(a.target_root).resolve()
+    if not a.parent_cst: raise SystemExit("smoke/build requires --parent-cst")
     parent=Path(a.parent_cst).resolve()
-    parent_comp=parent.with_suffix("")
-    out=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_COEXISTENCE_BUILD_ONLY_V01.cst"
-    review=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_HUMAN_REVIEW_COPY.cst"
-    evidence=target/"evidence"
-    bridge_evidence=Path(a.result_packet).resolve().with_name("build_bridge_provenance.json")
-
-    packet=dict(common)
-    packet["packet_id"]="GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-02"
-    packet["stage"]={"name":"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_RECOVERY","kind":"BUILD_ONLY","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"STOP_AFTER_177_24_16_29_AUDIT_AND_COMPLETE_HUMAN_REVIEW_COPY_NO_SOLVER"}
-    packet["authorization"]={"BUILD_AUTHORIZED":True,"SOLVE_AUTHORIZED":False}
-    packet["entrypoint"]={
-      "argv":["python",bridge,"--bridge-evidence",str(bridge_evidence),"--",runner,
-        "--parent-cst",str(parent),
-        "--macro",str(root/macro),
-        "--kernel-reference-macro",str(root/kernel),
-        "--inventory-contract",str(root/inv),
-        "--out",str(out),
-        "--review-copy",str(review),
-        "--evidence",str(evidence)],
-      "environment":{"CST_PYTHON_EXECUTABLE":str(Path(a.cst_python).resolve())},
-      "timeout_seconds":7200
-    }
-    packet["preflight"]["checks"].extend([
+    common["preflight"]["checks"].extend([
       {"id":"parent_exists","type":"path_exists","path":str(parent)},
-      {"id":"parent_companion_exists","type":"path_exists","path":str(parent_comp)},
-      {"id":"parent_hash","type":"file_sha256_equals","path":str(parent),"sha256":PARENT_SHA},
+      {"id":"parent_companion_exists","type":"path_exists","path":str(parent.with_suffix(""))},
+      {"id":"parent_hash","type":"file_sha256_equals","path":str(parent),"sha256":PARENT_SHA}])
+
+    if a.mode=="smoke":
+        if not a.smoke_root or not a.smoke_output: raise SystemExit("smoke requires --smoke-root --smoke-output")
+        sroot=Path(a.smoke_root).resolve(); sout=Path(a.smoke_output).resolve()
+        budgets=json.dumps({"smoke_copy":60,"smoke_parent_inventory":180,"smoke_result_tree":120,
+                             "smoke_complete":30,"between_phases":45,"default":120},separators=(",",":"))
+        packet=dict(common); packet.update({
+          "packet_id":"GNSS-E2C-PARENT-SMOKE-20260930-01",
+          "stage":{"name":"E2C_PARENT_SIMULATOR_SMOKE","kind":"GENERIC_NONPRODUCTION","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"NO_PRODUCTION_HISTORY_NO_SOLVER_RETURN_AFTER_PARENT_OPEN_INVENTORY_RESULTTREE_CLOSE"},
+          "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",
+             smoke,"--runner",runner,"--parent-cst",str(parent),"--smoke-root",str(sroot),"--result",str(sout)],
+             "environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":600},
+          "preflight":common["preflight"],
+          "expected_outputs":[{"path":str(sout),"required":True,"sha256":True}],
+          "result":{"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}})
+        packet["preflight"]["checks"].append({"id":"smoke_root_absent","type":"path_absent","path":str(sroot)})
+        write_json(a.output_packet,packet); return 0
+
+    if not a.target_root: raise SystemExit("build requires --target-root")
+    target=Path(a.target_root).resolve(); out=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_COEXISTENCE_BUILD_ONLY_V01.cst"
+    review=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_HUMAN_REVIEW_COPY.cst"; evidence=target/"evidence"
+    budgets=json.dumps({"parent_inventory":180,"kernel_reference":420,"production_open":120,
+       "production_build":420,"fresh_reopen":300,"whole_model_intersection":180,
+       "pairwise":240,"review_copy":180,"complete":30,"between_phases":60,"default":300},separators=(",",":"))
+    packet=dict(common); packet.update({
+      "packet_id":"GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-03",
+      "stage":{"name":"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_RECOVERY","kind":"BUILD_ONLY","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"STOP_AFTER_177_24_16_29_AUDIT_AND_COMPLETE_HUMAN_REVIEW_COPY_NO_SOLVER"},
+      "authorization":{"BUILD_AUTHORIZED":True,"SOLVE_AUTHORIZED":False},
+      "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",runner,
+        "--parent-cst",str(parent),"--macro",str(root/macro),"--kernel-reference-macro",str(root/kernel),
+        "--inventory-contract",str(root/inv),"--out",str(out),"--review-copy",str(review),"--evidence",str(evidence)],
+        "environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":7200},
+      "preflight":common["preflight"],
+      "expected_outputs":[
+        {"path":str(out),"required":True,"sha256":True},{"path":str(review),"required":True,"sha256":True},
+        {"path":str(evidence/"FINAL_STATUS.txt"),"required":True,"sha256":True},
+        {"path":str(evidence/"summary.json"),"required":True,"sha256":True},
+        {"path":str(evidence/"HUMAN_3D_REVIEW.md"),"required":True,"sha256":True}],
+      "result":{"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}})
+    packet["preflight"]["checks"].extend([
       {"id":"macro_hash","type":"file_sha256_equals","path":macro,"sha256":hashes[macro]},
       {"id":"inventory_hash","type":"file_sha256_equals","path":inv,"sha256":hashes[inv]},
       {"id":"kernel_hash","type":"file_sha256_equals","path":kernel,"sha256":hashes[kernel]},
-      {"id":"target_root_absent","type":"path_absent","path":str(target)}
-    ])
-    packet["expected_outputs"]=[
-      {"path":str(out),"required":True,"sha256":True},
-      {"path":str(review),"required":True,"sha256":True},
-      {"path":str(evidence/"FINAL_STATUS.txt"),"required":True,"sha256":True},
-      {"path":str(evidence/"summary.json"),"required":True,"sha256":True},
-      {"path":str(evidence/"HUMAN_3D_REVIEW.md"),"required":True,"sha256":True},
-      {"path":str(bridge_evidence),"required":True,"sha256":True}
-    ]
-    packet["result"]={"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}
-    write_json(a.output_packet,packet)
-    return 0
+      {"id":"target_root_absent","type":"path_absent","path":str(target)}])
+    write_json(a.output_packet,packet); return 0
 
-if __name__=="__main__":
-    sys.exit(main())
+if __name__=="__main__": sys.exit(main())
