@@ -20,7 +20,7 @@ def write_json(path,obj):
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument("--mode",choices=["qualification","smoke","build"],required=True)
+    ap.add_argument("--mode",choices=["qualification","capability","smoke","build"],required=True)
     ap.add_argument("--project-root",required=True)
     ap.add_argument("--output-packet",required=True)
     ap.add_argument("--state-root",required=True)
@@ -36,12 +36,13 @@ def main():
     runner="scripts/run_r1e1a4a_ar0_b1r_r4_a0_e2c_dualpol_build_only_v01.py"
     adapter="scripts/e2c_simops_watchdog_adapter_v01.py"
     smoke="scripts/smoke_e2c_parent_inventory_v01.py"
+    capability="scripts/smoke_e2c_cst_capability_v01.py"
     audit="scripts/audit_e2c_build_entrypoint_contract_v01.py"
     generator="scripts/make_e2c_build_recovery_runner_packet_v01.py"
     macro="source/cst/R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_V01.mcr"
     inv="execution/R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_INVENTORY_V01.json"
     kernel="source/cst/R1E1A4A_AR0_B1R_R4_A0_E2C_16VIA_DRILL_KERNEL_REFERENCE_V01.mcr"
-    files=[runner,adapter,smoke,audit,generator,macro,inv,kernel]
+    files=[runner,adapter,smoke,capability,audit,generator,macro,inv,kernel]
     hashes={p:sha256(root/p) for p in files}
     common={"schema_version":"runner-task-v0.1",
       "project":{"name":"GNSS_Lband_Active_Array","repository":"Dingo-infinity2020/GNSS_Lband_Active_Array","source_commit":head,"model_identity":MODEL},
@@ -77,6 +78,24 @@ def main():
       {"id":"parent_exists","type":"path_exists","path":str(parent)},
       {"id":"parent_companion_exists","type":"path_exists","path":str(parent.with_suffix(""))},
       {"id":"parent_hash","type":"file_sha256_equals","path":str(parent),"sha256":PARENT_SHA}])
+
+    if a.mode=="capability":
+        if not a.smoke_root or not a.smoke_output: raise SystemExit("capability requires --smoke-root --smoke-output")
+        sroot=Path(a.smoke_root).resolve(); sout=Path(a.smoke_output).resolve()
+        budgets=json.dumps({"capability_copy":60,"capability_open":120,"capability_tree":120,
+          "capability_targeted_vba":120,"capability_result_tree":120,"capability_complete":30,
+          "between_phases":45,"default":120},separators=(",",":"))
+        packet=dict(common); packet.update({
+          "packet_id":"GNSS-E2C-CST-CAPABILITY-SMOKE-20260930-01",
+          "stage":{"name":"E2C_CST_CAPABILITY_SMOKE","kind":"GENERIC_NONPRODUCTION","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"NO_PRODUCTION_SOURCE_TEST_TREE_AND_SINGLE_TARGETED_VBA_ONLY"},
+          "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",
+             capability,"--runner",runner,"--parent-cst",str(parent),"--inventory-contract",str(root/inv),"--smoke-root",str(sroot),"--result",str(sout)],
+             "environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":600},
+          "preflight":common["preflight"],
+          "expected_outputs":[{"path":str(sout),"required":True,"sha256":True}],
+          "result":{"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}})
+        packet["preflight"]["checks"].append({"id":"smoke_root_absent","type":"path_absent","path":str(sroot)})
+        write_json(a.output_packet,packet); return 0
 
     if a.mode=="smoke":
         if not a.smoke_root or not a.smoke_output: raise SystemExit("smoke requires --smoke-root --smoke-output")
