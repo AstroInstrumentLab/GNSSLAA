@@ -1883,7 +1883,8 @@
     "ar0_b1r_r4_a0_e2c_observable_runner_blob": "c0be2f8f53c6211bd6c3e084ec866434ed9b4600",
     "ar0_b1r_r4_a0_e2c_watchdog_adapter_blob": "96f8e97d285f4ba3963c8e9a3bfaa33e9745737d",
     "ar0_b1r_r4_a0_e2c_smoke_blob": "d87ac793a5ce9f7c93f0bdfdb3e71ea6b43b3808",
-    "ar0_b1r_r4_a0_e2c_packet_generator_blob": "89e5a85cc4ce956f2fba1da102baf4fd3895dc32"
+    "ar0_b1r_r4_a0_e2c_packet_generator_blob": "99a5c0c3671612de20c801381e43bd3a0267fab5",
+    "ar0_b1r_r4_a0_e2c_formal_packet_requires_hashed_qualification_and_smoke": true
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_NONPRODUCTION_SMOKE_THEN_BUILD",
