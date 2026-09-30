@@ -86,7 +86,7 @@ def main():
           "capability_targeted_vba":120,"capability_result_tree":120,"capability_complete":30,
           "between_phases":45,"default":120},separators=(",",":"))
         packet=dict(common); packet.update({
-          "packet_id":"GNSS-E2C-CST-CAPABILITY-SMOKE-20260930-01",
+          "packet_id":"GNSS-E2C-CST-CAPABILITY-SMOKE-20260930-02",
           "stage":{"name":"E2C_CST_CAPABILITY_SMOKE","kind":"GENERIC_NONPRODUCTION","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"NO_PRODUCTION_SOURCE_TEST_TREE_AND_SINGLE_TARGETED_VBA_ONLY"},
           "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",
              capability,"--runner",runner,"--parent-cst",str(parent),"--inventory-contract",str(root/inv),"--smoke-root",str(sroot),"--result",str(sout)],
