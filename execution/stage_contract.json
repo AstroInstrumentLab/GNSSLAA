@@ -24,7 +24,7 @@
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
     "next_stage": "AR0_B1R_R4_A0_E2C_BUILD_AWAIT_AUTH",
-    "stop_boundary": "ONE E2C BUILD_ONLY AUTHORIZED UNDER SIMULATIONOPS 0.2.15; USE NW STABLE LAUNCHER + GENERIC RUNNER V0.1; NO SOLVER; STOP AFTER BUILD/AUDIT/HUMAN REVIEW COPY",
+    "stop_boundary": "ONE E2C BUILD_ONLY AUTHORIZED UNDER SIMULATIONOPS 0.2.15; GENERIC RUNNER V0.1 VIA NW STABLE LAUNCHER; COMPLETE HUMAN REVIEW COPY IN SAME TRANSACTION; NO SOLVER",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1859,12 +1859,14 @@
     "ar0_b1r_r4_a0_e2c_kernel_blob": "fbaac4e894a5b5af3c3145a67e767b2a7c8e9c98",
     "ar0_b1r_r4_a0_e2c_broadphase_runner_blob": "ce09233173aea44783be8d87dc5e665ca07356e9",
     "ar0_b1r_r4_a0_e2c_broadphase_manifest_blob": "8dd082aab1c1fd99495b0e773c1c987efd79e62c",
-    "ar0_b1r_r4_a0_e2c_build_runner_blob": "da460b253d4e729a17e4a3b03fe82eb389a3381c",
+    "ar0_b1r_r4_a0_e2c_build_runner_blob": "08adaf7ecac05832ee47916b566be80af63992d3",
     "ar0_b1r_r4_a0_e2c_broadphase_candidate_count": 1,
     "ar0_b1r_r4_a0_e2c_formal_pairwise_count": 29,
     "ar0_b1r_r4_a0_e2c_build_authorization": "EXPLICIT_USER_AUTHORIZED_2026-09-30",
     "ar0_b1r_r4_a0_e2c_generic_runner": "SimulationOps runner v0.1 via NW stable launcher",
-    "ar0_b1r_r4_a0_e2c_generic_runner_ops_commit": "7dfbeb7a44a82501a7a20bbe62230aa047e80af6"
+    "ar0_b1r_r4_a0_e2c_generic_runner_ops_commit": "7dfbeb7a44a82501a7a20bbe62230aa047e80af6",
+    "ar0_b1r_r4_a0_e2c_review_copy_in_same_transaction": true,
+    "ar0_b1r_r4_a0_e2c_interpreter_bridge": "scripts/simops_cst_python_bridge_v01.py"
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_AUTHORIZED",
