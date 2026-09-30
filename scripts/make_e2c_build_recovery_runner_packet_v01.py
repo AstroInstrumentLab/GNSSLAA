@@ -52,7 +52,7 @@ def main():
         {"id":"git_head","type":"git_head_equals","path":".","commit":head},
         *[{"id":Path(p).stem+"_hash","type":"file_sha256_equals","path":p,"sha256":hashes[p]} for p in files[:5]],
         {"id":"result_absent","type":"result_path_absent"}]},
-      "dc_call_budget":{"target_calls":1,"polling_policy":"status_only_if_user_requests_or_tool_returns_early"}}
+      "dc_call_budget":{"target_calls":1,"polling_policy":"no_polling"}}
     cst=str(Path(a.cst_python).resolve())
     if a.mode=="qualification":
         if not a.qualification_output: raise SystemExit("qualification requires --qualification-output")
