@@ -3,6 +3,18 @@ import argparse, hashlib, json, math, shutil, sys, traceback
 from collections import Counter
 from pathlib import Path
 
+def _simops_emit(obj):
+    print("SIMOPS_EVENT "+json.dumps(obj,separators=(",",":")),flush=True)
+
+def simops_phase(phase,state,production_boundary,current=None,total=None,message=None):
+    obj={"schema_version":"simops-project-event-v0.1","event":"PHASE",
+         "phase":str(phase),"state":str(state),"production_boundary":str(production_boundary)}
+    if current is not None: obj["current"]=int(current)
+    if total is not None: obj["total"]=int(total)
+    if message: obj["message"]=str(message)
+    _simops_emit(obj)
+
+
 # CST interpreter/environment is supplied by the runtime execution route.
 # Project source intentionally contains no host-global CST installation path.
 import cst.interface as ci
@@ -339,6 +351,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     expected_preserved=set(contract["preserved_parent_objects"])
     expected_counts=contract["expected_final_component_counts"]
 
+    simops_phase("parent_inventory","START","NOT_OBSERVED",message="copy/open/inventory canonical parent")
     evidence.mkdir(parents=True)
     copy_project(parent,out)
     if sha(out)!=PARENT_SHA:
@@ -367,7 +380,9 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     }
     if not all(parent_checks.values()):
         (evidence/"parent_gate.json").write_text(json.dumps(parent_checks,indent=2)+"\n",encoding="utf-8")
+        simops_phase("parent_inventory","HOLD","NOT_OBSERVED",message="parent gate failed")
         raise RuntimeError("HOLD_E2C_PARENT_GATE")
+    simops_phase("parent_inventory","PASS","NOT_OBSERVED")
 
     parent_rows=rowmap(prows)
     preserve_exact_names=expected_preserved-MODIFIED_PARENT
@@ -376,18 +391,25 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     # Tooling preflight only: measure CST/ACIS-native loss for the exact eight drill primitives
     # on a disposable complete-project copy of the canonical parent. This is not a formal
     # production build and occurs before the frozen E2C production History is executed.
+    simops_phase("kernel_reference","START","NOT_OBSERVED",message="CST-native 16-via drill reference")
     kernel_ref_loss=kernel_reference(parent,reference_macro,parent_rows,evidence)
+    simops_phase("kernel_reference","PASS","NOT_OBSERVED")
 
+    simops_phase("production_open","START","NOT_OBSERVED")
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(out))
+        simops_phase("production_open","PASS","NOT_OBSERVED")
+        simops_phase("production_build","START","OBSERVED",message="frozen E2C History insertion boundary")
         prj.modeler.add_to_history(HISTORY_LABEL,macro_body(macro))
         prj.save()
     finally:
         if prj is not None: prj.close()
         de.close()
+    simops_phase("production_build","PASS","OBSERVED")
 
     build_sha=sha(out)
+    simops_phase("fresh_reopen","START","OBSERVED")
     rinv=evidence/"reopen_inventory.txt"; rports=evidence/"reopen_ports.txt"
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
@@ -401,6 +423,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
         de.close()
 
     rows,kv=parse_inventory(rinv); pdata=parse_ports(rports)
+    simops_phase("fresh_reopen","PASS","OBSERVED")
     names=set(r["name"] for r in rows)
     counts=Counter(r["component"] for r in rows)
     rm=rowmap(rows)
@@ -439,12 +462,15 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
       "all_positive_volume":all(r["volume"]>0 for r in rows),
     }
 
+    simops_phase("whole_model_intersection","START","OBSERVED")
     whole=evidence/"whole_model_intersection.txt"
     whole_ok=whole_model_check(out,whole)
     whole_kv=parse_kv(whole)
     basic_checks["builtin_intersection_command_returned"]=whole_ok and int(whole_kv.get("COMMAND_ERR","999999"))==0
     basic_checks["artifact_hash_stable_after_builtin_check"]=sha(out)==build_sha
+    simops_phase("whole_model_intersection","PASS","OBSERVED")
 
+    simops_phase("pairwise","START","OBSERVED",current=0,total=len(contract["interference"]["registered_pairs"]))
     pair_root=evidence/"pair_work"; pair_root.mkdir()
     pair_results=[]
     for idx,(a,b) in enumerate(contract["interference"]["registered_pairs"],start=1):
@@ -456,9 +482,11 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
             pair_results.append({"a":a,"b":b,"error":repr(ex),"pass_zero_overlap":False})
         finally:
             cleanup_project(tmp)
+        simops_phase("pairwise","PROGRESS","OBSERVED",current=idx,total=len(contract["interference"]["registered_pairs"]))
     pair_pass=all(x.get("pass_zero_overlap",False) for x in pair_results)
     basic_checks["registered_pairwise_zero_overlap"]=pair_pass
     basic_checks["artifact_hash_stable_after_pairwise"]=sha(out)==build_sha
+    simops_phase("pairwise","PASS","OBSERVED",current=len(pair_results),total=len(contract["interference"]["registered_pairs"]))
 
     coexist=coexistence_contract(contract)
     basic_checks["broadphase_candidate_count_exact"]=coexist["broadphase_candidate_count"]==1
@@ -472,7 +500,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
 
     summary={
       "status":status,
-      "simulationops":"0.2.15",
+      "simulationops":"0.2.17",
       "formal_build_invocations":1,
       "solver_invocations":0,
       "parent":{"path":str(parent),"sha256":PARENT_SHA,"checks":parent_checks},
@@ -521,6 +549,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     review_copy=Path(review_copy)
     review_record=None
     if status.startswith("PASS_"):
+        simops_phase("review_copy","START","OBSERVED")
         if review_copy.exists() or review_copy.with_suffix("").exists():
             raise RuntimeError("HOLD_E2C_REVIEW_COPY_TARGET_EXISTS:"+str(review_copy))
         copy_project(out,review_copy)
@@ -537,6 +566,8 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
         }
         summary["review_copy"]=review_record
         (evidence/"summary.json").write_text(json.dumps(summary,indent=2)+"\n",encoding="utf-8")
+        simops_phase("review_copy","PASS","OBSERVED")
+    simops_phase("complete","PASS" if status.startswith("PASS_") else "HOLD","OBSERVED",message=status)
 
     print(status)
     print("ARTIFACT_SHA256="+sha(out))
