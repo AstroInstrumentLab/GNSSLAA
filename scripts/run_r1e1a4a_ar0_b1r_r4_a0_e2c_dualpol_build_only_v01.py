@@ -94,13 +94,15 @@ def inventory_vba(path):
       "On Error GoTo 0"
     ])
 
-def named_inventory_vba(path,names):
+def named_inventory_vba(path,names,file_mode="Output"):
     p=str(path).replace("\\","/")
+    if file_mode not in ("Output","Append"):
+        raise RuntimeError("HOLD_E2C_INVENTORY_FILE_MODE")
     lines=[
       "On Error Resume Next",
       "Dim f As Integer, nm As String, mat As String, v As Double",
       "f=FreeFile",
-      'Open "'+p+'" For Output As #f',
+      'Open "'+p+'" For '+file_mode+' As #f',
       'Print #f, "SHAPE_COUNT=" & CStr(Solid.GetNumberOfShapes())'
     ]
     for name in names:
@@ -124,6 +126,24 @@ def named_inventory_vba(path,names):
     ]
     return "\n".join(lines)
 
+
+def run_named_inventory(prj,path,names,phase=None,boundary="NOT_OBSERVED",batch_size=4):
+    names=list(names)
+    if not names:
+        raise RuntimeError("HOLD_E2C_INVENTORY_EMPTY_NAMES")
+    if batch_size < 1:
+        raise RuntimeError("HOLD_E2C_INVENTORY_BAD_BATCH_SIZE")
+    total=len(names)
+    for start in range(0,total,batch_size):
+        end=min(start+batch_size,total)
+        chunk=names[start:end]
+        body=named_inventory_vba(path,chunk,file_mode=("Output" if start==0 else "Append"))
+        if not prj.schematic.execute_vba_code(wrap(body)):
+            return False
+        if phase:
+            simops_phase(phase,"PROGRESS",boundary,current=end,total=total,
+                         message="inventory batch complete")
+    return True
 
 def ports_vba(path):
     p=str(path).replace("\\","/")
@@ -312,7 +332,7 @@ def kernel_reference(parent,reference_macro,parent_rows,evidence):
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(ref))
-        if not prj.schematic.execute_vba_code(wrap(inventory_vba(inv))):
+        if not run_named_inventory(prj,inv,sorted(parent_rows),phase="kernel_reference",boundary="NOT_OBSERVED"):
             raise RuntimeError("HOLD_E2C_KERNEL_REFERENCE_INVENTORY")
     finally:
         if prj is not None: prj.close()
@@ -392,7 +412,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(out))
-        if not prj.schematic.execute_vba_code(wrap(named_inventory_vba(pinv,sorted(expected_removed|expected_preserved)))):
+        if not run_named_inventory(prj,pinv,sorted(expected_removed|expected_preserved),phase="parent_inventory",boundary="NOT_OBSERVED"):
             raise RuntimeError("HOLD_E2C_PARENT_INVENTORY")
     finally:
         if prj is not None: prj.close()
@@ -445,7 +465,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(out))
-        if not prj.schematic.execute_vba_code(wrap(named_inventory_vba(rinv,sorted(expected_final)))):
+        if not run_named_inventory(prj,rinv,sorted(expected_final),phase="fresh_reopen",boundary="OBSERVED"):
             raise RuntimeError("HOLD_E2C_REOPEN_INVENTORY")
         if not prj.schematic.execute_vba_code(wrap(ports_vba(rports))):
             raise RuntimeError("HOLD_E2C_REOPEN_PORTS")
