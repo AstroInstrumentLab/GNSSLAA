@@ -59,11 +59,12 @@ def main():
         qout=str(Path(a.qualification_output).resolve())
         budgets=json.dumps({"default":60,"between_phases":30},separators=(",",":"))
         code=("import subprocess,sys; "
+              "rc0=subprocess.call([sys.executable,'-m','py_compile','"+runner+"','"+adapter+"','"+smoke+"','"+generator+"']); "
               "rc1=subprocess.call([sys.executable,'"+audit+"','--runner','"+runner+"','--out',r'"+qout+"']); "
               "rc2=subprocess.call([sys.executable,'"+adapter+"','--startup-timeout','60','--phase-budgets-json',r'"+budgets+"','--','"+runner+"','--help']); "
-              "sys.exit(rc1 or rc2)")
+              "sys.exit(rc0 or rc1 or rc2)")
         packet=dict(common); packet.update({
-          "packet_id":"GNSS-E2C-RECOVERY-QUAL-20260930-03",
+          "packet_id":"GNSS-E2C-RECOVERY-QUAL-20260930-04",
           "stage":{"name":"E2C_RECOVERY_ENTRYPOINT_QUALIFICATION","kind":"READ_ONLY","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"RETURN_AFTER_AST_AND_WATCHDOG_RUNTIME_QUALIFICATION"},
           "entrypoint":{"argv":["python","-c",code],"environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":180},
           "expected_outputs":[{"path":qout,"required":True,"sha256":True}],
@@ -83,7 +84,7 @@ def main():
         budgets=json.dumps({"smoke_copy":60,"smoke_parent_inventory":180,"smoke_result_tree":120,
                              "smoke_complete":30,"between_phases":45,"default":120},separators=(",",":"))
         packet=dict(common); packet.update({
-          "packet_id":"GNSS-E2C-PARENT-SMOKE-20260930-02",
+          "packet_id":"GNSS-E2C-PARENT-SMOKE-20260930-03",
           "stage":{"name":"E2C_PARENT_SIMULATOR_SMOKE","kind":"GENERIC_NONPRODUCTION","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"NO_PRODUCTION_HISTORY_NO_SOLVER_RETURN_AFTER_PARENT_OPEN_INVENTORY_RESULTTREE_CLOSE"},
           "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",
              smoke,"--runner",runner,"--parent-cst",str(parent),"--inventory-contract",str(root/inv),"--smoke-root",str(sroot),"--result",str(sout)],
@@ -108,7 +109,7 @@ def main():
        "production_build":420,"fresh_reopen":300,"whole_model_intersection":180,
        "pairwise":240,"review_copy":180,"complete":30,"between_phases":60,"default":300},separators=(",",":"))
     packet=dict(common); packet.update({
-      "packet_id":"GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-04",
+      "packet_id":"GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-05",
       "stage":{"name":"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_RECOVERY","kind":"BUILD_ONLY","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"STOP_AFTER_177_24_16_29_AUDIT_AND_COMPLETE_HUMAN_REVIEW_COPY_NO_SOLVER"},
       "authorization":{"BUILD_AUTHORIZED":True,"SOLVE_AUTHORIZED":False},
       "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",runner,
