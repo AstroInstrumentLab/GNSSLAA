@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_QUALIFICATION_THEN_EXECUTION",
-    "stop_boundary": "PRE-CST PACKET01 HOLD RECORDED; USER RECOVERY BUILD AUTHORIZATION REMAINS ACTIVE UNDER SIMOPS 0.2.16 RULE35; PACKET02 MUST USE FRESH TARGET; NO SOLVER",
+    "next_stage": "AR0_B1R_R4_A0_E2C_NONPRODUCTION_SMOKE_THEN_BUILD",
+    "stop_boundary": "SIMOPS 0.2.17; FRESH QUALIFICATION + GENERIC_NONPRODUCTION PARENT SMOKE MUST PASS; THEN ONE FRESH OBSERVABLE WATCHDOGGED BUILD_ONLY; NO SOLVER",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1862,7 +1862,7 @@
     "ar0_b1r_r4_a0_e2c_build_runner_blob": "76b3e403a830d9736fc019303dc7f0b0e8b3ee0f",
     "ar0_b1r_r4_a0_e2c_broadphase_candidate_count": 1,
     "ar0_b1r_r4_a0_e2c_formal_pairwise_count": 29,
-    "ar0_b1r_r4_a0_e2c_build_authorization": "EXPLICIT_USER_AUTHORIZED_2026-09-30",
+    "ar0_b1r_r4_a0_e2c_build_authorization": "EXPLICIT_USER_AUTHORIZED_2026-09-30_AFTER_SIMOPS_0P2P17_SYNC",
     "ar0_b1r_r4_a0_e2c_generic_runner": "SimulationOps runner v0.1 via NW stable launcher",
     "ar0_b1r_r4_a0_e2c_generic_runner_ops_commit": "7dfbeb7a44a82501a7a20bbe62230aa047e80af6",
     "ar0_b1r_r4_a0_e2c_review_copy_in_same_transaction": true,
@@ -1879,10 +1879,14 @@
     "ar0_b1r_r4_a0_e2c_recovery_packet_generator_blob": "b174a9cc1ce5635b06732ea58926d280399f8a02",
     "ar0_b1r_r4_a0_e2c_recovery_packet01_status": "HOLD_E2C_RECOVERY_PACKET_PRE_CST_EVIDENCE_COLLISION",
     "ar0_b1r_r4_a0_e2c_scientific_formal_build_invocation_count": 0,
-    "ar0_b1r_r4_a0_e2c_recovery_next_packet": "GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-02"
+    "ar0_b1r_r4_a0_e2c_recovery_next_packet": "GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-02",
+    "ar0_b1r_r4_a0_e2c_observable_runner_blob": "c0be2f8f53c6211bd6c3e084ec866434ed9b4600",
+    "ar0_b1r_r4_a0_e2c_watchdog_adapter_blob": "96f8e97d285f4ba3963c8e9a3bfaa33e9745737d",
+    "ar0_b1r_r4_a0_e2c_smoke_blob": "d87ac793a5ce9f7c93f0bdfdb3e71ea6b43b3808",
+    "ar0_b1r_r4_a0_e2c_packet_generator_blob": "89e5a85cc4ce956f2fba1da102baf4fd3895dc32"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_PACKET02_AUTHORIZED",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_NONPRODUCTION_SMOKE_THEN_BUILD",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1891,17 +1895,60 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_FORMAL_BUILD_ATTEMPT_01",
-    "last_status": "HOLD_E2C_RECOVERY_PACKET_PRE_CST_EVIDENCE_COLLISION",
+    "last_status": "AUTHORIZED_E2C_BUILD_UNDER_SIMOPS_0P2P17_PENDING_SMOKE",
     "one_shot_required": true,
     "fresh_run_directory_required": true,
     "entrypoint_qualification": {
       "required": true,
-      "entrypoint_path": "scripts/run_r1e1a4a_ar0_b1r_r4_a0_e2c_dualpol_build_only_v01.py",
-      "runtime_identity": "CST 2022 bundled Python via project-local bridge",
+      "entrypoint_path": "scripts/e2c_simops_watchdog_adapter_v01.py -> CST runner",
+      "runtime_identity": "SimOps control Python -> project watchdog -> CST 2022 bundled Python",
       "qualification_stage": "READ_ONLY",
-      "qualification_status": "PENDING_FRESH_0P2P16_QUALIFICATION",
+      "qualification_status": "PENDING_FRESH_0P2P17_QUALIFICATION",
       "qualification_evidence": "",
       "last_qualified_source_commit": ""
+    },
+    "project_observability": {
+      "protocol": "simops-project-event-v0.1",
+      "enabled": true,
+      "production_boundary_description": "OBSERVED immediately before frozen E2C prj.modeler.add_to_history(HISTORY_LABEL, macro_body(macro))",
+      "initial_boundary_state": "UNKNOWN",
+      "phase_watchdogs": [
+        {
+          "phase": "parent_inventory",
+          "seconds": 180
+        },
+        {
+          "phase": "kernel_reference",
+          "seconds": 420
+        },
+        {
+          "phase": "production_open",
+          "seconds": 120
+        },
+        {
+          "phase": "production_build",
+          "seconds": 420
+        },
+        {
+          "phase": "fresh_reopen",
+          "seconds": 300
+        },
+        {
+          "phase": "whole_model_intersection",
+          "seconds": 180
+        },
+        {
+          "phase": "pairwise",
+          "seconds_per_progress_interval": 240
+        },
+        {
+          "phase": "review_copy",
+          "seconds": 180
+        }
+      ],
+      "simulator_smoke_required": true,
+      "simulator_smoke_status": "PENDING",
+      "simulator_smoke_evidence": ""
     }
   },
   "workspace": {
@@ -1915,9 +1962,9 @@
   "global_protocol": {
     "repository": "Dingo-infinity2020/SimulationOps",
     "document": "GLOBAL_DC_SIMULATION_PROTOCOL.md",
-    "protocol_version": "0.2.16",
-    "minimum_compatible_version": "0.2.16",
-    "commit": "4a3af70c8f9a859bacf7cbc51e7b72fcf4e14d2a"
+    "protocol_version": "0.2.17",
+    "minimum_compatible_version": "0.2.17",
+    "commit": "d4d2e53055ec5745eadeb11367332151e80d090c"
   },
   "toolchain": {
     "simulator": "CST Studio Suite",
