@@ -39,7 +39,7 @@ def main():
     de=m.ci.DesignEnvironment(m.ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(copy))
-        ok=bool(prj.schematic.execute_vba_code(m.wrap(m.named_inventory_vba(inv,parent_names))))
+        ok=bool(m.run_named_inventory(prj,inv,parent_names,phase="smoke_parent_inventory",boundary="NOT_OBSERVED"))
         if not ok: raise RuntimeError("HOLD_SMOKE_PARENT_INVENTORY")
     finally:
         if prj is not None: prj.close()
