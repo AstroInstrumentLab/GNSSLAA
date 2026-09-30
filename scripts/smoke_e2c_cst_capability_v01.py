@@ -31,7 +31,10 @@ def main():
     parent=Path(a.parent_cst); root=Path(a.smoke_root); result=Path(a.result)
     contract=json.loads(Path(a.inventory_contract).read_text(encoding="utf-8"))
     expected=set(contract["removed_parent_objects"])|set(contract["preserved_parent_objects"])
-    state={"status":"HOLD_E2C_CST_CAPABILITY_SMOKE","parent_sha256":m.PARENT_SHA,"checks":{},"tree_items":[]}
+    probe_name="UnitCellGround:UNITCELL_GROUND_REFERENCE"
+    if probe_name not in expected:
+        raise RuntimeError("HOLD_CAPABILITY_PROBE_NAME_CONTRACT")
+    state={"status":"HOLD_E2C_CST_CAPABILITY_SMOKE","parent_sha256":m.PARENT_SHA,"checks":{},"tree_items":[],"probe_name":probe_name}
     write_result(result,state)
     if len(expected)!=45 or m.sha(parent)!=m.PARENT_SHA or root.exists():
         raise RuntimeError("HOLD_CAPABILITY_PREFLIGHT")
@@ -74,17 +77,21 @@ def main():
           "On Error Resume Next","Dim f As Integer, v As Double, mat As String","f=FreeFile",
           'Open "'+p+'" For Output As #f',
           'Err.Clear',
-          'v=Solid.GetVolume("UnitCellGround:GROUND_REFERENCE")',
-          'mat=Solid.GetMaterialNameForShape("UnitCellGround:GROUND_REFERENCE")',
-          'Print #f, "ERR=" & CStr(Err.Number)',
+          'v=Solid.GetVolume("'+probe_name+'")',
+          'Print #f, "VOLUME_ERR=" & CStr(Err.Number)',
           'Print #f, "VOLUME=" & CStr(v)',
+          'Err.Clear',
+          'mat=Solid.GetMaterialNameForShape("'+probe_name+'")',
+          'Print #f, "MATERIAL_ERR=" & CStr(Err.Number)',
           'Print #f, "MATERIAL=" & mat',
           "Close #f","On Error GoTo 0"])
         ok=bool(prj.schematic.execute_vba_code(m.wrap(body)))
         state["checks"]["targeted_vba_execute"]=ok
         state["targeted_vba_text"]=probe.read_text(encoding="utf-8",errors="replace") if probe.exists() else ""
+        state["checks"]["targeted_vba_volume_ok"]="VOLUME_ERR=0" in state["targeted_vba_text"]
+        state["checks"]["targeted_vba_material_ok"]="MATERIAL_ERR=0" in state["targeted_vba_text"]
         write_result(result,state)
-        if not ok or "ERR=0" not in state["targeted_vba_text"]:
+        if not ok or not state["checks"]["targeted_vba_volume_ok"] or not state["checks"]["targeted_vba_material_ok"]:
             emit("capability_targeted_vba","HOLD",message="single-solid VBA probe failed")
             raise RuntimeError("HOLD_CAPABILITY_TARGETED_VBA")
         emit("capability_targeted_vba","PASS")
