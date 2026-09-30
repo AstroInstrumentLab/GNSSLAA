@@ -94,6 +94,37 @@ def inventory_vba(path):
       "On Error GoTo 0"
     ])
 
+def named_inventory_vba(path,names):
+    p=str(path).replace("\\","/")
+    lines=[
+      "On Error Resume Next",
+      "Dim f As Integer, nm As String, mat As String, v As Double",
+      "f=FreeFile",
+      'Open "'+p+'" For Output As #f',
+      'Print #f, "SHAPE_COUNT=" & CStr(Solid.GetNumberOfShapes())'
+    ]
+    for name in names:
+        q=str(name).replace('"','""')
+        lines += [
+          'nm="'+q+'"',
+          "Err.Clear",
+          "v=Solid.GetVolume(nm)",
+          "If Err.Number <> 0 Then",
+          ' Print #f, "MISSING|" & nm',
+          " Err.Clear",
+          "Else",
+          " mat=Solid.GetMaterialNameForShape(nm)",
+          ' Print #f, "SHAPE|" & nm & "|material=" & mat & "|volume=" & CStr(v)',
+          "End If"
+        ]
+    lines += [
+      'Print #f, "PORT_COUNT=" & CStr(Solver.GetNumberOfPorts())',
+      "Close #f",
+      "On Error GoTo 0"
+    ]
+    return "\n".join(lines)
+
+
 def ports_vba(path):
     p=str(path).replace("\\","/")
     return "\n".join([
@@ -361,7 +392,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(out))
-        if not prj.schematic.execute_vba_code(wrap(inventory_vba(pinv))):
+        if not prj.schematic.execute_vba_code(wrap(named_inventory_vba(pinv,sorted(expected_removed|expected_preserved)))):
             raise RuntimeError("HOLD_E2C_PARENT_INVENTORY")
     finally:
         if prj is not None: prj.close()
@@ -414,7 +445,7 @@ def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidenc
     de=ci.DesignEnvironment(ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(out))
-        if not prj.schematic.execute_vba_code(wrap(inventory_vba(rinv))):
+        if not prj.schematic.execute_vba_code(wrap(named_inventory_vba(rinv,sorted(expected_final)))):
             raise RuntimeError("HOLD_E2C_REOPEN_INVENTORY")
         if not prj.schematic.execute_vba_code(wrap(ports_vba(rports))):
             raise RuntimeError("HOLD_E2C_REOPEN_PORTS")
