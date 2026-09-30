@@ -23,7 +23,7 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E2C_SMOKE03_THEN_BUILD05",
+    "next_stage": "AR0_B1R_R4_A0_E2C_CST_CAPABILITY_SMOKE",
     "stop_boundary": "SIMOPS 0.2.17; FRESH QUALIFICATION + GENERIC_NONPRODUCTION PARENT SMOKE MUST PASS; THEN ONE FRESH OBSERVABLE WATCHDOGGED BUILD_ONLY; NO SOLVER",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
@@ -1883,14 +1883,16 @@
     "ar0_b1r_r4_a0_e2c_observable_runner_blob": "59fd03e8929d25a8c6c2efceed3714e1bd856f3e",
     "ar0_b1r_r4_a0_e2c_watchdog_adapter_blob": "96f8e97d285f4ba3963c8e9a3bfaa33e9745737d",
     "ar0_b1r_r4_a0_e2c_smoke_blob": "e251f122204119dd44b29c53d399958abae5a24b",
-    "ar0_b1r_r4_a0_e2c_packet_generator_blob": "2674e2e9a5200fe38577d1aec1ffceb60148c522",
+    "ar0_b1r_r4_a0_e2c_packet_generator_blob": "7f6f4c4d9813e1a4376db07fd970cfdd33dc429e",
     "ar0_b1r_r4_a0_e2c_formal_packet_requires_hashed_qualification_and_smoke": true,
     "ar0_b1r_r4_a0_e2c_qual_packet_invalid_20260930": "dc_call_budget.polling_policy schema mismatch; no entrypoint launched; no authorization consumed",
     "ar0_b1r_r4_a0_e2c_inventory_authority": "CST GetNumberOfShapes + direct exact-name material/volume queries; no GetNameOfShapeFromIndex scanning",
-    "ar0_b1r_r4_a0_e2c_qualification_scope": "py_compile runner+watchdog+smoke+generator; AST contract; CST runtime --help"
+    "ar0_b1r_r4_a0_e2c_qualification_scope": "py_compile runner+watchdog+smoke+generator; AST contract; CST runtime --help",
+    "ar0_b1r_r4_a0_e2c_capability_smoke": "scripts/smoke_e2c_cst_capability_v01.py",
+    "ar0_b1r_r4_a0_e2c_capability_smoke_blob": "227550bedbab5e39f03ba85ffb8a9fe070a57e99"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_SMOKE03_THEN_BUILD05",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_CST_CAPABILITY_SMOKE",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1951,7 +1953,7 @@
         }
       ],
       "simulator_smoke_required": true,
-      "simulator_smoke_status": "SMOKE02_SCRIPT_SYNTAX_HOLD_RECOVERED",
+      "simulator_smoke_status": "CAPABILITY_SMOKE_REQUIRED_AFTER_VBA_INVENTORY_HOLD",
       "simulator_smoke_evidence": "execution/result_packets/R1E1A4A_AR0_B1R_R4_A0_E2C_PARENT_SMOKE01_HOLD_20260930_result.json"
     }
   },
