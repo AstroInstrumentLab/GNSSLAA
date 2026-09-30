@@ -16,12 +16,15 @@ def load_runner(path):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--runner",required=True)
-    ap.add_argument("--parent-cst",required=True)
+    ap.add_argument("--parent-cst",required=True)\n    ap.add_argument("--inventory-contract",required=True)
     ap.add_argument("--smoke-root",required=True)
     ap.add_argument("--result",required=True)
     a=ap.parse_args()
     m=load_runner(Path(a.runner))
     parent=Path(a.parent_cst); root=Path(a.smoke_root); result=Path(a.result)
+    contract=json.loads(Path(a.inventory_contract).read_text(encoding="utf-8"))
+    parent_names=sorted(set(contract["removed_parent_objects"])|set(contract["preserved_parent_objects"]))
+    if len(parent_names)!=45: raise RuntimeError("HOLD_SMOKE_PARENT_NAME_CONTRACT")
     if root.exists(): raise RuntimeError("HOLD_SMOKE_ROOT_EXISTS")
     if m.sha(parent)!=m.PARENT_SHA: raise RuntimeError("HOLD_SMOKE_PARENT_SHA")
     root.mkdir(parents=True)
@@ -35,7 +38,7 @@ def main():
     de=m.ci.DesignEnvironment(m.ci.DesignEnvironment.StartMode.New); de.set_quiet_mode(True); prj=None
     try:
         prj=de.open_project(str(copy))
-        ok=bool(prj.schematic.execute_vba_code(m.wrap(m.inventory_vba(inv))))
+        ok=bool(prj.schematic.execute_vba_code(m.wrap(m.named_inventory_vba(inv,parent_names))))
         if not ok: raise RuntimeError("HOLD_SMOKE_PARENT_INVENTORY")
     finally:
         if prj is not None: prj.close()
