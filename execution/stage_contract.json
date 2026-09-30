@@ -6,7 +6,7 @@
     "source_commit": "18c44b9afc787ad8f085110d6306ee4967f1c1cb"
   },
   "authorization": {
-    "BUILD_AUTHORIZED": false,
+    "BUILD_AUTHORIZED": true,
     "SOLVE_AUTHORIZED": false,
     "production_solve_authorized": false,
     "material_ab_authorized": false,
@@ -23,8 +23,8 @@
     "pass12_delta_s": 0.01570656517587774,
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
-    "next_stage": "AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_AWAIT_AUTH",
-    "stop_boundary": "FORMAL E2C BUILD RUNNER HOLD BEFORE CST DUE ENTRYPOINT SIGNATURE; BUILD AUTH CONSUMED BY GENERIC RUNNER; NO RETRY; NO_GEOMETRY_REDESIGN RECOVERY READY",
+    "next_stage": "AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_QUALIFICATION_THEN_EXECUTION",
+    "stop_boundary": "SIMOPS 0.2.16; GIT-FIRST PACKET GENERATOR; FRESH READ_ONLY ENTRYPOINT QUALIFICATION REQUIRED BEFORE ONE RECOVERY BUILD_ONLY; NO SOLVER",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1873,10 +1873,13 @@
     "ar0_b1r_r4_a0_e2c_formal_build_consumed": true,
     "ar0_b1r_r4_a0_e2c_build_recovery_class": "NO_GEOMETRY_REDESIGN",
     "ar0_b1r_r4_a0_e2c_build_recovery_doc": "docs/R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_FREEZE_V01.md",
-    "ar0_b1r_r4_a0_e2c_entrypoint_audit_blob": "e2e761d54d263e52d7a7c90a910d9e5863d8251f"
+    "ar0_b1r_r4_a0_e2c_entrypoint_audit_blob": "e2e761d54d263e52d7a7c90a910d9e5863d8251f",
+    "ar0_b1r_r4_a0_e2c_build_recovery_authorization": "EXPLICIT_USER_AUTHORIZED_2026-09-30_AFTER_SIMOPS_0P2P16_SYNC",
+    "ar0_b1r_r4_a0_e2c_recovery_packet_generator": "scripts/make_e2c_build_recovery_runner_packet_v01.py",
+    "ar0_b1r_r4_a0_e2c_recovery_packet_generator_blob": "5cc98ff5f37fb69ca6b10c329ca4bf8c7d4774d8"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_AWAIT_AUTH",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_QUALIFICATION_THEN_EXECUTION",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1885,9 +1888,18 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_FORMAL_BUILD_ATTEMPT_01",
-    "last_status": "HOLD_R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ENTRYPOINT",
+    "last_status": "AUTHORIZED_E2C_RECOVERY_BUILD_PENDING_0P2P16_QUALIFICATION",
     "one_shot_required": true,
-    "fresh_run_directory_required": true
+    "fresh_run_directory_required": true,
+    "entrypoint_qualification": {
+      "required": true,
+      "entrypoint_path": "scripts/run_r1e1a4a_ar0_b1r_r4_a0_e2c_dualpol_build_only_v01.py",
+      "runtime_identity": "CST 2022 bundled Python via project-local bridge",
+      "qualification_stage": "READ_ONLY",
+      "qualification_status": "PENDING_FRESH_0P2P16_QUALIFICATION",
+      "qualification_evidence": "",
+      "last_qualified_source_commit": ""
+    }
   },
   "workspace": {
     "host_alias": "NW",
@@ -1900,9 +1912,9 @@
   "global_protocol": {
     "repository": "Dingo-infinity2020/SimulationOps",
     "document": "GLOBAL_DC_SIMULATION_PROTOCOL.md",
-    "protocol_version": "0.2.15",
-    "minimum_compatible_version": "0.2.15",
-    "commit": "7dfbeb7a44a82501a7a20bbe62230aa047e80af6"
+    "protocol_version": "0.2.16",
+    "minimum_compatible_version": "0.2.16",
+    "commit": "4a3af70c8f9a859bacf7cbc51e7b72fcf4e14d2a"
   },
   "toolchain": {
     "simulator": "CST Studio Suite",
@@ -1910,7 +1922,20 @@
     "builder_or_adapter": "project stage runner via CST bundled Python/API",
     "build_host_alias": "NW",
     "solve_host_alias": "project runner controlled; formal production routing follows SimulationOps/HOSTS",
-    "container": "CST251-C when remote production solve path is selected"
+    "container": "CST251-C when remote production solve path is selected",
+    "control_runtime": {
+      "role": "SimulationOps orchestration",
+      "entrypoint": "D:\\quest_naoc_tarminal\\SimulationOps\\runner\\nw\\simops.cmd",
+      "interpreter_or_executable": "NW qualified control runtime from SimulationOps HOSTS",
+      "qualified": true
+    },
+    "simulator_runtime": {
+      "role": "CST 2022 project adapter runtime",
+      "interpreter_or_executable": "SimulationOps HOSTS authority; injected at runtime",
+      "bridge_or_adapter": "scripts/simops_cst_python_bridge_v01.py",
+      "qualified": true,
+      "qualification_evidence": "fresh READ_ONLY entrypoint qualification required before recovery production packet"
+    }
   },
   "dc_call_budget": {
     "target_calls_per_routine_stage": 2,
@@ -1919,7 +1944,14 @@
     "result_packet_path": "runtime SimOps runner result + project evidence; checkpoint to project repo after stage",
     "preferred_runner": "D:\\\\quest_naoc_tarminal\\\\SimulationOps\\\\runner\\\\nw\\\\simops.cmd",
     "polling_policy": "launch_once_inspect_at_task_node",
-    "exception_reason": "All source implementation/static audit completed without remote calls."
+    "exception_reason": "All source implementation/static audit completed without remote calls.",
+    "task_packet_source": {
+      "mode": "PROJECT_GIT_PACKET_OR_GENERATOR",
+      "packet_path": "",
+      "generator_path": "scripts/make_e2c_build_recovery_runner_packet_v01.py",
+      "packet_or_generator_sha256": "",
+      "adhoc_exception_reason": ""
+    }
   },
   "evidence": {
     "status_classification": "PASS_R1E1A4A_H3B_T01A_FREEZE",
