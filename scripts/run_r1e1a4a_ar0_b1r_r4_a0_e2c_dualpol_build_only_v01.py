@@ -318,9 +318,9 @@ def coexistence_contract(contract):
       "polB_half_lap_notch_frozen":bool(contract["coexistence"]["polB_half_lap_notch_frozen"])
     }
 
-def main(parent,macro,reference_macro,inventory_contract,out,evidence):
+def main(parent,macro,reference_macro,inventory_contract,out,review_copy,evidence):
     parent=Path(parent); macro=Path(macro); reference_macro=Path(reference_macro); inventory_contract=Path(inventory_contract)
-    out=Path(out); evidence=Path(evidence)
+    out=Path(out); review_copy=Path(review_copy); evidence=Path(evidence)
 
     if not parent.exists() or sha(parent)!=PARENT_SHA:
         raise RuntimeError("HOLD_E2C_PARENT_HASH")
