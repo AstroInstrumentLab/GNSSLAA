@@ -24,7 +24,7 @@
     "max_delta_s_required": 0.02,
     "rf_baseline_interpretation": "NUMERICALLY_QUALIFIED; NO_SHARP_TOPOLOGY_RESONANCE; LOCAL_RF_OPTIMIZATION_STILL_REQUIRED",
     "next_stage": "AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_QUALIFICATION_THEN_EXECUTION",
-    "stop_boundary": "SIMOPS 0.2.16; GIT-FIRST PACKET GENERATOR; FRESH READ_ONLY ENTRYPOINT QUALIFICATION REQUIRED BEFORE ONE RECOVERY BUILD_ONLY; NO SOLVER",
+    "stop_boundary": "PRE-CST PACKET01 HOLD RECORDED; USER RECOVERY BUILD AUTHORIZATION REMAINS ACTIVE UNDER SIMOPS 0.2.16 RULE35; PACKET02 MUST USE FRESH TARGET; NO SOLVER",
     "master_plan": "docs/R1E1A4A_H3B_TO_ACTIVE_ARRAY_MASTERPLAN_V01.md",
     "simulationops_min": "0.2.12",
     "t01c_status": "DEFERRED_NOT_AUTHORIZED",
@@ -1876,10 +1876,13 @@
     "ar0_b1r_r4_a0_e2c_entrypoint_audit_blob": "e2e761d54d263e52d7a7c90a910d9e5863d8251f",
     "ar0_b1r_r4_a0_e2c_build_recovery_authorization": "EXPLICIT_USER_AUTHORIZED_2026-09-30_AFTER_SIMOPS_0P2P16_SYNC",
     "ar0_b1r_r4_a0_e2c_recovery_packet_generator": "scripts/make_e2c_build_recovery_runner_packet_v01.py",
-    "ar0_b1r_r4_a0_e2c_recovery_packet_generator_blob": "5cc98ff5f37fb69ca6b10c329ca4bf8c7d4774d8"
+    "ar0_b1r_r4_a0_e2c_recovery_packet_generator_blob": "b174a9cc1ce5635b06732ea58926d280399f8a02",
+    "ar0_b1r_r4_a0_e2c_recovery_packet01_status": "HOLD_E2C_RECOVERY_PACKET_PRE_CST_EVIDENCE_COLLISION",
+    "ar0_b1r_r4_a0_e2c_scientific_formal_build_invocation_count": 0,
+    "ar0_b1r_r4_a0_e2c_recovery_next_packet": "GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-02"
   },
   "execution": {
-    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_QUALIFICATION_THEN_EXECUTION",
+    "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_PACKET02_AUTHORIZED",
     "formal_recovery_solve_invocation_count": 1,
     "silent_retry_allowed": false,
     "hash_lock_required": true,
@@ -1888,7 +1891,7 @@
     "formal_o2b_screen_invocation_count": 9,
     "formal_o2b_qualification_invocation_count": 3,
     "last_completed_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_FORMAL_BUILD_ATTEMPT_01",
-    "last_status": "AUTHORIZED_E2C_RECOVERY_BUILD_PENDING_0P2P16_QUALIFICATION",
+    "last_status": "HOLD_E2C_RECOVERY_PACKET_PRE_CST_EVIDENCE_COLLISION",
     "one_shot_required": true,
     "fresh_run_directory_required": true,
     "entrypoint_qualification": {
