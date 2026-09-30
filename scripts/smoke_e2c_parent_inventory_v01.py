@@ -16,7 +16,8 @@ def load_runner(path):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--runner",required=True)
-    ap.add_argument("--parent-cst",required=True)\n    ap.add_argument("--inventory-contract",required=True)
+    ap.add_argument("--parent-cst",required=True)
+    ap.add_argument("--inventory-contract",required=True)
     ap.add_argument("--smoke-root",required=True)
     ap.add_argument("--result",required=True)
     a=ap.parse_args()
