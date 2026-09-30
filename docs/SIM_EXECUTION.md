@@ -1,6 +1,6 @@
 # SIM_EXECUTION
 
-SimulationOps: 0.2.15 @ 7dfbeb7a44a82501a7a20bbe62230aa047e80af6
+SimulationOps: 0.2.16 @ 4a3af70c8f9a859bacf7cbc51e7b72fcf4e14d2a
 
 Current stage:\nR1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_AUTHORIZED
 
@@ -1073,3 +1073,25 @@ SOLVE_AUTHORIZED: false
 
 Next:
 R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_AWAIT_AUTH
+
+
+## SimulationOps 0.2.16 E2C recovery adoption
+
+Current global authority:
+- SimulationOps 0.2.16 @ 4a3af70c8f9a859bacf7cbc51e7b72fcf4e14d2a
+- PROJECT_RUNNER_ADOPTION.md applies
+- NW checkout authority: D:\quest_naoc_tarminal\SimulationOps
+- control runtime != CST simulator runtime
+- routine formal packet source is Git-first
+
+Committed packet generator:
+scripts/make_e2c_build_recovery_runner_packet_v01.py
+
+Generator blob:
+5cc98ff5f37fb69ca6b10c329ca4bf8c7d4774d8
+
+Recovery authorization:
+BUILD_AUTHORIZED = true
+SOLVE_AUTHORIZED = false
+
+Fresh production-entrypoint qualification is mandatory before the new recovery BUILD_ONLY packet is allowed to consume authorization.
