@@ -1,6 +1,6 @@
 # SIM_EXECUTION
 
-SimulationOps: 0.2.16 @ 4a3af70c8f9a859bacf7cbc51e7b72fcf4e14d2a
+SimulationOps: 0.2.17 @ d4d2e53055ec5745eadeb11367332151e80d090c
 
 Current stage:\nR1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_AUTHORIZED
 
@@ -1095,3 +1095,35 @@ BUILD_AUTHORIZED = true
 SOLVE_AUTHORIZED = false
 
 Fresh production-entrypoint qualification is mandatory before the new recovery BUILD_ONLY packet is allowed to consume authorization.
+
+
+## SimulationOps 0.2.17 observable E2C recovery
+
+Authority:
+- SimulationOps 0.2.17 @ d4d2e53055ec5745eadeb11367332151e80d090c
+- PROJECT_OBSERVABILITY_PROTOCOL.md
+- runner v0.2 status/event state
+
+Project event protocol:
+simops-project-event-v0.1
+
+Production boundary:
+immediately before frozen E2C `prj.modeler.add_to_history(HISTORY_LABEL, macro_body(macro))`.
+
+Fresh user authorization:
+BUILD_AUTHORIZED = true
+SOLVE_AUTHORIZED = false
+
+Before formal build:
+1. fresh entrypoint/runtime qualification;
+2. GENERIC_NONPRODUCTION canonical-parent smoke:
+   copy -> open -> exact inventory -> result-tree empty -> close;
+3. smoke must PASS.
+
+Phase watchdog adapter:
+scripts/e2c_simops_watchdog_adapter_v01.py
+
+Smoke:
+scripts/smoke_e2c_parent_inventory_v01.py
+
+No process/window/directory polling is the normal progress API. If intermediate state is needed, use `simops.cmd status --packet ...`.
