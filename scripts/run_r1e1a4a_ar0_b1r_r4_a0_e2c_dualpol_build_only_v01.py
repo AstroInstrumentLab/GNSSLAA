@@ -519,8 +519,31 @@ def main(parent,macro,reference_macro,inventory_contract,out,evidence):
       "No solver is authorized by this build stage."
     ]
     (evidence/"HUMAN_3D_REVIEW.md").write_text("\n".join(review)+"\n",encoding="utf-8")
+
+    review_copy=Path(review_copy)
+    review_record=None
+    if status.startswith("PASS_"):
+        if review_copy.exists() or review_copy.with_suffix("").exists():
+            raise RuntimeError("HOLD_E2C_REVIEW_COPY_TARGET_EXISTS:"+str(review_copy))
+        copy_project(out,review_copy)
+        review_sha=sha(review_copy)
+        if review_sha!=sha(out):
+            raise RuntimeError("HOLD_E2C_REVIEW_COPY_SHA_MISMATCH")
+        if not review_copy.with_suffix("").exists():
+            raise RuntimeError("HOLD_E2C_REVIEW_COPY_COMPANION_MISSING")
+        review_record={
+          "path":str(review_copy),
+          "sha256":review_sha,
+          "companion_path":str(review_copy.with_suffix("")),
+          "complete_project_copy":True
+        }
+        summary["review_copy"]=review_record
+        (evidence/"summary.json").write_text(json.dumps(summary,indent=2)+"\n",encoding="utf-8")
+
     print(status)
     print("ARTIFACT_SHA256="+sha(out))
+    if review_record:
+        print("REVIEW_COPY_SHA256="+review_record["sha256"])
     print("PAIRWISE_PASS=%s"%pair_pass)
     return 0 if status.startswith("PASS_") else 4
 
@@ -531,10 +554,11 @@ if __name__=="__main__":
     ap.add_argument("--kernel-reference-macro",required=True)
     ap.add_argument("--inventory-contract",required=True)
     ap.add_argument("--out",required=True)
+    ap.add_argument("--review-copy",required=True)
     ap.add_argument("--evidence",required=True)
     a=ap.parse_args()
     try:
-        sys.exit(main(a.parent_cst,a.macro,a.kernel_reference_macro,a.inventory_contract,a.out,a.evidence))
+        sys.exit(main(a.parent_cst,a.macro,a.kernel_reference_macro,a.inventory_contract,a.out,a.review_copy,a.evidence))
     except Exception:
         Path(a.evidence).mkdir(parents=True,exist_ok=True)
         Path(a.evidence,"EXCEPTION.txt").write_text(traceback.format_exc(),encoding="utf-8")
