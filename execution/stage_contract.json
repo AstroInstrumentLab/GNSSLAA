@@ -1859,14 +1859,15 @@
     "ar0_b1r_r4_a0_e2c_kernel_blob": "fbaac4e894a5b5af3c3145a67e767b2a7c8e9c98",
     "ar0_b1r_r4_a0_e2c_broadphase_runner_blob": "ce09233173aea44783be8d87dc5e665ca07356e9",
     "ar0_b1r_r4_a0_e2c_broadphase_manifest_blob": "8dd082aab1c1fd99495b0e773c1c987efd79e62c",
-    "ar0_b1r_r4_a0_e2c_build_runner_blob": "08adaf7ecac05832ee47916b566be80af63992d3",
+    "ar0_b1r_r4_a0_e2c_build_runner_blob": "226459460c7110f35c29e43fbb882b458465d2b0",
     "ar0_b1r_r4_a0_e2c_broadphase_candidate_count": 1,
     "ar0_b1r_r4_a0_e2c_formal_pairwise_count": 29,
     "ar0_b1r_r4_a0_e2c_build_authorization": "EXPLICIT_USER_AUTHORIZED_2026-09-30",
     "ar0_b1r_r4_a0_e2c_generic_runner": "SimulationOps runner v0.1 via NW stable launcher",
     "ar0_b1r_r4_a0_e2c_generic_runner_ops_commit": "7dfbeb7a44a82501a7a20bbe62230aa047e80af6",
     "ar0_b1r_r4_a0_e2c_review_copy_in_same_transaction": true,
-    "ar0_b1r_r4_a0_e2c_interpreter_bridge": "scripts/simops_cst_python_bridge_v01.py"
+    "ar0_b1r_r4_a0_e2c_interpreter_bridge": "scripts/simops_cst_python_bridge_v01.py",
+    "ar0_b1r_r4_a0_e2c_host_global_cst_path_in_project_source": false
   },
   "execution": {
     "current_stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_AUTHORIZED",
