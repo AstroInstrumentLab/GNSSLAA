@@ -1038,3 +1038,38 @@ E2C SimOps 0.2.15 final build transaction update:
 - interpreter bridge: scripts/simops_cst_python_bridge_v01.py
 - generic runner remains responsible for authorization/preflight/one-shot/result packet
 - project runner remains responsible for CST geometry/build/audit science
+
+
+## E2C formal build attempt 01 HOLD
+
+Generic runner packet:
+GNSS-E2C-DUALPOL-BUILD-20260930-01
+
+SimulationOps core:
+- final_status = HOLD_ENTRYPOINT
+- build_consumed = true
+- solve_consumed = false
+- no retry
+
+Project exception:
+TypeError: main() takes 6 positional arguments but 7 were given
+
+Failure boundary:
+before project main() entered; no CST kernel reference, production macro or solver started.
+
+Recovery:
+NO_GEOMETRY_REDESIGN
+docs/R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_FREEZE_V01.md
+
+Corrected runner blob:
+76b3e403a830d9736fc019303dc7f0b0e8b3ee0f
+
+Entrypoint AST audit blob:
+e2e761d54d263e52d7a7c90a910d9e5863d8251f
+
+Current:
+BUILD_AUTHORIZED: false
+SOLVE_AUTHORIZED: false
+
+Next:
+R1E1A4A_AR0_B1R_R4_A0_E2C_BUILD_RECOVERY_AWAIT_AUTH
