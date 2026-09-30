@@ -94,7 +94,14 @@ def main():
         packet["preflight"]["checks"].append({"id":"smoke_root_absent","type":"path_absent","path":str(sroot)})
         write_json(a.output_packet,packet); return 0
 
-    if not a.target_root: raise SystemExit("build requires --target-root")
+    if not a.target_root or not a.qualification_output or not a.smoke_output:
+        raise SystemExit("build requires --target-root --qualification-output --smoke-output")
+    qev=Path(a.qualification_output).resolve(); sev=Path(a.smoke_output).resolve()
+    qj=json.loads(qev.read_text(encoding="utf-8")); sj=json.loads(sev.read_text(encoding="utf-8"))
+    if qj.get("status")!="PASS_E2C_BUILD_ENTRYPOINT_STATIC_CONTRACT":
+        raise SystemExit("HOLD_BUILD_QUALIFICATION_NOT_PASS")
+    if sj.get("status")!="PASS_E2C_PARENT_SIMULATOR_SMOKE":
+        raise SystemExit("HOLD_BUILD_SMOKE_NOT_PASS")
     target=Path(a.target_root).resolve(); out=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_COEXISTENCE_BUILD_ONLY_V01.cst"
     review=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_HUMAN_REVIEW_COPY.cst"; evidence=target/"evidence"
     budgets=json.dumps({"parent_inventory":180,"kernel_reference":420,"production_open":120,
@@ -119,6 +126,8 @@ def main():
       {"id":"macro_hash","type":"file_sha256_equals","path":macro,"sha256":hashes[macro]},
       {"id":"inventory_hash","type":"file_sha256_equals","path":inv,"sha256":hashes[inv]},
       {"id":"kernel_hash","type":"file_sha256_equals","path":kernel,"sha256":hashes[kernel]},
+      {"id":"qualification_hash","type":"file_sha256_equals","path":str(qev),"sha256":sha256(qev)},
+      {"id":"smoke_hash","type":"file_sha256_equals","path":str(sev),"sha256":sha256(sev)},
       {"id":"target_root_absent","type":"path_absent","path":str(target)}])
     write_json(a.output_packet,packet); return 0
 
