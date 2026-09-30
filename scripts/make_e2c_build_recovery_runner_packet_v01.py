@@ -90,7 +90,7 @@ def main():
           "stage":{"name":"E2C_CST_CAPABILITY_SMOKE","kind":"GENERIC_NONPRODUCTION","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"NO_PRODUCTION_SOURCE_TEST_TREE_AND_SINGLE_TARGETED_VBA_ONLY"},
           "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",
              capability,"--runner",runner,"--parent-cst",str(parent),"--inventory-contract",str(root/inv),"--smoke-root",str(sroot),"--result",str(sout)],
-             "environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":1800},
+             "environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":600},
           "preflight":common["preflight"],
           "expected_outputs":[{"path":str(sout),"required":True,"sha256":True}],
           "result":{"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}})
@@ -107,7 +107,7 @@ def main():
           "stage":{"name":"E2C_PARENT_SIMULATOR_SMOKE","kind":"GENERIC_NONPRODUCTION","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"NO_PRODUCTION_HISTORY_NO_SOLVER_RETURN_AFTER_PARENT_OPEN_INVENTORY_RESULTTREE_CLOSE"},
           "entrypoint":{"argv":["python",adapter,"--startup-timeout","60","--phase-budgets-json",budgets,"--",
              smoke,"--runner",runner,"--parent-cst",str(parent),"--inventory-contract",str(root/inv),"--smoke-root",str(sroot),"--result",str(sout)],
-             "environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":600},
+             "environment":{"CST_PYTHON_EXECUTABLE":cst},"timeout_seconds":1800},
           "preflight":common["preflight"],
           "expected_outputs":[{"path":str(sout),"required":True,"sha256":True}],
           "result":{"state_root":str(Path(a.state_root).resolve()),"result_packet_path":str(Path(a.result_packet).resolve())}})
