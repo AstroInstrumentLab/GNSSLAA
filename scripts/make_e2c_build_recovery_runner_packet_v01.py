@@ -37,11 +37,12 @@ def main():
     runner="scripts/run_r1e1a4a_ar0_b1r_r4_a0_e2c_dualpol_build_only_v01.py"
     bridge="scripts/simops_cst_python_bridge_v01.py"
     audit="scripts/audit_e2c_build_entrypoint_contract_v01.py"
+    generator="scripts/make_e2c_build_recovery_runner_packet_v01.py"
     macro="source/cst/R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_V01.mcr"
     inv="execution/R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_INVENTORY_V01.json"
     kernel="source/cst/R1E1A4A_AR0_B1R_R4_A0_E2C_16VIA_DRILL_KERNEL_REFERENCE_V01.mcr"
 
-    hashes={p:sha256(root/p) for p in [runner,bridge,audit,macro,inv,kernel]}
+    hashes={p:sha256(root/p) for p in [runner,bridge,audit,generator,macro,inv,kernel]}
 
     common={
       "schema_version":"runner-task-v0.1",
@@ -54,6 +55,7 @@ def main():
         {"id":"runner_hash","type":"file_sha256_equals","path":runner,"sha256":hashes[runner]},
         {"id":"bridge_hash","type":"file_sha256_equals","path":bridge,"sha256":hashes[bridge]},
         {"id":"audit_hash","type":"file_sha256_equals","path":audit,"sha256":hashes[audit]},
+        {"id":"generator_hash","type":"file_sha256_equals","path":generator,"sha256":hashes[generator]},
         {"id":"result_absent","type":"result_path_absent"}
       ]},
       "dc_call_budget":{"target_calls":1,"polling_policy":"no_polling"}
@@ -95,10 +97,10 @@ def main():
     out=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_COEXISTENCE_BUILD_ONLY_V01.cst"
     review=target/"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_HUMAN_REVIEW_COPY.cst"
     evidence=target/"evidence"
-    bridge_evidence=evidence/"simops_cst_python_bridge.json"
+    bridge_evidence=Path(a.result_packet).resolve().with_name("build_bridge_provenance.json")
 
     packet=dict(common)
-    packet["packet_id"]="GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-01"
+    packet["packet_id"]="GNSS-E2C-DUALPOL-BUILD-RECOVERY-20260930-02"
     packet["stage"]={"name":"R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_RECOVERY","kind":"BUILD_ONLY","control_host_alias":"NW","working_directory":str(root),"stop_boundary":"STOP_AFTER_177_24_16_29_AUDIT_AND_COMPLETE_HUMAN_REVIEW_COPY_NO_SOLVER"}
     packet["authorization"]={"BUILD_AUTHORIZED":True,"SOLVE_AUTHORIZED":False}
     packet["entrypoint"]={
