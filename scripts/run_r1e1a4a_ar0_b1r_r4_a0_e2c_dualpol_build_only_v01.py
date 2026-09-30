@@ -3,10 +3,8 @@ import argparse, hashlib, json, math, shutil, sys, traceback
 from collections import Counter
 from pathlib import Path
 
-LIBS=r"D:\\Program Files (x86)\\CST Studio Suite 2022\\AMD64\\python_cst_libraries"
-if LIBS not in sys.path:
-    sys.path.insert(0,LIBS)
-
+# CST interpreter/environment is supplied by the runtime execution route.
+# Project source intentionally contains no host-global CST installation path.
 import cst.interface as ci
 from cst.results import ProjectFile
 
