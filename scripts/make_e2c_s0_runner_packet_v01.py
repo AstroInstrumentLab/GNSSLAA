@@ -114,13 +114,13 @@ def main():
     ]
 
     base={
-      "schema_version":"runner-task-v0.1",
+      "schema_version":"runner-task-v0.2",
       "project":{"name":"GNSS_Lband_Active_Array",
                  "repository":"Dingo-infinity2020/GNSS_Lband_Active_Array",
                  "source_commit":head,"model_identity":MODEL},
       "transport":{"type":"local","ssh_alias":"","remote_shell":""},
       "preflight":{"fail_closed":True,"checks":common_checks},
-      "dc_call_budget":{"target_calls":1,"polling_policy":"no_polling"},
+      "dc_call_budget":{"target_calls":1,"polling_policy":"no_polling","remote_mcp_calls_target":3},
       "result":{"state_root":str(state_root),"result_packet_path":str(result_packet)},
     }
 
@@ -155,6 +155,8 @@ def main():
     failed=[k for k,v in grant_checks.items() if not v]
     if failed:
         raise SystemExit("HOLD_E2C_S0_LIVE_SOLVE_GRANT:"+",".join(failed))
+    stage_contract_sha=hashes["contract"]
+    packet_source_commit=contract["project"]["source_commit"]
 
     target=Path(a.target_root).resolve()
     if target.exists():
@@ -172,6 +174,8 @@ def main():
     },separators=(",",":"))
 
     packet=dict(base)
+    packet["project"]=dict(packet["project"])
+    packet["project"]["source_commit"]=packet_source_commit
     packet["preflight"]={"fail_closed":True,"checks":list(common_checks)+[
       {"id":"qualification_hash","type":"file_sha256_equals","path":str(qout),"sha256":sha(qout)},
       {"id":"target_root_absent","type":"path_absent","path":str(target)},
@@ -195,7 +199,21 @@ def main():
                            "--evidence",str(evidence)],
                     "environment":{"CST_PYTHON_EXECUTABLE":str(cstpython)},
                     "timeout_seconds":10800},
-      "authorization":{"BUILD_AUTHORIZED":False,"SOLVE_AUTHORIZED":True},
+      "authorization":{"BUILD_AUTHORIZED":False,"SOLVE_AUTHORIZED":True,
+        "grant_snapshot":{
+          "grant_id":grant["grant_id"],
+          "kind":grant["kind"],
+          "state":grant["state"],
+          "stage":grant["stage"],
+          "source_commit":grant["source_commit"],
+          "entrypoint_path":rel["runner"],
+          "entrypoint_sha256":hashes["runner"],
+          "stage_contract_path":rel["contract"],
+          "stage_contract_sha256":stage_contract_sha,
+          "granted_at":grant["granted_at"],
+          "expires_at":grant.get("expires_at"),
+          "entrypoint_arg_index":7
+        }},
       "expected_outputs":[
         {"path":str(solved),"required":True,"sha256":True},
         {"path":str(evidence/"FINAL_STATUS.txt"),"required":True,"sha256":True},
