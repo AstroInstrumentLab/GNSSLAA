@@ -40,7 +40,7 @@ def main():
       "schema_version":"runner-task-v0.2",
       "packet_id":"GNSS-M6-%s-DIAGNOSTIC-SOLVE-V01"%m["variant"],
       "project":{"name":"GNSS_Lband_Active_Array","repository":"Dingo-infinity2020/GNSS_Lband_Active_Array","source_commit":c["project"]["source_commit"],"model_identity":m["stage"]},
-      "stage":{"name":m["stage"],"kind":"SOLVE","control_host_alias":"NW","working_directory":str(root),"stop_boundary":m["execution"]["stop_boundary"]},
+      "stage":{"name":m["stage"],"kind":"SOLVE_LAUNCH","control_host_alias":"NW","working_directory":str(root),"stop_boundary":m["execution"]["stop_boundary"]},
       "transport":{"type":"local","ssh_alias":"","remote_shell":""},
       "preflight":{"fail_closed":True,"checks":[
         {"id":"git_clean","type":"git_clean","path":"."},
