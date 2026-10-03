@@ -3,7 +3,7 @@
     "project":  {
                     "name":  "GNSS_Lband_Active_Array",
                     "source_branch":  "project/r0-charts-scaffold",
-                    "source_commit":  "5225a09bb1406e38b1622dff463dfbebd51f33ca",
+                    "source_commit":  "8933353f104257e2eac7ceb68f54456d717e2be7",
                     "repository":  "Dingo-infinity2020/GNSS_Lband_Active_Array",
                     "model_identity":  "R1E1A4A_AR0_B1R_R4_A0_E2C_R7"
                 },
@@ -20,7 +20,7 @@
                                                "kind":  "BUILD",
                                                "state":  "GRANTED",
                                                "stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M6_D1_SIG_ATTRIBUTION_BUILD_ONLY",
-                                               "source_commit":  "5225a09bb1406e38b1622dff463dfbebd51f33ca",
+                                               "source_commit":  "8933353f104257e2eac7ceb68f54456d717e2be7",
                                                "entrypoint_sha256":  "46a2eebcedc6a8bc59a3bf36b329de916470d2fb046d2be2fbaa13bca7873793",
                                                "granted_at":  "2026-10-03T11:09:00Z",
                                                "expires_at":  null,
@@ -1947,7 +1947,7 @@
                       "formal_o2b_screen_invocation_count":  9,
                       "formal_o2b_qualification_invocation_count":  3,
                       "last_completed_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_COEXISTENCE_SENTINEL",
-                      "last_status":  "AUTHORIZED_M6_D1_BUILD_ENTRYPOINT_QUALIFIED",
+                      "last_status":  "AUTHORIZED_M6_D1_BUILD_RUNTIME_WRAPPER_QUALIFIED",
                       "one_shot_required":  true,
                       "fresh_run_directory_required":  true,
                       "entrypoint_qualification":  {
@@ -1957,7 +1957,7 @@
                                                        "qualification_stage":  "M6_D1D2_PREBUILD_STATIC_QUALIFICATION",
                                                        "qualification_status":  "PASS_M6_D1D2_PREBUILD_STATIC_CONTRACT",
                                                        "qualification_evidence":  "evidence/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M6_D1D2_PREBUILD_V01/STATIC_AUDIT.json",
-                                                       "last_qualified_source_commit":  "5225a09bb1406e38b1622dff463dfbebd51f33ca",
+                                                       "last_qualified_source_commit":  "8933353f104257e2eac7ceb68f54456d717e2be7",
                                                        "entrypoint_sha256":  "46a2eebcedc6a8bc59a3bf36b329de916470d2fb046d2be2fbaa13bca7873793"
                                                    },
                       "project_observability":  {
