@@ -1927,7 +1927,7 @@
                                                   ]
                           },
     "execution":  {
-                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_RESULT_REVIEW",
+                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_ONLY_AWAIT_AUTH",
                       "formal_recovery_solve_invocation_count":  1,
                       "silent_retry_allowed":  false,
                       "hash_lock_required":  true,
@@ -1936,7 +1936,7 @@
                       "formal_o2b_screen_invocation_count":  9,
                       "formal_o2b_qualification_invocation_count":  3,
                       "last_completed_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_DIAGNOSTIC_SOLVE",
-                      "last_status":  "REJECT_M7A_INNER_EDGE_LEVER",
+                      "last_status":  "GO_M7B_BUILD_ONLY_AWAIT_AUTH_AFTER_M7A_REJECT",
                       "one_shot_required":  true,
                       "fresh_run_directory_required":  true,
                       "entrypoint_qualification":  {
@@ -2049,7 +2049,7 @@
                            "forensics_command":  "runner/nw/simops.cmd forensics --packet \u003cpacket\u003e"
                        },
     "evidence":  {
-                     "status_classification":  "REJECT_M7A_INNER_EDGE_LEVER",
+                     "status_classification":  "GO_M7B_BUILD_ONLY_AWAIT_AUTH_AFTER_M7A_REJECT",
                      "source_commit_for_o3_o4":  "00bea9de782eb36c1d3f118866edd283808b6233",
                      "o3_nominal_solved_sha256":  "5a3ec0b2a9eca4bc0253d0e1fd5ab5f512d6d0fb63944bbd7b932505c1f5f82f",
                      "o3_straight_reference_solved_sha256":  "421c4951a122749aacf36254b8bb5a156547a22dd6ab9e465139c44207d6519b",
@@ -2081,7 +2081,7 @@
                      "tree_identity_algorithm":  "SIMOPS_TREE_ID_V1",
                      "source_sha256":  "46a2eebcedc6a8bc59a3bf36b329de916470d2fb046d2be2fbaa13bca7873793",
                      "qualification_sha256":  "15299591f26ffb3ba5c53cfe99e60f61fea6c4b2dc9d39b6f11b7df76f45b9e0",
-                     "exact_invocation":  "M7A_ONE_FORMAL_12PORT_SOLVE_COMPLETE_NO_RETRY_M7B_NOT_AUTHORIZED"
+                     "exact_invocation":  "M7A_CLOSED_REJECT_NO_RETRY; M7B_BUILD_ONLY_NOT_AUTHORIZED"
                  },
     "authorization_history":  [
                                   {

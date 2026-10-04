@@ -23,43 +23,29 @@ Do not execute an old chat instruction or local note if it conflicts with these 
 
 ## Current gate
 
-Current task: **R1E1-A4A-H3B-T01A-O0-REFERENCE-LINE-AWAIT-AUTH**
+Current task: **R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_ONLY_AWAIT_AUTH**
 
-Current permissions:
-- inspect the closed R1E1A1 bare-array and R1E1A2/A3 support evidence: YES
-- R1E1A2 canonical build status is PASS via read-only recovery
-- R1E1A3-R1 broadside and C60P45 passed; C60P135 passed numerically but failed the frozen Gate-T Delta-Z criterion
-- preserve Gate T unchanged; do not reinterpret the current S1 support as transparent
-- perform receiver-shadow / LNA noise-S-parameter analysis using traceable data: YES
-- freeze P0/P1A/P1B reference planes, local-ground/common-mode assumptions and Gate R: YES
-- design the mandatory H0 active-hub interface plus C0 foam, C1 dielectric-tube/standoff and C2 PCB-frame carrier envelopes: YES
-- R1E1A4A H0/P1 BUILD-ONLY authorization is consumed; canonical build PASS via read-only recovery; do not rerun build
-- H0/P1 broadside solve authorization is consumed; no retry and no follow-on scan solve
-- canonical H0 V0.1 status is HOLD_GATE_R_RNF0 despite numerical/mixed-mode PASS
-- H1A OFFSET_GROUND_G2P0 build authorization is consumed; canonical build PASS via fresh-reopen recovery; do not rerun build
-- H1A broadside production solve authorization is consumed; canonical status is numerical HOLD at MaxPasses=12; do not rerun
-- H1R numerical recovery is DEFERRED; no H1R solve is authorized
-- user promoted H2A Universal Passive/Active Center Structure to the product-architecture mainline
-- H2A V0.1 BUILD-ONLY is closed PASS; formal build invocation count = 1; do not rebuild
-- qualified H2A artifact is protected in place with SHA256 b8f9161d7530b194fec1f35cc69f3cb5c770fb9daaba8eaeb519fbf064da644b
-- H2A V0.1 human review accepted the overall concept but identified missing RF cable egress/service architecture
-- H2A V0.2 SERVICE-ARCHITECTURE BUILD-ONLY is closed PASS; formal build invocation count = 1; do not rebuild
-- qualified V0.2 artifact is protected in place with SHA256 4756a525c407bac9f6de1c42c9274b74825a45a6b3cae81e60f1e67e64494064
-- human review of H2A V0.2 found unintended geometry interference; the artifact is retained but is NOT an eligible solve source
-- SimulationOps >=0.2.5 requires CST Geometry Intersection Check after fresh reopen before BUILD PASS
-- H3A V0.1 remains immutable historical evidence but is not solve-eligible because its top tenons sat inside the parent FR4 through-slots without true mortise walls
-- H3A V0.2 FR4-bridged mortise BUILD-ONLY is closed PASS; formal V0.2 invocation count = 1; do not rebuild
-- V0.2 artifact SHA256 = 9e810560fc8fc759a88d4ac5fc39067863a1e078b6f01e6e343b004891201db5
-- fresh reopen proved substrate volume 4518.70408162357 mm^3, bridge helpers consumed, top copper unbridged, zero RF ports, no solver results, CST intersection gate executed
-- current task is H3A V0.2 human 3D/mechanical review only
-- no H3A solve, H3B continuation, active transistor/device integration, H1R solve, follow-on scan, S4 sentinel or R1E1B pitch-screen solver is authorized
-- material A/B solve: NO
-- physical LNA integration/CST251: NO
-- do not assume each LNA sees Zdiff/2 unless the virtual-ground/reference-plane condition is explicitly qualified
-- silent retry: NO
+Current permissions and stop rules:
+- M7A BUILD is closed PASS and its artifact is immutable historical evidence.
+- M7A human 3D geometry review is PASS.
+- the single formal M7A 12-port diagnostic SOLVE is consumed and closed; no retry is allowed.
+- canonical M7A scientific status is `REJECT_M7A_INNER_EDGE_LEVER`.
+- classifier semantics imply numerical hard gates PASS, resonance guard PASS, no >=10% primary corrective improvement, and secondary own-pol improvement FAIL.
+- do not enlarge, tune, sweep, or rerun M7A.
+- M7B `CIN_PAD_PROJECTION_CLEARANCE` remains the only frozen next corrective candidate.
+- M7B source and static candidate audit are frozen; its parent is the immutable full-E2C R7 build.
+- M7B BUILD authorization: NO.
+- M7B SOLVE authorization: NO.
+- no M7B task packet or CST execution may be created merely from this offline GO decision.
+- if BUILD is later explicitly authorized, execute exactly one BUILD-ONLY transaction, fresh reopen, run the required CST geometry/intersection gate, prepare a human-review copy, and STOP before solve.
+- a later M7B diagnostic solve requires a separate frozen solve contract and separate explicit user authorization.
+- no material A/B, active transistor/device integration, CST251 production solve, optimization sweep, or unrelated geometry change is authorized.
+- GitHub-first maintenance is preferred; do not spend Desktop Commander calls on facts already present in repository authority/evidence.
 
-R1E1A1 is closed `PASS_R1E1A1_SIX_PITCH_FR4_SOURCE_SET_BUILD_ONLY`.
-R1E1A2/A3 scope is frozen in `docs/R1E1A2A3_SUPPORT_SENSITIVITY_CONTRACT.md`.
+Current offline authority:
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_RESULT_REVIEW_AND_M7B_GO_NO_GO_20261004.md`
+
+Historical authorization notes later in this file are evidence only unless the current gate above explicitly reactivates them.
 
 ## Architecture control
 

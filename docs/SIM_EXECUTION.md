@@ -1,18 +1,41 @@
 # SIM_EXECUTION
 
-SimulationOps: 0.2.17 @ d4d2e53055ec5745eadeb11367332151e80d090c
+SimulationOps: 0.2.26 @ c074982bce2ad1bc7c0914ad422244f2cba84d4a
 
-Current stage:\nR1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_ONLY_AUTHORIZED
+Current stage:
+R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_ONLY_AWAIT_AUTH
 
-BUILD_AUTHORIZED: true
+BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
 LNA_INTEGRATION_AUTHORIZED: false
+CST251_AUTHORIZED: false
 
-PRE-REMOTE STATUS:
-PASS_R4_A0_E1_PREBUILD_READY_AWAIT_BUILD_AUTH
+CURRENT STATUS:
+GO_M7B_BUILD_ONLY_AWAIT_AUTH_AFTER_M7A_REJECT
 
-Remote calls in R4-A0 prebuild:
-0
+M7A closeout:
+- BUILD PASS; human geometry review PASS.
+- exactly one formal 12-port diagnostic SOLVE consumed and closed.
+- numerical hard gates PASS; guard PASS.
+- scientific classifier: REJECT_M7A_INNER_EDGE_LEVER.
+- no retry, enlargement, or parameter sweep.
+
+M7B offline decision:
+- candidate remains frozen: CIN_PAD_PROJECTION_CLEARANCE.
+- rationale: M7A rejects the upstream inner-edge lever while M6 still indicates a composite signal/ground mechanism; M7B independently tests local CIN signal-to-return shunt capacitance.
+- source/static audit exists and remains unchanged.
+- no BUILD grant is currently active.
+- no SOLVE grant is currently active.
+- stop before any CST execution until explicit BUILD authorization.
+
+DC / Remote MCP calls used for this 2026-10-04 offline review and repository hygiene: 0.
+
+Authority:
+docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_RESULT_REVIEW_AND_M7B_GO_NO_GO_20261004.md
+
+The remainder of this file is an append-only historical execution ledger. Historical `BUILD_AUTHORIZED: true` / `SOLVE_AUTHORIZED: true` entries below are consumed history and are not live permission.
+
+## Historical execution ledger
 
 Mainline:
 - passive D1/M1 fixture S11 = diagnostic only

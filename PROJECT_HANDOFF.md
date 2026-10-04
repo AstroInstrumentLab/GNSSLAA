@@ -3,14 +3,14 @@
 ## MACHINE-READABLE HEADER
 
 ```text
-HANDOFF_VERSION=88
+HANDOFF_VERSION=89
 CANONICAL_BRANCH=project/r0-charts-scaffold
 MAINLINE_AUTHORITY=PROJECT_MAINLINE.md
-CURRENT_GATE=R1E1A4-SUPPORT-RECEIVER-CODESIGN
-CURRENT_TASK_ID=R1E1-A4A-H3B-T01A-O0-REFERENCE-LINE-AWAIT-AUTH
+CURRENT_GATE=R1E1A4A-AR0-E2C-S0-CORRECTIVE
+CURRENT_TASK_ID=R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_ONLY_AWAIT_AUTH
 TASK_OWNER=DESIGN_CONTROL
-TASK_STATUS=MASTERPLAN_FROZEN_AWAIT_O0_AUTH
-SIMULATIONOPS_PROTOCOL=0.2.7
+TASK_STATUS=M7A_REJECTED_M7B_BUILD_ONLY_GO_AWAIT_AUTH
+SIMULATIONOPS_PROTOCOL=0.2.26
 BUILD_AUTHORIZED=NO
 SOLVER_PERMISSION=NO
 PRODUCTION_SOLVER_PERMISSION=NO
@@ -19,6 +19,24 @@ MATERIAL_AB_PERMISSION=NO
 LNA_INTEGRATION_PERMISSION=NO
 CST251_PERMISSION=NO
 ```
+
+## 2026-10-04 current baton — M7A closed, M7B next
+
+M7A `INNER_EDGE_UPSTREAM_SETBACK` is closed. The one-shot 12-port diagnostic solve completed numerically and the frozen scientific classifier returned:
+
+`REJECT_M7A_INNER_EDGE_LEVER`
+
+By the pre-registered classifier this means the numerical hard gates and narrow-resonance guard passed, but the primary corrective metrics showed no >=10% useful improvement and the secondary own-pol deviation gate also failed. Do not enlarge, sweep, or retry M7A.
+
+Offline mechanism review therefore keeps the composite signal/return-path picture but removes the upstream center-facing backside-ground edge as a useful corrective lever. The remaining frozen candidate M7B tests a different mechanism: local CIN signal-to-return shunt capacitance under the `CIN_UP_PAD` projection.
+
+Current decision:
+`GO_M7B_BUILD_ONLY_AWAIT_AUTH`
+
+M7B source/static freeze already exists, but BUILD authorization is **not** open. SOLVE authorization is **not** open. No task packet, CST execution, retry, parameter sweep, or M7B solve follows from this handoff update.
+
+Authority for the offline decision:
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_RESULT_REVIEW_AND_M7B_GO_NO_GO_20261004.md`
 
 ## Long-horizon authority
 

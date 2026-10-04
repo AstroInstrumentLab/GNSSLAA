@@ -320,10 +320,12 @@ No stage inherits solver permission from the previous stage.
 
 ## Current immediate route
 
-As of the current handoff:
+As of the 2026-10-04 handoff, the active local sub-route is:
 
-`R1E0 94-mm periodic scan qualification CLOSED PASS -> R1E1A1 six-pitch bare source set CLOSED PASS -> R1E1A2 support build CLOSED PASS -> R1E1A3 support transparency HOLD_SCIENCE_GATE -> R1E1A4A receiver-shadow/interface freeze -> H0 V0.1 broadside mixed-mode PASS but Gate-R R-NF0 HOLD -> H1A offset-ground diagnostic BUILD PASS / broadside numerical HOLD -> H2A V0.1 universal-center BUILD PASS / human review -> H2A V0.2 service-architecture BUILD PASS under Ops 0.2.4 but post-review geometry-interference HOLD / retained reference -> H3A V0.1 X/Y orthogonal PCB stalk BUILD PASS but top-tenon joint mechanically invalid in parent FR4 slots -> H3A V0.2 local FR4-bridged true mortise BUILD PASS / human review accepted -> H3B-T01 post-LNA orthogonal-transition coupon BUILD PASS / human review -> H3B-T01A passive baseline numerical recovery PASS -> T01A-O0 reference-line calibration -> T01A-O1/O2 local line+junction optimization -> T01A-O3 full-fidelity winner qualification -> T01A-O4 tolerance sentinels -> T01A-FREEZE -> H3B-I01 P094 integrated passive pilot -> R1E1B support/hub-inclusive pitch/material trade -> R1E2 authoritative active-impedance atlas -> H3C-C01 antenna/LNA co-design (H3C-LNA0 device qualification may run in parallel) -> H3C-EMBACK self-consistent EM/circuit closure -> SYSOPT-1 limited robust system optimization -> SYSVERIFY`.
+`R1E0 periodic scan CLOSED PASS -> R1E1A support gate -> R1E1A4A/AR0 receiver-interface branch -> E2A/E2B isolated loaded-source characterization -> E2C dual-pol coexistence severe composite-mode evidence -> M6 diagnostic decomposition -> M7A INNER_EDGE_UPSTREAM_SETBACK BUILD+SOLVE CLOSED REJECT -> M7B CIN_PAD_PROJECTION_CLEARANCE BUILD_ONLY AWAIT AUTH`.
 
-LNA model validation may proceed in parallel after the periodic workflow begins, but **final active-antenna input matching is blocked until R1E2 provides the scan-dependent active-impedance locus**.
+M7A is negative evidence, not a numerical failure: do not sweep or retry the upstream inner-edge setback. M7B is the only remaining frozen corrective candidate and tests local CIN signal-to-return shunt capacitance rather than the rejected upstream-edge mechanism.
 
-This sequence is the default mainline. Deviations require explicit human approval and an update to this file.
+No downstream stage is authorized by this route update. If a future M7B BUILD receives explicit authorization, it must stop after fresh-reopen geometry/intersection checks and human review. Any M7B diagnostic SOLVE requires a separate later authorization and a frozen solve contract.
+
+After the current corrective question is resolved, continue only through the already frozen AR0/mainline authorities; do not reopen isolated-element S11 optimization and do not freeze final LNA input matching before the authoritative scan-dependent active-impedance locus exists.
