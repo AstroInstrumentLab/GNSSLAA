@@ -157,7 +157,8 @@ def main(manifest_path,out,evidence):
         if n not in postrows: raise RuntimeError("HOLD_M7_MODIFIED_ENTITY_MISSING:"+n)
         losses[n]=prerows[n]["volume"]-postrows[n]["volume"]
     vals=list(losses.values())
-    expected_loss=float(m["geometry"]["area_removed_per_branch_mm2"])*abs(float(m["geometry"]["tool_height_mm"]))\n    modified_ok=(all(v>0 and abs(v-expected_loss)<=1e-6 for v in vals) and max(vals)-min(vals)<=1e-8)
+    expected_loss=float(m["geometry"]["area_removed_per_branch_mm2"])*abs(float(m["geometry"]["tool_height_mm"]))
+    modified_ok=(all(v>0 and abs(v-expected_loss)<=1e-6 for v in vals) and max(vals)-min(vals)<=1e-8)
 
     history=out.with_suffix("")/"Model"/"3D"/"Model.mod"
     htext=history.read_text(encoding="utf-8",errors="replace") if history.exists() else ""
