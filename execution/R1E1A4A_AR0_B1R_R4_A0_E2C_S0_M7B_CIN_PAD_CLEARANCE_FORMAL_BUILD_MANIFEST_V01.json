@@ -101,7 +101,7 @@
   },
   "freeze_authority": {
     "candidate_manifest": "execution/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_MANIFEST_V01.json",
-    "candidate_manifest_sha256": "8807a833c14ca73fcedd81c60306f68c30bd2a9a04f7f3452e5c47a064e290bb"
+    "candidate_manifest_sha256": "675e11fbe253512c80f41e48ef15928980af52475b699b682f411e71494283e7"
   },
   "stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_BUILD_ONLY"
 }
