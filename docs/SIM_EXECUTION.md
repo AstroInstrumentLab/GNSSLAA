@@ -3,7 +3,7 @@
 SimulationOps: 0.2.26 @ c074982bce2ad1bc7c0914ad422244f2cba84d4a
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_ONLY_AWAIT_AUTH
+R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_HUMAN_GEOMETRY_REVIEW
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -11,29 +11,25 @@ LNA_INTEGRATION_AUTHORIZED: false
 CST251_AUTHORIZED: false
 
 CURRENT STATUS:
-GO_M7B_BUILD_ONLY_AWAIT_AUTH_AFTER_M7A_REJECT
+PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW
 
-M7A closeout:
-- BUILD PASS; human geometry review PASS.
-- exactly one formal 12-port diagnostic SOLVE consumed and closed.
-- numerical hard gates PASS; guard PASS.
-- scientific classifier: REJECT_M7A_INNER_EDGE_LEVER.
-- no retry, enlargement, or parameter sweep.
-
-M7B offline decision:
-- candidate remains frozen: CIN_PAD_PROJECTION_CLEARANCE.
-- rationale: M7A rejects the upstream inner-edge lever while M6 still indicates a composite signal/ground mechanism; M7B independently tests local CIN signal-to-return shunt capacitance.
-- source/static audit exists and remains unchanged.
-- no BUILD grant is currently active.
-- no SOLVE grant is currently active.
-- stop before any CST execution until explicit BUILD authorization.
-
-DC / Remote MCP calls used for this 2026-10-04 offline review and repository hygiene: 0.
+M7B BUILD closeout:
+- one and only one formal BUILD_ONLY transaction consumed.
+- SimulationOps result: HOLD_ENTRYPOINT, exit 4; build authorization consumed; solve authorization not consumed.
+- HOLD cause is qualification-only: expected removal used tool depth 0.07 mm.
+- frozen parent LOCAL_BACK_GROUND thickness is 0.035 mm.
+- correct expected removal = 1.10 x 1.00 x 0.035 = 0.0385 mm^3 per branch.
+- observed removals: four branches = 0.0385 mm^3 within floating-point roundoff.
+- all other automated gates PASS: 177 solids, 24 ports, 173 unmodified solids preserved, no unexpected changed entities, port semantics unchanged, history persistent, fresh-reopen hash stable, no solver-result files.
+- no BUILD retry or rebuild.
+- solver invocations = 0.
+- artifact SHA256 = 5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea.
+- next action is human CST 3D review only.
 
 Authority:
-docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_RESULT_REVIEW_AND_M7B_GO_NO_GO_20261004.md
+docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_READONLY_RECOVERY_V01.md
 
-The remainder of this file is an append-only historical execution ledger. Historical `BUILD_AUTHORIZED: true` / `SOLVE_AUTHORIZED: true` entries below are consumed history and are not live permission.
+The remainder of this file is an append-only historical execution ledger. Historical BUILD/SOLVE authorization entries below are consumed history and are not live permission.
 
 ## Historical execution ledger
 

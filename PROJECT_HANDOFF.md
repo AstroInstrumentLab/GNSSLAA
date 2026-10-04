@@ -3,13 +3,13 @@
 ## MACHINE-READABLE HEADER
 
 ```text
-HANDOFF_VERSION=89
+HANDOFF_VERSION=90
 CANONICAL_BRANCH=project/r0-charts-scaffold
 MAINLINE_AUTHORITY=PROJECT_MAINLINE.md
 CURRENT_GATE=R1E1A4A-AR0-E2C-S0-CORRECTIVE
-CURRENT_TASK_ID=R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_ONLY_AWAIT_AUTH
+CURRENT_TASK_ID=R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_HUMAN_GEOMETRY_REVIEW
 TASK_OWNER=DESIGN_CONTROL
-TASK_STATUS=M7A_REJECTED_M7B_BUILD_ONLY_GO_AWAIT_AUTH
+TASK_STATUS=M7B_BUILD_RECOVERY_PASS_AWAIT_HUMAN_REVIEW
 SIMULATIONOPS_PROTOCOL=0.2.26
 BUILD_AUTHORIZED=NO
 SOLVER_PERMISSION=NO
@@ -20,23 +20,37 @@ LNA_INTEGRATION_PERMISSION=NO
 CST251_PERMISSION=NO
 ```
 
-## 2026-10-04 current baton — M7A closed, M7B next
+## 2026-10-04 current baton — M7B BUILD closed, human review next
 
-M7A `INNER_EDGE_UPSTREAM_SETBACK` is closed. The one-shot 12-port diagnostic solve completed numerically and the frozen scientific classifier returned:
+M7A remains closed as `REJECT_M7A_INNER_EDGE_LEVER`; do not retry it.
 
-`REJECT_M7A_INNER_EDGE_LEVER`
+The user explicitly authorized exactly one M7B `CIN_PAD_PROJECTION_CLEARANCE` BUILD_ONLY transaction. It executed once on NW under SimulationOps 0.2.26. No solver was invoked.
 
-By the pre-registered classifier this means the numerical hard gates and narrow-resonance guard passed, but the primary corrective metrics showed no >=10% useful improvement and the secondary own-pol deviation gate also failed. Do not enlarge, sweep, or retry M7A.
+Runner closeout was `HOLD_ENTRYPOINT` only because the first M7B-specific qualification gate incorrectly treated the clearance-tool depth (0.07 mm) as the thickness of the copper being removed. The frozen E2C parent defines each `LOCAL_BACK_GROUND` with thickness 0.035 mm. Therefore the correct expected removal is:
 
-Offline mechanism review therefore keeps the composite signal/return-path picture but removes the upstream center-facing backside-ground edge as a useful corrective lever. The remaining frozen candidate M7B tests a different mechanism: local CIN signal-to-return shunt capacitance under the `CIN_UP_PAD` projection.
+`1.10 mm x 1.00 mm x 0.035 mm = 0.0385 mm^3`.
 
-Current decision:
-`GO_M7B_BUILD_ONLY_AWAIT_AUTH`
+All four branches measured 0.0385 mm^3 (floating-point roundoff only). Every other build invariant passed: 177 solids, 24 ports, all expected names queryable, 173 unmodified solids preserved, port semantics unchanged, history persistent, fresh-reopen hash stable, no solver-result files, and no unexpected changed entities.
 
-M7B source/static freeze already exists, but BUILD authorization is **not** open. SOLVE authorization is **not** open. No task packet, CST execution, retry, parameter sweep, or M7B solve follows from this handoff update.
+Canonical project classification:
+`PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW`
 
-Authority for the offline decision:
-`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_RESULT_REVIEW_AND_M7B_GO_NO_GO_20261004.md`
+Formal BUILD invocation count: 1.
+BUILD grant: CONSUMED/CLOSED.
+BUILD_AUTHORIZED: NO.
+SOLVE_AUTHORIZED: NO.
+No rebuild or retry is authorized.
+
+Artifact:
+`D:\GNSS_Lband_Active_Array\runs\formal\build_only\M7B_CIN_PAD_CLEARANCE_V01\R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_BUILD_ONLY_V01.cst`
+
+SHA256:
+`5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea`
+
+Next boundary: user human CST 3D geometry review only. A human PASS does not authorize SOLVE.
+
+Recovery authority:
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_READONLY_RECOVERY_V01.md`
 
 ## Long-horizon authority
 

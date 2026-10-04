@@ -322,10 +322,10 @@ No stage inherits solver permission from the previous stage.
 
 As of the 2026-10-04 handoff, the active local sub-route is:
 
-`R1E0 periodic scan CLOSED PASS -> R1E1A support gate -> R1E1A4A/AR0 receiver-interface branch -> E2A/E2B isolated loaded-source characterization -> E2C dual-pol coexistence severe composite-mode evidence -> M6 diagnostic decomposition -> M7A INNER_EDGE_UPSTREAM_SETBACK BUILD+SOLVE CLOSED REJECT -> M7B CIN_PAD_PROJECTION_CLEARANCE BUILD_ONLY AWAIT AUTH`.
+`R1E0 periodic scan CLOSED PASS -> R1E1A support gate -> R1E1A4A/AR0 receiver-interface branch -> E2A/E2B isolated loaded-source characterization -> E2C dual-pol coexistence severe composite-mode evidence -> M6 diagnostic decomposition -> M7A INNER_EDGE_UPSTREAM_SETBACK CLOSED REJECT -> M7B CIN_PAD_PROJECTION_CLEARANCE BUILD CLOSED READONLY-RECOVERY PASS -> M7B HUMAN 3D REVIEW`.
 
-M7A is negative evidence, not a numerical failure: do not sweep or retry the upstream inner-edge setback. M7B is the only remaining frozen corrective candidate and tests local CIN signal-to-return shunt capacitance rather than the rejected upstream-edge mechanism.
+M7B has one consumed formal BUILD and must not be rebuilt. The runner HOLD was caused by a qualification expectation error, not by geometry: parent backside ground thickness is 0.035 mm, so the measured 0.0385 mm^3 removal per 1.10 x 1.00 mm window is exact. No solver was invoked.
 
-No downstream stage is authorized by this route update. If a future M7B BUILD receives explicit authorization, it must stop after fresh-reopen geometry/intersection checks and human review. Any M7B diagnostic SOLVE requires a separate later authorization and a frozen solve contract.
+Current action is human CST geometry review only. If and only if that review passes, freeze a separate M7B diagnostic SOLVE contract offline. No SOLVE is currently authorized.
 
 After the current corrective question is resolved, continue only through the already frozen AR0/mainline authorities; do not reopen isolated-element S11 optimization and do not freeze final LNA input matching before the authoritative scan-dependent active-impedance locus exists.

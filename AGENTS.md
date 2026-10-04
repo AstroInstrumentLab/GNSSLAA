@@ -23,27 +23,25 @@ Do not execute an old chat instruction or local note if it conflicts with these 
 
 ## Current gate
 
-Current task: **R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_ONLY_AWAIT_AUTH**
+Current task: **R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_HUMAN_GEOMETRY_REVIEW**
 
 Current permissions and stop rules:
-- M7A BUILD is closed PASS and its artifact is immutable historical evidence.
-- M7A human 3D geometry review is PASS.
-- the single formal M7A 12-port diagnostic SOLVE is consumed and closed; no retry is allowed.
-- canonical M7A scientific status is `REJECT_M7A_INNER_EDGE_LEVER`.
-- classifier semantics imply numerical hard gates PASS, resonance guard PASS, no >=10% primary corrective improvement, and secondary own-pol improvement FAIL.
-- do not enlarge, tune, sweep, or rerun M7A.
-- M7B `CIN_PAD_PROJECTION_CLEARANCE` remains the only frozen next corrective candidate.
-- M7B source and static candidate audit are frozen; its parent is the immutable full-E2C R7 build.
-- M7B BUILD authorization: NO.
-- M7B SOLVE authorization: NO.
-- no M7B task packet or CST execution may be created merely from this offline GO decision.
-- if BUILD is later explicitly authorized, execute exactly one BUILD-ONLY transaction, fresh reopen, run the required CST geometry/intersection gate, prepare a human-review copy, and STOP before solve.
-- a later M7B diagnostic solve requires a separate frozen solve contract and separate explicit user authorization.
-- no material A/B, active transistor/device integration, CST251 production solve, optimization sweep, or unrelated geometry change is authorized.
-- GitHub-first maintenance is preferred; do not spend Desktop Commander calls on facts already present in repository authority/evidence.
+- M7A is closed `REJECT_M7A_INNER_EDGE_LEVER`; no retry/sweep.
+- exactly one M7B BUILD_ONLY transaction has been consumed.
+- runner final status was HOLD_ENTRYPOINT only because its expected-volume gate used the 0.07-mm cutter depth instead of the frozen 0.035-mm LOCAL_BACK_GROUND copper thickness.
+- read-only recovery establishes the physically correct expected removal as 1.10 x 1.00 x 0.035 = 0.0385 mm^3 per branch; all four observed losses match.
+- all other automated build invariants passed; no unexpected entity changed; no solver-result files exist.
+- canonical project status is `PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW`.
+- protected M7B artifact SHA256: `5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea`.
+- BUILD authorization: NO. The consumed M7B grant must not be reused.
+- SOLVE authorization: NO.
+- permitted next action: user human CST 3D geometry review of the protected M7B artifact.
+- human review must confirm the four guarded CIN-pad projection windows only, preserved upstream MSL/ground perimeter/signal/package/vias, no via-region intrusion or unintended galvanic break, and four-branch symmetry.
+- human PASS alone authorizes neither SOLVE nor further geometry changes.
+- after human PASS, freeze a separate M7B diagnostic SOLVE contract offline and stop at SOLVE authorization boundary.
 
-Current offline authority:
-`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_RESULT_REVIEW_AND_M7B_GO_NO_GO_20261004.md`
+Current recovery authority:
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_READONLY_RECOVERY_V01.md`
 
 Historical authorization notes later in this file are evidence only unless the current gate above explicitly reactivates them.
 
