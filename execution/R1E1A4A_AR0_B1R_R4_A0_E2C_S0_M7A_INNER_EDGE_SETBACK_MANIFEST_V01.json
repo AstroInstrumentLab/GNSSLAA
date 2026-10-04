@@ -7,7 +7,9 @@
     "path": "D:\\GNSS_Lband_Active_Array\\runs\\formal\\build_only\\E2C_R7_CANONICAL_BUILD\\R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_COEXISTENCE_BUILD_ONLY_V01.cst",
     "sha256": "cab6754235a66006ba8bdb423c4dcde2d00de0cb5d8c56623cf94fc3c364ce2c",
     "expected_solids": 177,
-    "raw_ports": 24
+    "raw_ports": 24,
+    "inventory_contract": "D:\\GNSS_R4A0E1_20260928\\execution\\R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_BUILD_INVENTORY_V01.json",
+    "inventory_contract_sha256": "e4f4157bf4248bd94c0d33b18c0a8dad4a8831ae46204d6a8fae4ecba86a8095"
   },
   "geometry": {
     "modified_entities": [
@@ -85,10 +87,17 @@
   "execution": {
     "macro": "source/cst/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_INNER_EDGE_SETBACK_BUILD_ONLY_V01.mcr",
     "macro_sha256": "19a7a3fc5b11f6245c6bbcad3c24576eb53c126a6c7b133b6e9faae2725b5607",
-    "build_stop": "STOP_AFTER_177_SOLID_24_PORT_FRESH_REOPEN_AND_HUMAN_GEOMETRY_REVIEW_NO_SOLVER"
+    "build_stop": "STOP_AFTER_177_SOLID_24_PORT_FRESH_REOPEN_AND_HUMAN_GEOMETRY_REVIEW_NO_SOLVER",
+    "target_root": "D:\\GNSS_Lband_Active_Array\\runs\\formal\\build_only\\M7A_INNER_EDGE_SETBACK_V01",
+    "artifact_name": "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_INNER_EDGE_SETBACK_BUILD_ONLY_V01.cst",
+    "runner": "scripts/run_m7_corrective_build_only_v01.py",
+    "packet_generator": "scripts/make_m7_corrective_build_packet_v01.py",
+    "formal_build_invocations": 1,
+    "solver_invocations": 0
   },
   "authorization": {
     "BUILD_AUTHORIZED": false,
     "SOLVE_AUTHORIZED": false
-  }
+  },
+  "stage": "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_INNER_EDGE_SETBACK_BUILD_ONLY"
 }
