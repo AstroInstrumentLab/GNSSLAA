@@ -1927,7 +1927,7 @@
                                                   ]
                           },
     "execution":  {
-                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_DIAGNOSTIC_SOLVE_PREPARATION",
+                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_DIAGNOSTIC_SOLVE",
                       "formal_recovery_solve_invocation_count":  1,
                       "silent_retry_allowed":  false,
                       "hash_lock_required":  true,
@@ -1936,18 +1936,18 @@
                       "formal_o2b_screen_invocation_count":  9,
                       "formal_o2b_qualification_invocation_count":  3,
                       "last_completed_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_INNER_EDGE_SETBACK_BUILD_ONLY",
-                      "last_status":  "PASS_M7A_HUMAN_GEOMETRY_REVIEW_READY_FOR_DIAGNOSTIC_SOLVE_PREPARATION",
+                      "last_status":  "PASS_M7A_DIAGNOSTIC_SOLVE_STATIC_CONTRACT_READY_AWAIT_SOLVE_AUTH",
                       "one_shot_required":  true,
                       "fresh_run_directory_required":  true,
                       "entrypoint_qualification":  {
                                                        "required":  true,
-                                                       "entrypoint_path":  "scripts/run_m7_corrective_build_only_v01.py",
+                                                       "entrypoint_path":  "scripts/run_m7a_diagnostic_solve_v01.py",
                                                        "runtime_identity":  "CST Studio Suite 2022 bundled Python via workspace launcher + SimulationOps control Python",
-                                                       "qualification_stage":  "M7A_FORMAL_BUILD_STATIC_QUALIFICATION",
-                                                       "qualification_status":  "PASS_M7A_FORMAL_BUILD_STATIC_CONTRACT",
-                                                       "qualification_evidence":  "evidence/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_FORMAL_BUILD_PREP_V01/STATIC_AUDIT.json",
+                                                       "qualification_stage":  "M7A_DIAGNOSTIC_SOLVE_STATIC_QUALIFICATION",
+                                                       "qualification_status":  "PASS_M7A_DIAGNOSTIC_SOLVE_STATIC_CONTRACT",
+                                                       "qualification_evidence":  "evidence/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7A_DIAGNOSTIC_SOLVE_PREP_V01/STATIC_AUDIT.json",
                                                        "last_qualified_source_commit":  "d0fccd6972c8ac63ecd3b7265b51e2a6ede97d2e",
-                                                       "entrypoint_sha256":  "17adc569b9440278b5540e0d4e392aec5cd84a00e6698d48a4757702b1500c15"
+                                                       "entrypoint_sha256":  "f7e87042b81b12925aaeec156fd15e1c60c9b38c2adb3e006a60b00c8fa85bb5"
                                                    },
                       "project_observability":  {
                                                     "protocol":  "simops-project-event-v0.1",
@@ -2049,7 +2049,7 @@
                            "forensics_command":  "runner/nw/simops.cmd forensics --packet \u003cpacket\u003e"
                        },
     "evidence":  {
-                     "status_classification":  "PASS_M7A_HUMAN_GEOMETRY_REVIEW",
+                     "status_classification":  "PASS_M7A_DIAGNOSTIC_SOLVE_STATIC_CONTRACT",
                      "source_commit_for_o3_o4":  "00bea9de782eb36c1d3f118866edd283808b6233",
                      "o3_nominal_solved_sha256":  "5a3ec0b2a9eca4bc0253d0e1fd5ab5f512d6d0fb63944bbd7b932505c1f5f82f",
                      "o3_straight_reference_solved_sha256":  "421c4951a122749aacf36254b8bb5a156547a22dd6ab9e465139c44207d6519b",
@@ -2080,8 +2080,8 @@
                      "build_sha256":  "cab6754235a66006ba8bdb423c4dcde2d00de0cb5d8c56623cf94fc3c364ce2c",
                      "tree_identity_algorithm":  "SIMOPS_TREE_ID_V1",
                      "source_sha256":  "46a2eebcedc6a8bc59a3bf36b329de916470d2fb046d2be2fbaa13bca7873793",
-                     "qualification_sha256":  "9b34b47d6bd2a63a66ceb4f43ea7157b7933cda904cecd9ce30c0a989b8956e4",
-                     "exact_invocation":  "M7A_BUILD_AND_HUMAN_REVIEW_PASS_SOLVE_NOT_AUTHORIZED_M7B_NOT_AUTHORIZED"
+                     "qualification_sha256":  "d946c5537aa4282b4db784e22e5f6209395a7559a26684c267617cbe93d5d399",
+                     "exact_invocation":  "M7A_DIAGNOSTIC_SOLVE_STATIC_READY_NO_SOLVER_YET"
                  },
     "authorization_history":  [
                                   {
