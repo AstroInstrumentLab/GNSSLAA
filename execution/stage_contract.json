@@ -1927,7 +1927,7 @@
                                                   ]
                           },
     "execution":  {
-                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_RESULT_REVIEW",
+                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7C_OFFLINE_TOPOLOGY_DEFINITION",
                       "formal_recovery_solve_invocation_count":  1,
                       "silent_retry_allowed":  false,
                       "hash_lock_required":  true,
@@ -1936,7 +1936,7 @@
                       "formal_o2b_screen_invocation_count":  9,
                       "formal_o2b_qualification_invocation_count":  3,
                       "last_completed_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE",
-                      "last_status":  "REVIEW_M7B_PARTIAL_CORRECTION",
+                      "last_status":  "PASS_M7B_FIRST_PRINCIPLES_MODAL_INTERPRETATION",
                       "one_shot_required":  true,
                       "fresh_run_directory_required":  true,
                       "entrypoint_qualification":  {
@@ -2041,7 +2041,7 @@
                            "forensics_command":  "runner/nw/simops.cmd forensics --packet \u003cpacket\u003e"
                        },
     "evidence":  {
-                     "status_classification":  "REVIEW_M7B_PARTIAL_CORRECTION",
+                     "status_classification":  "PASS_M7B_FIRST_PRINCIPLES_MODAL_INTERPRETATION",
                      "source_commit_for_o3_o4":  "00bea9de782eb36c1d3f118866edd283808b6233",
                      "o3_nominal_solved_sha256":  "5a3ec0b2a9eca4bc0253d0e1fd5ab5f512d6d0fb63944bbd7b932505c1f5f82f",
                      "o3_straight_reference_solved_sha256":  "421c4951a122749aacf36254b8bb5a156547a22dd6ab9e465139c44207d6519b",
@@ -2076,7 +2076,7 @@
                      "m7b_build_artifact_sha256":  "5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea",
                      "m7b_build_recovery_evidence":  "evidence/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_READONLY_RECOVERY_V01/RECOVERY.json",
                      "m7b_build_recovery_status":  "PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW",
-                     "exact_invocation":  "ONE_FORMAL_M7B_SOLVE_CONSUMED; RUNNER_PASS; SCIENCE_REVIEW_M7B_PARTIAL_CORRECTION; NO_RETRY"
+                     "exact_invocation":  "M7B_SOLVE_CLOSED; READ_ONLY_MODAL_DECOMPOSITION_COMPLETE; NO_BUILD_NO_SOLVE"
                  },
     "authorization_history":  [
                                   {

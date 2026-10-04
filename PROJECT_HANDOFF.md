@@ -3,13 +3,13 @@
 ## MACHINE-READABLE HEADER
 
 ```text
-HANDOFF_VERSION=91
+HANDOFF_VERSION=92
 CANONICAL_BRANCH=project/r0-charts-scaffold
 MAINLINE_AUTHORITY=PROJECT_MAINLINE.md
 CURRENT_GATE=R1E1A4A-AR0-E2C-S0-CORRECTIVE
-CURRENT_TASK_ID=R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_AWAIT_AUTH
+CURRENT_TASK_ID=R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7C_OFFLINE_TOPOLOGY_DEFINITION
 TASK_OWNER=DESIGN_CONTROL
-TASK_STATUS=M7B_HUMAN_REVIEW_PASS_SOLVE_CONTRACT_FROZEN_AWAIT_AUTH
+TASK_STATUS=M7B_FIRST_PRINCIPLES_MODAL_INTERPRETATION_PASS_M7C_OFFLINE_ONLY
 SIMULATIONOPS_PROTOCOL=0.2.26
 BUILD_AUTHORIZED=NO
 SOLVER_PERMISSION=NO
@@ -20,33 +20,33 @@ LNA_INTEGRATION_PERMISSION=NO
 CST251_PERMISSION=NO
 ```
 
-## 2026-10-04 current baton — M7B human review PASS, SOLVE contract frozen
+## 2026-10-04 current baton — M7B solved, first-principles modal interpretation complete
 
-User manual CST 3D review of the protected M7B build is PASS.
+Formal M7B SOLVE is closed with runner PASS and science status `REVIEW_M7B_PARTIAL_CORRECTION`. The live grant is consumed; no retry is allowed.
 
-Canonical reviewed artifact:
-`D:\GNSS_Lband_Active_Array\runs\formal\build_only\M7B_CIN_PAD_CLEARANCE_V01\R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_BUILD_ONLY_V01.cst`
+Read-only modal decomposition of existing full-E2C, M7B and isolated E2A/E2B data is complete.
 
-SHA256:
-`5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea`
+Key result:
+- M7B suppresses branch asymmetry / Sdc to approximately 4–8% of full-E2C across the five diagnostic anchors.
+- M7B leaves the mutual-average term comparatively similar.
+- M7B increases self-average deviation to about 1.7–2.4x full E2C.
+- M7B increases Sdd deviation to about 2.25–3.60x full E2C, worsening toward the upper band.
 
-The M7B diagnostic solve contract is frozen offline. It reuses the proven full-E2C/M7A 12-port coexistence network and solver fidelity, with pre-result observables fixed as:
-- raw deviation at 1.3432 GHz: >=30% reduction;
-- full-E2C-selected worst diff-to-common anchor within 1.20–1.40 GHz: >=6 dB improvement;
-- secondary branch imbalance at 1.2984 GHz: >=30% reduction;
-- guard: no new >6 dB off-diagonal excursion within <=50 MHz.
+Interpretation:
+M7B removed the asymmetric terminal-local signal/return coupling, but the full under-pad aperture also removed too much local RF return reference and created a broadband symmetric differential-impedance discontinuity.
 
-Current boundary:
-`M7B_DIAGNOSTIC_SOLVE_AWAIT_AUTH`
+Current task:
+`M7C_OFFLINE_TOPOLOGY_DEFINITION`
 
+Preferred topology principle:
+retain local ground under/near CIN as a branch-local return island/tongue, isolate its lateral/shared-current connection with a moat, and keep it galvanically tied to the branch-local package/via return. Do not enlarge the M7B aperture.
+
+No exact M7C dimensions are frozen yet.
 BUILD_AUTHORIZED = NO.
 SOLVE_AUTHORIZED = NO.
-No task packet has been generated and no CST/solver/DC action was performed for this freeze.
-
-Before a future explicit SOLVE grant is activated, run the frozen host static audit; only `PASS_M7B_DIAGNOSTIC_SOLVE_STATIC_CONTRACT` may proceed to a one-shot solve grant.
 
 Authority:
-`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_FREEZE_V01.md`
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_FIRST_PRINCIPLES_MODAL_INTERPRETATION_V01.md`
 
 ## Long-horizon authority
 
