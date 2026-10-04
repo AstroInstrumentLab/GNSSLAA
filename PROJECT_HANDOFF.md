@@ -3,13 +3,13 @@
 ## MACHINE-READABLE HEADER
 
 ```text
-HANDOFF_VERSION=90
+HANDOFF_VERSION=91
 CANONICAL_BRANCH=project/r0-charts-scaffold
 MAINLINE_AUTHORITY=PROJECT_MAINLINE.md
 CURRENT_GATE=R1E1A4A-AR0-E2C-S0-CORRECTIVE
-CURRENT_TASK_ID=R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_HUMAN_GEOMETRY_REVIEW
+CURRENT_TASK_ID=R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_AWAIT_AUTH
 TASK_OWNER=DESIGN_CONTROL
-TASK_STATUS=M7B_BUILD_RECOVERY_PASS_AWAIT_HUMAN_REVIEW
+TASK_STATUS=M7B_HUMAN_REVIEW_PASS_SOLVE_CONTRACT_FROZEN_AWAIT_AUTH
 SIMULATIONOPS_PROTOCOL=0.2.26
 BUILD_AUTHORIZED=NO
 SOLVER_PERMISSION=NO
@@ -20,37 +20,33 @@ LNA_INTEGRATION_PERMISSION=NO
 CST251_PERMISSION=NO
 ```
 
-## 2026-10-04 current baton — M7B BUILD closed, human review next
+## 2026-10-04 current baton — M7B human review PASS, SOLVE contract frozen
 
-M7A remains closed as `REJECT_M7A_INNER_EDGE_LEVER`; do not retry it.
+User manual CST 3D review of the protected M7B build is PASS.
 
-The user explicitly authorized exactly one M7B `CIN_PAD_PROJECTION_CLEARANCE` BUILD_ONLY transaction. It executed once on NW under SimulationOps 0.2.26. No solver was invoked.
-
-Runner closeout was `HOLD_ENTRYPOINT` only because the first M7B-specific qualification gate incorrectly treated the clearance-tool depth (0.07 mm) as the thickness of the copper being removed. The frozen E2C parent defines each `LOCAL_BACK_GROUND` with thickness 0.035 mm. Therefore the correct expected removal is:
-
-`1.10 mm x 1.00 mm x 0.035 mm = 0.0385 mm^3`.
-
-All four branches measured 0.0385 mm^3 (floating-point roundoff only). Every other build invariant passed: 177 solids, 24 ports, all expected names queryable, 173 unmodified solids preserved, port semantics unchanged, history persistent, fresh-reopen hash stable, no solver-result files, and no unexpected changed entities.
-
-Canonical project classification:
-`PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW`
-
-Formal BUILD invocation count: 1.
-BUILD grant: CONSUMED/CLOSED.
-BUILD_AUTHORIZED: NO.
-SOLVE_AUTHORIZED: NO.
-No rebuild or retry is authorized.
-
-Artifact:
+Canonical reviewed artifact:
 `D:\GNSS_Lband_Active_Array\runs\formal\build_only\M7B_CIN_PAD_CLEARANCE_V01\R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_BUILD_ONLY_V01.cst`
 
 SHA256:
 `5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea`
 
-Next boundary: user human CST 3D geometry review only. A human PASS does not authorize SOLVE.
+The M7B diagnostic solve contract is frozen offline. It reuses the proven full-E2C/M7A 12-port coexistence network and solver fidelity, with pre-result observables fixed as:
+- raw deviation at 1.3432 GHz: >=30% reduction;
+- full-E2C-selected worst diff-to-common anchor within 1.20–1.40 GHz: >=6 dB improvement;
+- secondary branch imbalance at 1.2984 GHz: >=30% reduction;
+- guard: no new >6 dB off-diagonal excursion within <=50 MHz.
 
-Recovery authority:
-`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_READONLY_RECOVERY_V01.md`
+Current boundary:
+`M7B_DIAGNOSTIC_SOLVE_AWAIT_AUTH`
+
+BUILD_AUTHORIZED = NO.
+SOLVE_AUTHORIZED = NO.
+No task packet has been generated and no CST/solver/DC action was performed for this freeze.
+
+Before a future explicit SOLVE grant is activated, run the frozen host static audit; only `PASS_M7B_DIAGNOSTIC_SOLVE_STATIC_CONTRACT` may proceed to a one-shot solve grant.
+
+Authority:
+`docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_FREEZE_V01.md`
 
 ## Long-horizon authority
 

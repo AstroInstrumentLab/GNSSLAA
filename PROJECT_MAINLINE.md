@@ -322,10 +322,10 @@ No stage inherits solver permission from the previous stage.
 
 As of the 2026-10-04 handoff, the active local sub-route is:
 
-`R1E0 periodic scan CLOSED PASS -> R1E1A support gate -> R1E1A4A/AR0 receiver-interface branch -> E2A/E2B isolated loaded-source characterization -> E2C dual-pol coexistence severe composite-mode evidence -> M6 diagnostic decomposition -> M7A INNER_EDGE_UPSTREAM_SETBACK CLOSED REJECT -> M7B CIN_PAD_PROJECTION_CLEARANCE BUILD CLOSED READONLY-RECOVERY PASS -> M7B HUMAN 3D REVIEW`.
+`R1E0 periodic scan CLOSED PASS -> R1E1A support gate -> R1E1A4A/AR0 receiver-interface branch -> E2A/E2B isolated loaded-source characterization -> E2C dual-pol coexistence severe composite-mode evidence -> M6 diagnostic decomposition -> M7A CLOSED REJECT -> M7B BUILD CLOSED RECOVERY PASS -> M7B HUMAN 3D REVIEW PASS -> M7B DIAGNOSTIC SOLVE AWAIT AUTH`.
 
-M7B has one consumed formal BUILD and must not be rebuilt. The runner HOLD was caused by a qualification expectation error, not by geometry: parent backside ground thickness is 0.035 mm, so the measured 0.0385 mm^3 removal per 1.10 x 1.00 mm window is exact. No solver was invoked.
+M7B now has a protected, human-reviewed build. The diagnostic solve contract is frozen before seeing any M7B solved response. No SOLVE is currently authorized.
 
-Current action is human CST geometry review only. If and only if that review passes, freeze a separate M7B diagnostic SOLVE contract offline. No SOLVE is currently authorized.
+If a future explicit SOLVE authorization is given, first run the frozen host static contract audit. Only a PASS may activate a one-shot SOLVE grant. The solve must use the exact frozen 12-port network and pre-registered M7B metrics; no retry, sweep, or geometry mutation is allowed.
 
-After the current corrective question is resolved, continue only through the already frozen AR0/mainline authorities; do not reopen isolated-element S11 optimization and do not freeze final LNA input matching before the authoritative scan-dependent active-impedance locus exists.
+After the M7B result is classified, return to the already frozen AR0/mainline authority. Do not reopen isolated-element S11 optimization and do not freeze final LNA input matching before the authoritative scan-dependent active-impedance locus exists.

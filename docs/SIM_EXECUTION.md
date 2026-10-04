@@ -3,7 +3,7 @@
 SimulationOps: 0.2.26 @ c074982bce2ad1bc7c0914ad422244f2cba84d4a
 
 Current stage:
-R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_HUMAN_GEOMETRY_REVIEW
+R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_AWAIT_AUTH
 
 BUILD_AUTHORIZED: false
 SOLVE_AUTHORIZED: false
@@ -11,23 +11,32 @@ LNA_INTEGRATION_AUTHORIZED: false
 CST251_AUTHORIZED: false
 
 CURRENT STATUS:
-PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW
+PASS_M7B_HUMAN_REVIEW_SOLVE_CONTRACT_FROZEN_AWAIT_AUTH
 
-M7B BUILD closeout:
-- one and only one formal BUILD_ONLY transaction consumed.
-- SimulationOps result: HOLD_ENTRYPOINT, exit 4; build authorization consumed; solve authorization not consumed.
-- HOLD cause is qualification-only: expected removal used tool depth 0.07 mm.
-- frozen parent LOCAL_BACK_GROUND thickness is 0.035 mm.
-- correct expected removal = 1.10 x 1.00 x 0.035 = 0.0385 mm^3 per branch.
-- observed removals: four branches = 0.0385 mm^3 within floating-point roundoff.
-- all other automated gates PASS: 177 solids, 24 ports, 173 unmodified solids preserved, no unexpected changed entities, port semantics unchanged, history persistent, fresh-reopen hash stable, no solver-result files.
-- no BUILD retry or rebuild.
-- solver invocations = 0.
-- artifact SHA256 = 5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea.
-- next action is human CST 3D review only.
+M7B geometry:
+- one formal BUILD consumed; no rebuild.
+- read-only build qualification recovery PASS.
+- user manual CST 3D review PASS.
+- protected artifact SHA256 = 5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea.
+
+M7B diagnostic SOLVE freeze:
+- exact 12-port coexistence semantics retained from full E2C / M7A.
+- sources 1/2/4/5/7/8/10/11; loads 3/6/9/12.
+- 1.0–1.8 GHz modeled, 1.15–1.65 GHz decision band.
+- second-order tetra adaptive; MaxDeltaS 0.02 x2; max 16 passes.
+- no H-field monitor.
+- raw primary >=30% reduction at 1.3432 GHz.
+- mode primary >=6 dB improvement at full-E2C-selected severe anchor in 1.20–1.40 GHz.
+- secondary imbalance >=30% reduction at 1.2984 GHz.
+- guard: no new >6 dB narrow excursion within <=50 MHz.
+- formal solver budget: 1 only if separately authorized.
+- automatic retries: 0.
+- no solver task packet generated yet.
+
+DC / Remote MCP calls used for this human-review closeout + solve-contract freeze: 0.
 
 Authority:
-docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_READONLY_RECOVERY_V01.md
+docs/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_FREEZE_V01.md
 
 The remainder of this file is an append-only historical execution ledger. Historical BUILD/SOLVE authorization entries below are consumed history and are not live permission.
 
