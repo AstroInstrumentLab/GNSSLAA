@@ -1927,7 +1927,7 @@
                                                   ]
                           },
     "execution":  {
-                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_HUMAN_GEOMETRY_REVIEW",
+                      "current_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_AWAIT_AUTH",
                       "formal_recovery_solve_invocation_count":  1,
                       "silent_retry_allowed":  false,
                       "hash_lock_required":  true,
@@ -1936,18 +1936,18 @@
                       "formal_o2b_screen_invocation_count":  9,
                       "formal_o2b_qualification_invocation_count":  3,
                       "last_completed_stage":  "R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_BUILD_ONLY",
-                      "last_status":  "PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW",
+                      "last_status":  "PASS_M7B_HUMAN_REVIEW_SOLVE_CONTRACT_FROZEN_AWAIT_AUTH",
                       "one_shot_required":  true,
                       "fresh_run_directory_required":  true,
                       "entrypoint_qualification":  {
                                                        "required":  true,
-                                                       "entrypoint_path":  "scripts/run_m7b_cin_pad_clearance_build_only_v01.py",
+                                                       "entrypoint_path":  "scripts/run_m7b_diagnostic_solve_v01.py",
                                                        "runtime_identity":  "CST Studio Suite 2022 bundled Python via workspace launcher + SimulationOps control Python",
-                                                       "qualification_stage":  "M7B_FORMAL_BUILD_STATIC_QUALIFICATION",
-                                                       "qualification_status":  "PASS_M7B_FORMAL_BUILD_STATIC_CONTRACT",
-                                                       "qualification_evidence":  "evidence/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_FORMAL_BUILD_PREP_V01/STATIC_AUDIT.json",
-                                                       "last_qualified_source_commit":  "81316b24a7bc5574ed8c3867488a4355cf97a619",
-                                                       "entrypoint_sha256":  "de031fc0f536590114f7c3dcf222e23fc55390134b28ded79a182f1c39e435f5"
+                                                       "qualification_stage":  "M7B_DIAGNOSTIC_SOLVE_STATIC_QUALIFICATION",
+                                                       "qualification_status":  "OFFLINE_FREEZE_COMPLETE_AWAIT_HOST_STATIC_QUALIFICATION",
+                                                       "qualification_evidence":  "evidence/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_DIAGNOSTIC_SOLVE_PREP_V01/STATIC_AUDIT.json",
+                                                       "last_qualified_source_commit":  "",
+                                                       "entrypoint_sha256":  ""
                                                    },
                       "project_observability":  {
                                                     "protocol":  "simops-project-event-v0.1",
@@ -1967,26 +1967,18 @@
                       "geometry_review":  {
                                               "required":  true,
                                               "preferred_mode":  "CST_GUI_BUILTIN_PLUS_HUMAN_VISUAL",
-                                              "status":  "PASS_E2C_R7_HUMAN_GEOMETRY_REVIEW",
-                                              "review_artifact":  "D:\\GNSS_Lband_Active_Array\\runs\\formal\\build_only\\E2C_R7_CANONICAL_BUILD\\R1E1A4A_AR0_B1R_R4_A0_E2C_DUALPOL_HUMAN_REVIEW_COPY.cst",
-                                              "review_artifact_sha256":  "cab6754235a66006ba8bdb423c4dcde2d00de0cb5d8c56623cf94fc3c364ce2c",
+                                              "status":  "PASS_M7B_HUMAN_GEOMETRY_REVIEW",
+                                              "review_artifact":  "D:\\GNSS_Lband_Active_Array\\runs\\formal\\build_only\\M7B_CIN_PAD_CLEARANCE_V01\\R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_BUILD_ONLY_V01.cst",
+                                              "review_artifact_sha256":  "5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea",
                                               "reviewer":  "USER_HUMAN_REVIEW",
-                                              "method":  "CST GUI 3D visual geometry review after automated E2C build/interference audit",
-                                              "unexpected_interference":  [
-
-                                                                          ],
-                                              "intentional_contacts":  [
-
-                                                                       ],
-                                              "intentional_em_overlaps":  [
-
-                                                                          ],
-                                              "evidence":  "D:\\GNSS_Lband_Active_Array\\runs\\formal\\build_only\\E2C_R7_CANONICAL_BUILD\\E2C_R7_HUMAN_GEOMETRY_REVIEW_PASS.json",
-                                              "reviewed_at":  "2026-10-01",
+                                              "method":  "User manual CST 3D geometry review after M7B automated build qualification recovery",
+                                              "unexpected_interference":  [],
+                                              "intentional_contacts":  [],
+                                              "intentional_em_overlaps":  [],
+                                              "evidence":  "execution/M7B_HUMAN_GEOMETRY_REVIEW_PASS.json",
+                                              "reviewed_at":  "2026-10-04",
                                               "automated_pairwise_required":  false,
-                                              "automated_pairwise_scope":  [
-
-                                                                           ]
+                                              "automated_pairwise_scope":  []
                                           }
                   },
     "workspace":  {
@@ -2028,17 +2020,17 @@
                   },
     "dc_call_budget":  {
                            "target_calls_per_routine_stage":  2,
-                           "calls_used_current_stage":  1,
-                           "task_packet_path":  "D:\\quest_naoc_tarminal\\SimulationOps_Runtime\\NW\\GNSS_Lband_Active_Array\\M7B_CIN_PAD_CLEARANCE_V01\\task_packet.json",
-                           "result_packet_path":  "D:\\quest_naoc_tarminal\\SimulationOps_Runtime\\NW\\GNSS_Lband_Active_Array\\M7B_CIN_PAD_CLEARANCE_V01\\result_packet.json",
+                           "calls_used_current_stage":  0,
+                           "task_packet_path":  "",
+                           "result_packet_path":  "",
                            "preferred_runner":  "D:\\\\quest_naoc_tarminal\\\\SimulationOps\\\\runner\\\\nw\\\\simops.cmd",
                            "polling_policy":  "launch_once_inspect_at_task_node",
-                           "exception_reason":  "One formal M7B BUILD consumed. Runner HOLD was caused by an incorrect qualification expectation (tool depth 0.07 mm used instead of LOCAL_BACK_GROUND copper thickness 0.035 mm); read-only recovery passed without rerun.",
+                           "exception_reason":  "M7B human geometry review PASS and diagnostic SOLVE contract frozen offline; no host/DC execution performed for this preparation stage.",
                            "task_packet_source":  {
                                                       "mode":  "PROJECT_GIT_PACKET_OR_GENERATOR",
                                                       "packet_path":  "",
-                                                      "generator_path":  "scripts/make_m7b_cin_pad_clearance_build_packet_v01.py",
-                                                      "packet_or_generator_sha256":  "5e6ec1788fcd40579bd6b4c95aabae05f82f2337250ae2fe299d8eb18108113f",
+                                                      "generator_path":  "scripts/make_m7b_diagnostic_solve_packet_v01.py",
+                                                      "packet_or_generator_sha256":  "PENDING_HOST_BYTE_QUALIFICATION",
                                                       "adhoc_exception_reason":  ""
                                                   },
                            "accounting_scope":  "TRANSACTION_CONTROL_TARGET_NOT_REMOTE_MCP_TOTAL",
@@ -2049,7 +2041,7 @@
                            "forensics_command":  "runner/nw/simops.cmd forensics --packet \u003cpacket\u003e"
                        },
     "evidence":  {
-                     "status_classification":  "PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW",
+                     "status_classification":  "PASS_M7B_HUMAN_REVIEW_SOLVE_CONTRACT_FROZEN_AWAIT_AUTH",
                      "source_commit_for_o3_o4":  "00bea9de782eb36c1d3f118866edd283808b6233",
                      "o3_nominal_solved_sha256":  "5a3ec0b2a9eca4bc0253d0e1fd5ab5f512d6d0fb63944bbd7b932505c1f5f82f",
                      "o3_straight_reference_solved_sha256":  "421c4951a122749aacf36254b8bb5a156547a22dd6ab9e465139c44207d6519b",
@@ -2084,7 +2076,7 @@
                      "m7b_build_artifact_sha256":  "5498e9c447fdd4eeb969c02701d27886e839144ebe9941c4e7f56bc7419c69ea",
                      "m7b_build_recovery_evidence":  "evidence/R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_BUILD_READONLY_RECOVERY_V01/RECOVERY.json",
                      "m7b_build_recovery_status":  "PASS_M7B_BUILD_READONLY_QUALIFICATION_RECOVERY_AWAIT_HUMAN_REVIEW",
-                     "exact_invocation":  "ONE_FORMAL_M7B_BUILD_CONSUMED_RUNNER_HOLD_VOLUME_GATE_READONLY_RECOVERY_PASS_NO_RETRY_NO_SOLVER_AWAIT_HUMAN_REVIEW"
+                     "exact_invocation":  "M7B_HUMAN_REVIEW_PASS; SOLVE_CONTRACT_FROZEN; SOLVE_NOT_AUTHORIZED"
                  },
     "authorization_history":  [
                                   {
@@ -2231,7 +2223,7 @@
                       "source_bundle":  "",
                       "build_artifact":  "D:\\GNSS_Lband_Active_Array\\runs\\formal\\build_only\\M7B_CIN_PAD_CLEARANCE_V01\\R1E1A4A_AR0_B1R_R4_A0_E2C_S0_M7B_CIN_PAD_CLEARANCE_BUILD_ONLY_V01.cst",
                       "staging_artifact":  "",
-                      "run_directory":  "D:\\GNSS_Lband_Active_Array\\runs\\formal\\build_only\\M7B_CIN_PAD_CLEARANCE_V01",
+                      "run_directory":  "D:\\GNSS_Lband_Active_Array\\runs\\formal\\solver_runs\\M7B_DIAGNOSTIC_SOLVE_V01",
                       "qualification_output":  "D:\\GNSS_Lband_Active_Array\\runs\\nonprod\\e2c_s0_entrypoint_qualification_20261002_v01\\qualification.json",
                       "handoff":  ""
                   },
